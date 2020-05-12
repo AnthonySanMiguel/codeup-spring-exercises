@@ -4,7 +4,13 @@
 <body>
 <nav th:replace="partials/partials :: navbar"></nav>
 
-<h1>Hello, <span th:text="${name}">World</span>!</h1>
+<h1>Here are all the posts!</h1>
+
+<div th:each="post : ${allPosts}">
+    <p th:text="${post.title}"></p>
+    <p th:text="${post.body}"></p>
+</div>
+
 <nav th:replace="partials/partials :: footer"></nav>
 </body>
 </html>

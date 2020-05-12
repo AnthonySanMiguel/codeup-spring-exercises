@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="partials/partials :: head"></head>
+<head th:replace="partials/partials :: head"><title></title></head>
 <body>
 <nav th:replace="partials/partials :: navbar"></nav>
 
-<h1>This is the home page.</h1>
+<h2>Viewing individual post</h2>
+
+    <p th:text="${singlePost.title}"></p>
+    <p th:text="${singlePost.body}"></p>
 
 <nav th:replace="partials/partials :: footer"></nav>
 </body>

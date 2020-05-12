@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="partials/partials :: head"/>
+<head th:replace="partials/partials :: head"><title></title></head>
 <body>
-<nav th:replace="partials/partials :: navbar"/>
+<nav th:replace="partials/partials :: navbar"></nav>
 <div class="alert alert-danger" th:if="${cohort == null}">
     <h1>Something bad happened!</h1>
 </div>
@@ -11,11 +11,11 @@
 </div>
 
 <form action="/join" method="post">
-    <input type="text" name="cohort" id="cohort-ip" class="field"/>
+    <label for="cohort-ip"></label><input type="text" name="cohort" id="cohort-ip" class="field"/>
     <button>Join now</button>
 </form>
 
 <!--<div th:fragment="footer"></div>-->
-<div th:replace="partials/partials :: footer"/>
+<div th:replace="partials/partials :: footer"></div>
 </body>
 </html>

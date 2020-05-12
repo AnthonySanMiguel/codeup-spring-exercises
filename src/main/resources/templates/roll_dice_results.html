@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="partials/partials :: head"/>
+<head th:replace="partials/partials :: head"><title></title></head>
 <body>
+<nav th:replace="partials/partials :: navbar"></nav>
 
 <h1>You guessed: <span th:text="${userGuess}"></span></h1>
 <h1>The random number was: <span th:text="${randomSelection}"></span></h1>
@@ -15,6 +16,6 @@
 
 <a href="/roll_dice"><h2>Play again</h2></a>
 
-<nav th:replace="partials/partials :: footer"/>
+<nav th:replace="partials/partials :: footer"></nav>
 </body>
 </html>
