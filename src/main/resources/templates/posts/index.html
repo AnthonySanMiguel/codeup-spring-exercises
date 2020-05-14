@@ -4,13 +4,18 @@
 <body>
 <nav th:replace="partials/partials :: navbar"></nav>
 
-<h1>Here are all the posts!</h1>
-
-<div th:each="post : ${allPosts}">
-    <p th:text="${post.title}"></p>
-    <p th:text="${post.body}"></p>
+<div class="container">
+    <h2>Recent Blog Posts</h2>
+    <br>
+    <ul>
+        <div th:each="post : ${posts}">
+            <li><a th:href="@{'/posts/'+${post.id}}"><h3 style="font-weight: bold" th:text="${post.title}"></h3></a>
+                <p style="padding-left: 2rem;" th:text="${post.getBody()}"></p></tr>
+                <br>
+            </li>
+        </div>
+    </ul>
 </div>
-
 <nav th:replace="partials/partials :: footer"></nav>
 </body>
 </html>

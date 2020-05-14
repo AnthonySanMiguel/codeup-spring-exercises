@@ -4,10 +4,16 @@
 <body>
 <nav th:replace="partials/partials :: navbar"></nav>
 
-<h2>Viewing individual post</h2>
-
-    <p th:text="${singlePost.title}"></p>
-    <p th:text="${singlePost.body}"></p>
+<div class="container">
+    <h2>View Post</h2>
+    <br>
+    <span style="font-weight: bold" th:text="${post.getTitle()}"></span>
+    <br>
+    <span style="padding-left: 2rem;" th:text="${post.getBody()}"></span>
+    <a th:href="@{'/posts/'+${post.id}+'/edit'}">Edit Post</a>
+    <!--    <button id="deletebutton">Delete Post</button>-->
+    <a th:href="@{'/posts/'+${post.id}+'/delete'}">Delete Post</a>
+</div>
 
 <nav th:replace="partials/partials :: footer"></nav>
 </body>
