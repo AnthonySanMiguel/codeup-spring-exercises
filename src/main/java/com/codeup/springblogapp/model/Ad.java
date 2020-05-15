@@ -1,9 +1,25 @@
 package com.codeup.springblogapp.model;
 
-public class Ad {
+import javax.persistence.*;
 
-    String title;
-    String description;
+@Entity
+@Table(name="ads")
+public class Ad {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    @Column(nullable = false, unique = true)
+    private String title;
+
+    @Column (nullable = false)
+    private String description;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    public Ad() {}
 
     public Ad(String title, String description) {
         this.title = title;

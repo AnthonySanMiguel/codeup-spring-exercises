@@ -8,6 +8,7 @@
     <h2>View Post</h2>
     <br>
     <span style="font-weight: bold" th:text="${post.getTitle()}"></span>
+    <a th:text="${post.user.email}"></a>
     <br>
     <span style="padding-left: 2rem;" th:text="${post.getBody()}"></span>
     <a th:href="@{'/posts/'+${post.id}+'/edit'}">Edit Post</a>

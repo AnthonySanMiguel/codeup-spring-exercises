@@ -1,34 +1,33 @@
 package com.codeup.springblogapp.controllers;
 
 import com.codeup.springblogapp.model.Post;
+import com.codeup.springblogapp.model.User;
 import com.codeup.springblogapp.repositories.PostRepository;
+import com.codeup.springblogapp.repositories.UserRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Controller
 public class PostController {
 
-    private PostRepository postRepo;
+    private UserRepository userDao;
+    private PostRepository postDao;
 
-    public PostController(PostRepository postRepo) {
-        this.postRepo = postRepo;
+    public PostController(UserRepository userDao, PostRepository postDao) {
+        this.userDao = userDao;
+        this.postDao = postDao;
     }
+
+//    private PostRepository postRepo;
+//    public PostController(PostRepository postRepo) {
+//        this.postRepo = postRepo;
+//    }
 
     // View all posts
     @RequestMapping(path = "/posts", method = RequestMethod.GET)
     public String getPosts(Model model) {
-//        ArrayList<Post> allPosts = new ArrayList<Post>();
-//        Post singlePost = new Post("2011 Chevrolet Camaro", "Low mileage, black");
-//        allPosts.add(singlePost);
-//        singlePost= new Post("2015 Apple MacBook Air", "Excellent condition.");
-//        allPosts.add(singlePost);
-//        model.addAttribute("allPosts", allPosts);
-        List<Post> allPosts = postRepo.findAll();
-        model.addAttribute("posts", allPosts);
+        model.addAttribute("posts", postDao.findAll());
         return "posts/index";
     }
 
@@ -42,63 +41,60 @@ public class PostController {
     // View an individual post (by type)
     @RequestMapping(path = "/posts/{id}", method = RequestMethod.GET)
     public String getIndividualPost(@PathVariable long id, Model model) {
-//        Post singlePost = new Post("NES console (Works great)", "Comes with two controllers and zapper!");
-//        model.addAttribute("singlePost", singlePost);
-        Post singlePost = postRepo.getOne(id);
-        model.addAttribute("post", singlePost);
+        Post thisPost = postDao.getOne(id);
+        model.addAttribute("post", thisPost);
         return "posts/show";
     }
 
-    @GetMapping("/posts/create")
-    public String createPost() {
+//    @GetMapping("/posts/create")
+//    public String createPost() {
+//        return "posts/create";
+//    }
+
+    // View create post form
+    @RequestMapping(path = "/posts/create", method = RequestMethod.GET)
+    public String viewPostForm() {
         return "posts/create";
     }
-
-//    // View create post form
-//    @RequestMapping(path = "/posts/create", method = RequestMethod.GET)
-//    @ResponseBody
-//    public String viewPostForm() {
-//        return "VIEW the form for creating a post.";
-//    }
 
     // Submit create post form
     @RequestMapping(path = "/posts/create", method = RequestMethod.POST)
     public String submitCreatePost(@RequestParam String title, @RequestParam String body) {
+        // before saving a post to db, assign a user to that post
+        User author = userDao.getOne((long) 1); // manually create user id of 1 in a variable 'author'
         Post newPost = new Post();
         newPost.setTitle(title);
         newPost.setBody(body);
-        newPost = this.postRepo.save(newPost);
-        System.out.println("id:" + newPost.getId() + ", title:" + newPost.getTitle());
+        newPost.setUser(author); // manually assign user id of 1 to this post
+        postDao.save(newPost);
         return "redirect:/posts";
     }
 
     @GetMapping("/posts/{id}/edit")
     public String getEditPostForm(@PathVariable long id, Model model){
-        Post singlePost = postRepo.getOne(id);
+        Post singlePost = postDao.getOne(id);
         model.addAttribute("post", singlePost);
         return "posts/edit";
     }
     @PostMapping("/posts/{id}/edit")
     public String savePostEdit(@PathVariable long id, @RequestParam String title, @RequestParam String body, Model model){
-        Post editPost = postRepo.getOne(id);
-
+        Post editPost = postDao.getOne(id);
         editPost.setTitle(title);
         editPost.setBody(body);
-        postRepo.save(editPost);
-
+        postDao.save(editPost);
         return "redirect:/posts";
     }
 
     @GetMapping("/posts/{id}/delete")
     public String getDeletePostForm(@PathVariable long id, Model model){
-        Post singlePost = postRepo.getOne(id);
+        Post singlePost = postDao.getOne(id);
         model.addAttribute("post", singlePost);
         return "posts/delete";
     }
     @PostMapping("/posts/{id}/delete")
     public String deletePost(@PathVariable long id){
-        Post singlePost = postRepo.getOne(id);
-        postRepo.delete(singlePost);
+        Post singlePost = postDao.getOne(id);
+        postDao.delete(singlePost);
         return "redirect:/posts";
     }
 }

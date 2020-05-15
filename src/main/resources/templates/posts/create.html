@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Posts</title>
+    <title>Create a Post</title>
     <div th:replace="partials/partials :: head"/>
 </head>
 <body>
@@ -10,13 +10,13 @@
 <div class="container">
     <h2>Create New Post</h2>
 
-    <form action="/posts/create" method="post">
+    <form th:action="@{/posts/create}" method="post">
         <label for="title">Title: </label>
-        <input type="text" name="title" id="title" class="field"/>
+        <input type="text" name="title" id="title" class="field" th:value="title" placeholder="Enter title"/>
         <br><br>
-        <label for="body">Body:</label><br>
-        <textarea name="body" id="body" class="field" rows="4" cols="50"></textarea><br>
-        <button>Save</button>
+        <label for="body">Body: </label><br>
+        <textarea name="body" id="body" class="field" th:text="body" placeholder="Enter content" rows="4" cols="50"></textarea><br>
+        <button>Create Post</button>
     </form>
 </div>
 
