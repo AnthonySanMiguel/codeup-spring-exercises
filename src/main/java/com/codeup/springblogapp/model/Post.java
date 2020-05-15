@@ -5,6 +5,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "posts")
 public class Post {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -15,8 +16,6 @@ public class Post {
     @Column(nullable = false)
     private String body;
 
-    // Set relationship between posts and users
-    // e.g. @ManyToOne = many posts can belong to one user
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
