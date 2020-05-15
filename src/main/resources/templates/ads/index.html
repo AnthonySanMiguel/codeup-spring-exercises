@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>Ads</title>
-    <div th:replace="partials/partials :: head" />
-</head>
+<head th:replace="partials/partials :: head"><title></title></head>
 <body>
-<nav th:replace="partials/partials :: navbar" />
+<nav th:replace="partials/partials :: navbar"></nav>
 
 <div class="container">
-    <h2>Ad List</h2>
-    <div th:each="ad : ${ads}">
-        <p style="font-weight: bold;" th:text="${ad.title}"></p>
-        <p style="padding-left: 2rem;" th:text="${ad.description}"></p>
-    </div>
+    <h2>Recent Ads</h2>
+    <br>
+    <ul>
+        <div th:each="ad : ${ads}">
+            <li><a th:href="@{'/ads/'+${ad.id}}"><h3 style="font-weight: bold" th:text="${ad.title}"></h3></a>
+                <p style="padding-left: 2rem;" th:text="${ad.getDescription()}"></p></tr>
+                <br>
+            </li>
+        </div>
+    </ul>
 </div>
-
-<div th:replace="partials/partials :: footer" />
+<nav th:replace="partials/partials :: footer"></nav>
 </body>
 </html>

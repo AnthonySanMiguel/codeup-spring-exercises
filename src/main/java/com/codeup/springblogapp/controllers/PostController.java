@@ -19,24 +19,12 @@ public class PostController {
         this.postDao = postDao;
     }
 
-//    private PostRepository postRepo;
-//    public PostController(PostRepository postRepo) {
-//        this.postRepo = postRepo;
-//    }
-
     // View all posts
     @RequestMapping(path = "/posts", method = RequestMethod.GET)
     public String getPosts(Model model) {
         model.addAttribute("posts", postDao.findAll());
         return "posts/index";
     }
-
-//    // View an individual post (by ID)
-//    @RequestMapping(path = "/posts/show", method = RequestMethod.GET)
-//    @ResponseBody
-//    public String getPostById(int id) {
-//        return "Viewing individual post: " + id;
-//    }
 
     // View an individual post (by type)
     @RequestMapping(path = "/posts/{id}", method = RequestMethod.GET)
@@ -45,11 +33,6 @@ public class PostController {
         model.addAttribute("post", thisPost);
         return "posts/show";
     }
-
-//    @GetMapping("/posts/create")
-//    public String createPost() {
-//        return "posts/create";
-//    }
 
     // View create post form
     @RequestMapping(path = "/posts/create", method = RequestMethod.GET)
@@ -76,6 +59,7 @@ public class PostController {
         model.addAttribute("post", singlePost);
         return "posts/edit";
     }
+
     @PostMapping("/posts/{id}/edit")
     public String savePostEdit(@PathVariable long id, @RequestParam String title, @RequestParam String body, Model model){
         Post editPost = postDao.getOne(id);
@@ -91,6 +75,7 @@ public class PostController {
         model.addAttribute("post", singlePost);
         return "posts/delete";
     }
+
     @PostMapping("/posts/{id}/delete")
     public String deletePost(@PathVariable long id){
         Post singlePost = postDao.getOne(id);

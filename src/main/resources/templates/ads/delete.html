@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Delete a Post</title>
+    <div th:replace="partials/partials :: head"/>
+</head>
+<body>
+<nav th:replace="partials/partials :: navbar"/>
+
+<div class="container">
+    <h2>Delete Ad</h2>
+
+    <form th:action="@{'/ads/'+${ad.id}+'/delete'}" method="post">
+        <h1>Are you sure?</h1>
+        <button>yes, delete</button>
+        <a th:href="@{'/ads/'}">No, don't delete</a>
+
+    </form>
+</div>
+
+<div th:replace="partials/partials :: footer"/>
+</body>
+</html>

@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Edit a Post</title>
+    <title>Edit an Ad</title>
     <div th:replace="partials/partials :: head"></div>
 </head>
 <body>
 <nav th:replace="partials/partials :: navbar"></nav>
 
 <div class="container">
-    <h2>Edit Post</h2>
+    <h2>Edit Ad</h2>
 
-    <form th:action="@{'/posts/'+${post.id}+'/edit'}" method="post">
+    <form th:action="@{'/ads/'+${ad.id}+'/edit'}" method="post">
         <label for="title">Title: </label>
-        <input type="text" name="title" id="title" class="field" th:value="${post.title}"/>
+        <input type="text" name="title" id="title" class="field" th:value="${ad.title}"/>
         <br><br>
-        <label for="body">Body:</label><br>
-        <textarea name="body" id="body" class="field" rows="4" cols="50" th:text="${post.body}"></textarea><br>
+        <label for="description">Description:</label><br>
+        <textarea name="description" id="description" class="field" rows="4" cols="50" th:text="${ad.description}"></textarea><br>
         <button>Save Changes</button>
     </form>
 </div>
