@@ -4,6 +4,8 @@ import com.codeup.springblogapp.model.Post;
 import com.codeup.springblogapp.model.User;
 import com.codeup.springblogapp.repositories.PostRepository;
 import com.codeup.springblogapp.repositories.UserRepository;
+import com.codeup.springblogapp.services.AdEmailService;
+import com.codeup.springblogapp.services.PostEmailService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -13,10 +15,12 @@ public class PostController {
 
     private UserRepository userDao;
     private PostRepository postDao;
+    private PostEmailService postEmailService;
 
-    public PostController(UserRepository userDao, PostRepository postDao) {
+    public PostController(UserRepository userDao, PostRepository postDao, PostEmailService postEmailService) {
         this.userDao = userDao;
         this.postDao = postDao;
+        this.postEmailService = postEmailService;
     }
 
     // View all posts
@@ -50,6 +54,7 @@ public class PostController {
         newPost.setBody(body);
         newPost.setUser(author); // manually assign user id of 1 to this post
         postDao.save(newPost);
+        postEmailService.prepareAndSend(newPost, "You created a post", "Title: \n" + newPost.getTitle() + "\n\n" + "Description: \n" + newPost.getBody());
         return "redirect:/posts";
     }
 
@@ -66,6 +71,7 @@ public class PostController {
         editPost.setTitle(title);
         editPost.setBody(body);
         postDao.save(editPost);
+        postEmailService.prepareAndSend(editPost, "You edited a post", "Title: \n" + editPost.getTitle() + "\n\n" + "Description: \n" + editPost.getBody());
         return "redirect:/posts";
     }
 
@@ -80,6 +86,7 @@ public class PostController {
     public String deletePost(@PathVariable long id){
         Post singlePost = postDao.getOne(id);
         postDao.delete(singlePost);
+        postEmailService.prepareAndSend(singlePost, "You deleted a post", "Title: \n" + singlePost.getTitle() + "\n\n" + "Description: \n" + singlePost.getBody());
         return "redirect:/posts";
     }
 }

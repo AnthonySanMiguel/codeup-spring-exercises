@@ -1,8 +1,10 @@
 package com.codeup.springblogapp.controllers;
 
 import com.codeup.springblogapp.model.Ad;
+import com.codeup.springblogapp.model.User;
 import com.codeup.springblogapp.repositories.AdRepository;
 import com.codeup.springblogapp.repositories.UserRepository;
+import com.codeup.springblogapp.services.AdEmailService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -13,10 +15,12 @@ class AdController {
 
     private UserRepository userDao;
     private AdRepository adDao;
+    private AdEmailService adEmailService;
 
-    public AdController(UserRepository userDao, AdRepository adDao) {
+    public AdController(UserRepository userDao, AdRepository adDao, AdEmailService adEmailService) {
         this.userDao = userDao;
         this.adDao = adDao;
+        this.adEmailService = adEmailService;
     }
 
     @GetMapping("/ads")
@@ -32,7 +36,6 @@ class AdController {
         return "ads/show";
     }
 
-
     @GetMapping("/ads/create")
     public String gotoCreateAdForm(Model model) {
         Ad ad = new Ad();
@@ -43,7 +46,10 @@ class AdController {
 
     @PostMapping("/ads/create")
     public RedirectView createAd(@ModelAttribute Ad ad){
+        User user = userDao.getOne(1L);
+        ad.setUser(user);
         adDao.save(ad);
+        adEmailService.prepareAndSend(ad, "You created an ad", "Title: \n" + ad.getTitle() + "\n\n" + "Description: \n" + ad.getDescription());
         return new RedirectView("/ads/");
     }
 
@@ -60,6 +66,7 @@ class AdController {
         editAd.setTitle(title);
         editAd.setDescription(description);
         adDao.save(editAd);
+        adEmailService.prepareAndSend(editAd, "You edited an ad", "Title: \n" + editAd.getTitle() + "\n\n" + "Description: \n" + editAd.getDescription());
         return "redirect:/ads";
     }
 
@@ -74,6 +81,7 @@ class AdController {
     public String deleteAd(@PathVariable long id){
         Ad singleAd = adDao.getOne(id);
         adDao.delete(singleAd);
+        adEmailService.prepareAndSend(singleAd, "You deleted an ad", "Title: \n" + singleAd.getTitle() + "\n\n" + "Description: \n" + singleAd.getDescription());
         return "redirect:/ads";
     }
 }
