@@ -1,5 +1,6 @@
 package com.codeup.springblogapp.controllers;
 
+import com.codeup.springblogapp.model.Ad;
 import com.codeup.springblogapp.model.Post;
 import com.codeup.springblogapp.model.User;
 import com.codeup.springblogapp.repositories.PostRepository;
@@ -40,7 +41,10 @@ public class PostController {
 
     // View create post form
     @RequestMapping(path = "/posts/create", method = RequestMethod.GET)
-    public String viewPostForm() {
+    public String viewPostForm(Model model) {
+        Post post = new Post();
+        post.setUser(userDao.getOne((long) 1)); // Manually set to first user
+        model.addAttribute("post", post);
         return "posts/create";
     }
 

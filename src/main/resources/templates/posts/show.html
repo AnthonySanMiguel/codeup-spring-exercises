@@ -13,7 +13,6 @@
     <br>
     <span style="padding-left: 2rem;" th:text="${post.getBody()}"></span>
     <a th:href="@{'/posts/'+${post.id}+'/edit'}">Edit Post</a>
-    <!--    <button id="deletebutton">Delete Post</button>-->
     <a th:href="@{'/posts/'+${post.id}+'/delete'}">Delete Post</a>
 </div>
 
