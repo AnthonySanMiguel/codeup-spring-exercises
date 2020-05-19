@@ -2,10 +2,12 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="partials/partials :: head"></head>
 <body>
-<nav th:replace="partials/partials :: navbar"></nav>
+<div th:replace="partials/partials :: top_banner"></div>
+<div th:replace="partials/partials :: standard_nav"></div>
 
 <h1>This is the home page.</h1>
 
-<nav th:replace="partials/partials :: footer"></nav>
+<div th:replace="partials/partials :: footer_nav"></div>
+<div th:replace="partials/partials :: footer"></div>
 </body>
 </html>

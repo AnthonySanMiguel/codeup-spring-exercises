@@ -5,7 +5,8 @@
     <div th:replace="partials/partials :: head"></div>
 </head>
 <body>
-<nav th:replace="partials/partials :: navbar"></nav>
+<div th:replace="partials/partials :: top_banner"></div>
+<div th:replace="partials/partials :: standard_nav"></div>
 
 <div class="container">
     <h2>Edit Ad</h2>
@@ -20,6 +21,7 @@
     </form>
 </div>
 
+<div th:replace="partials/partials :: footer_nav"></div>
 <div th:replace="partials/partials :: footer"></div>
 </body>
 </html>

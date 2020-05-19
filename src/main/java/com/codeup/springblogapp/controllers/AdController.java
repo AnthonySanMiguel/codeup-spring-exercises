@@ -5,6 +5,7 @@ import com.codeup.springblogapp.model.User;
 import com.codeup.springblogapp.repositories.AdRepository;
 import com.codeup.springblogapp.repositories.UserRepository;
 import com.codeup.springblogapp.services.AdEmailService;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -46,7 +47,8 @@ class AdController {
 
     @PostMapping("/ads/create")
     public RedirectView createAd(@ModelAttribute Ad ad){
-        User user = userDao.getOne(1L);
+//        User user = userDao.getOne(1L);
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         ad.setUser(user);
         adDao.save(ad);
         adEmailService.prepareAndSend(ad, "You created an ad", "Title: \n" + ad.getTitle() + "\n\n" + "Description: \n" + ad.getDescription());

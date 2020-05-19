@@ -4,8 +4,8 @@ import com.codeup.springblogapp.model.Post;
 import com.codeup.springblogapp.model.User;
 import com.codeup.springblogapp.repositories.PostRepository;
 import com.codeup.springblogapp.repositories.UserRepository;
-import com.codeup.springblogapp.services.AdEmailService;
 import com.codeup.springblogapp.services.PostEmailService;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -48,7 +48,9 @@ public class PostController {
     @RequestMapping(path = "/posts/create", method = RequestMethod.POST)
     public String submitCreatePost(@RequestParam String title, @RequestParam String body) {
         // before saving a post to db, assign a user to that post
-        User author = userDao.getOne((long) 1); // manually create user id of 1 in a variable 'author'
+//        User author = userDao.getOne((long) 1); // manually create user id of 1 in a variable 'author'
+        User author = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        System.out.println(author.getEmail());
         Post newPost = new Post();
         newPost.setTitle(title);
         newPost.setBody(body);
