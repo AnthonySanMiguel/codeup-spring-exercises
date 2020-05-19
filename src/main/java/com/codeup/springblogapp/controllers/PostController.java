@@ -7,9 +7,11 @@ import com.codeup.springblogapp.repositories.PostRepository;
 import com.codeup.springblogapp.repositories.UserRepository;
 import com.codeup.springblogapp.services.PostEmailService;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
 
 @Controller
 public class PostController {
@@ -24,75 +26,89 @@ public class PostController {
         this.postEmailService = postEmailService;
     }
 
-    // View all posts
-    @RequestMapping(path = "/posts", method = RequestMethod.GET)
-    public String getPosts(Model model) {
+    @GetMapping("/posts")
+    public String showPosts(Model model) {
         model.addAttribute("posts", postDao.findAll());
         return "posts/index";
     }
 
-    // View an individual post (by type)
-    @RequestMapping(path = "/posts/{id}", method = RequestMethod.GET)
-    public String getIndividualPost(@PathVariable long id, Model model) {
+    @GetMapping("/posts/{id}")
+    public String showPost(@PathVariable long id, Model model) {
         Post thisPost = postDao.getOne(id);
         model.addAttribute("post", thisPost);
         return "posts/show";
     }
 
-    // View create post form
-    @RequestMapping(path = "/posts/create", method = RequestMethod.GET)
-    public String viewPostForm(Model model) {
+    @GetMapping("/posts/create")
+    public String viewCreatePostForm(Model model) {
         Post post = new Post();
         post.setUser(userDao.getOne((long) 1)); // Manually set to first user
         model.addAttribute("post", post);
         return "posts/create";
     }
 
-    // Submit create post form
-    @RequestMapping(path = "/posts/create", method = RequestMethod.POST)
-    public String submitCreatePost(@RequestParam String title, @RequestParam String body) {
-        // before saving a post to db, assign a user to that post
-//        User author = userDao.getOne((long) 1); // manually create user id of 1 in a variable 'author'
-        User author = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        System.out.println(author.getEmail());
-        Post newPost = new Post();
-        newPost.setTitle(title);
-        newPost.setBody(body);
-        newPost.setUser(author); // manually assign user id of 1 to this post
-        postDao.save(newPost);
-        postEmailService.prepareAndSend(newPost, "You created a post", "Title: \n" + newPost.getTitle() + "\n\n" + "Description: \n" + newPost.getBody());
-        return "redirect:/posts";
+    @PostMapping("/posts/create")
+    public RedirectView createPost(@ModelAttribute Post post) {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        post.setUser(user);
+        postDao.save(post);
+        postEmailService.prepareAndSend(post, "You created a post", "Title: \n" + post.getTitle() + "\n\n" + "Description: \n" + post.getBody());
+        return new RedirectView("/posts/");
     }
 
     @GetMapping("/posts/{id}/edit")
-    public String getEditPostForm(@PathVariable long id, Model model){
-        Post singlePost = postDao.getOne(id);
-        model.addAttribute("post", singlePost);
-        return "posts/edit";
+    public String editPostForm(@PathVariable long id, Model model){
+        Object obj = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (obj == null || !(obj instanceof UserDetails)) {
+            return "redirect:/login";
+        }
+        User user = (User) obj;
+        Post post = postDao.getOne(id);
+        if (post.getUser().getId() != user.getId()) {
+            return "redirect:/posts/" + post.getId();
+        }
+        model.addAttribute("post", post);
+        return "/posts/edit";
     }
 
     @PostMapping("/posts/{id}/edit")
-    public String savePostEdit(@PathVariable long id, @RequestParam String title, @RequestParam String body, Model model){
+    public String editPostWithId(@PathVariable long id, @ModelAttribute Post post){
+        Object obj = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (obj == null || !(obj instanceof UserDetails)) {
+            return "redirect:/login";
+        }
+        User user = (User) obj;
         Post editPost = postDao.getOne(id);
-        editPost.setTitle(title);
-        editPost.setBody(body);
+        editPost.setId(id);
+        editPost.setUser(user);
+        editPost.setTitle(post.getTitle());
+        editPost.setBody(post.getBody());
         postDao.save(editPost);
         postEmailService.prepareAndSend(editPost, "You edited a post", "Title: \n" + editPost.getTitle() + "\n\n" + "Description: \n" + editPost.getBody());
-        return "redirect:/posts";
+        return "redirect:/posts/";
     }
 
     @GetMapping("/posts/{id}/delete")
     public String getDeletePostForm(@PathVariable long id, Model model){
+        Object obj = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (obj == null || !(obj instanceof UserDetails)) {
+            return "redirect:/login";
+        }
+        User user = (User) obj;
         Post singlePost = postDao.getOne(id);
+        Post post = postDao.getOne(id);
+        if (post.getUser().getId() != user.getId()) {
+            return "redirect:/posts/" + post.getId();
+        }
         model.addAttribute("post", singlePost);
-        return "posts/delete";
+        return "/posts/delete";
     }
 
     @PostMapping("/posts/{id}/delete")
-    public String deletePost(@PathVariable long id){
+    public String deletePost(@PathVariable long id, Model model) {
         Post singlePost = postDao.getOne(id);
         postDao.delete(singlePost);
-        postEmailService.prepareAndSend(singlePost, "You deleted a post", "Title: \n" + singlePost.getTitle() + "\n\n" + "Description: \n" + singlePost.getBody());
-        return "redirect:/posts";
+        postEmailService.prepareAndSend(singlePost, "You deleted an ad", "Title: \n" + singlePost.getTitle() + "\n\n" + "Description: \n" + singlePost.getBody());
+        return "redirect:/ads";
     }
 }

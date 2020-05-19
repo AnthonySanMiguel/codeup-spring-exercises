@@ -39,7 +39,7 @@ class AdController {
     }
 
     @GetMapping("/ads/create")
-    public String gotoCreateAdForm(Model model) {
+    public String viewCreateAdForm(Model model) {
         Ad ad = new Ad();
         ad.setUser(userDao.getOne((long) 1)); // Manually set to first user
         model.addAttribute("ad", ad);
@@ -89,7 +89,6 @@ class AdController {
 
     @GetMapping("/ads/{id}/delete")
     public String getDeleteAdForm(@PathVariable long id, Model model){
-
         Object obj = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if (obj == null || !(obj instanceof UserDetails)) {
             return "redirect:/login";
