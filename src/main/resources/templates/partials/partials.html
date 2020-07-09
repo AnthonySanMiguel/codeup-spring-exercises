@@ -5,6 +5,7 @@
     <meta charset="UTF-8"/>
     <link th:href="@{/webjars/bootstrap/4.4.1-1/css/bootstrap.min.css}" rel="stylesheet">
     <link th:href="@{/css/style.css}" rel="stylesheet">
+    <link th:href="@{/css/coffee_style.css}" rel="stylesheet">
     <title></title>
 </head>
 <body>
@@ -37,6 +38,9 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/roll_dice">Dice Game</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/coffee_project/index">Coffee Project</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/ads">View Ads</a>
@@ -80,6 +84,7 @@
 <div th:fragment="footer" th:remove="tag">
     <script th:src="@{/webjars/jquery/3.4.1/jquery.min.js}"></script>
     <script th:src="@{/webjars/bootstrap/4.4.1-1/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/main.js}"></script>
 </div>
 </body>
 </html>

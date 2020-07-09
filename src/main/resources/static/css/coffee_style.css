@@ -1,0 +1,123 @@
+table {
+    border-collapse: collapse;
+    margin: 15px;
+    width: 20%;
+}
+
+td, th {
+    border: 1px solid black;
+    padding: 5px 10px;
+}
+
+.hidden{ /* Hide coffee IDs*/
+    display: none;
+}
+
+tr{ /* Hide table header row*/
+    display: none;
+}
+
+#coffees{
+    text-align: center;
+}
+
+/* Search bar*/
+
+input:focus::placeholder {
+    color: transparent;
+}
+
+#search {
+    display: block;
+    margin: auto;
+    width: 14.5em;
+}
+
+.search {
+    text-align: center ;
+    border: 1px solid grey;
+    border-radius: 5px;
+    height: 50px;
+    width: 100%;
+    /*padding: 2px 28px 2px 5px;*/
+    outline: 0;
+    background-color: lightgoldenrodyellow;
+    font-size: medium;
+}
+
+/* Dropdown menu */
+
+.roast-dropdown {
+    display: block;
+    margin: auto;
+    font-size: 18px;
+    border-radius: 5px;
+    height: 50px;
+    width: 13.5em;
+    padding: 2px 0 0 0;
+    outline: 0;
+    background-color: lightgoldenrodyellow;
+}
+
+.button {
+    display: block;
+    margin: auto;
+    background-color: brown;
+    border: 2px solid white;
+    color: white;
+    padding: 7px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 10px;
+    transition-duration: 0.4s;
+}
+
+.button:hover {
+    display: block;
+    margin: auto;
+    background-color: red;
+    border: 2px solid red;
+    color: white;
+    padding: 7px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 10px;
+    transition-duration: 0.4s;
+}
+
+/* Coffee display list*/
+
+.column{
+    columns: 3;
+    height: auto;
+    width: 100%;
+}
+
+.column div {
+    break-inside: avoid;
+    -webkit-margin-before: 0;
+    margin: 0;
+}
+
+.content-cards{
+    text-align: center;
+    font-size: .9em;
+    padding: 0;
+    margin: 0;
+}
+
+.search_boxes{
+    text-align: center;
+    margin: 3em;
+}
+
+.superhero-names{
+    font-family: 'Roboto Mono';
+}
+
+.coffee-mug{
+    width: 50%;
+    height: 50%;
+}
