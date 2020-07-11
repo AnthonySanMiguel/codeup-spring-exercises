@@ -27,13 +27,13 @@ input:focus::placeholder {
     color: transparent;
 }
 
-#search {
+#coffee_search {
     display: block;
     margin: auto;
     width: 14.5em;
 }
 
-.search {
+.coffee_search {
     text-align: center ;
     border: 1px solid grey;
     border-radius: 5px;
@@ -59,7 +59,7 @@ input:focus::placeholder {
     background-color: lightgoldenrodyellow;
 }
 
-.button {
+.roast_dropdown_button {
     display: block;
     margin: auto;
     background-color: brown;
@@ -73,7 +73,7 @@ input:focus::placeholder {
     transition-duration: 0.4s;
 }
 
-.button:hover {
+.roast_dropdown_button:hover {
     display: block;
     margin: auto;
     background-color: red;
@@ -87,7 +87,7 @@ input:focus::placeholder {
     transition-duration: 0.4s;
 }
 
-/* Coffee display list*/
+/* Coffee cards display list*/
 
 .column{
     columns: 3;
@@ -101,7 +101,7 @@ input:focus::placeholder {
     margin: 0;
 }
 
-.content-cards{
+.coffee_content_cards{
     text-align: center;
     font-size: .9em;
     padding: 0;

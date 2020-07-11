@@ -1,0 +1,130 @@
+div.header h1, h2, h4{
+    color: black;
+    margin: .5em;
+}
+
+p{
+    color: black;
+    font-size: 22px;
+}
+
+span{
+    font-size: 1.8em;
+}
+
+/* Banners*/
+
+.header{
+    margin: 0;
+    text-align: center;
+    /*background-image: url(".jpg");*/
+    /*background-size: cover;*/
+    color: white;
+    font-size: 30px;
+}
+
+/* Search bar*/
+
+input:focus::placeholder {
+    color: transparent;
+}
+
+#search{
+    width: 17em;
+}
+
+.search{
+    border: 1px solid grey;
+    border-radius: 5px;
+    height: 50px;
+    width: 100%;
+    padding: 2px 28px 2px 5px;
+    outline: 0;
+    background-color: lightgoldenrodyellow;
+    font-size: medium;
+}
+
+.search:hover, .search:focus{
+    /*border: 2px solid black;*/
+    background-color: lightgoldenrodyellow;
+}
+
+/* Dropdown menu */
+
+.affiliation-dropdown{
+    font-size: 14px;
+    border-radius: 5px;
+    height: 50px;
+    width: auto;
+    padding: 2px 2px 2px 30px;
+    outline: 0;
+    background-color: lightgoldenrodyellow;
+}
+
+.button{
+    background-color: darkred;
+    border: 2px solid darkred;
+    color: white;
+    padding: 12px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 10px;
+    transition-duration: .1s;
+}
+
+.button:hover{
+    background-color: brown;
+    border: 2px solid brown;
+    color: white;
+    padding: 12px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 10px;
+}
+
+/*Superhero display list*/
+
+.column{
+    columns: 3;
+    height: auto;
+    width: 100%;
+}
+
+.column div {
+    break-inside: avoid;
+    -webkit-margin-before: 0;
+    margin: 0;
+}
+
+.content-cards{
+    text-align: center;
+    font-size: .9em;
+    padding: 0;
+    margin: 0;
+}
+
+.content-cards p {
+    font-size: .7em;
+    padding: 0;
+    margin: .3em 0 0 2em;
+}
+
+.search_boxes{
+    text-align: center;
+    margin: 3em;
+}
+
+.superhero-names{
+    font-family: 'Roboto Mono';
+}
+
+.card-picture{
+    width:90%;
+    height:90%;
+    object-fit: cover;
+    overflow: hidden;
+}
