@@ -1,9 +1,17 @@
 .top_banner {
-    font-size: 5rem;
+    font-size: 3rem;
+    color: white;
     text-align: center;
-    background-color: aqua;
-    border-color: black;
-    border-style: double;
+    background-color: darkblue;
+    border-color: darkblue;
+}
+
+#navbar-title {
+    transform: translateX(-220%) translateY(-53%);
+    left: 48%;
+    position: absolute;
+    font-size: 40px;
+    font-family: 'Patua One', cursive;
 }
 
 html {
@@ -19,10 +27,10 @@ body {
     position: absolute;
     left: 0;
     bottom: 0;
-    height: 100px;
+    height: 70px;
     width: 100%;
-    background-color: aqua;
-    color: black;
+    background-color: darkblue;
+    color: white;
     text-align: center;
 }
 
