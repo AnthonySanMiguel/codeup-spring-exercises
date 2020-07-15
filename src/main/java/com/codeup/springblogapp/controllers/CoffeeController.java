@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class CoffeeController {
 
-    @GetMapping("/coffee_project/index")
+    @GetMapping("/coffee_project/coffee")
     public String coffeePage() {
-        return "/coffee_project/index";
+        return "/coffee_project/coffee";
     }
 }

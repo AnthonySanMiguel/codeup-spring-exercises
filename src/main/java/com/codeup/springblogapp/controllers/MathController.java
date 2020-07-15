@@ -8,11 +8,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class MathController {
 
-    @GetMapping("/") // when users visit "localhost:8080/"
-    @ResponseBody
-    public String mathWelcome() {
-        return "Main math page.";
-    }
+//    @GetMapping("/") // when users visit "localhost:8080/"
+//    @ResponseBody
+//    public String mathWelcome() {
+//        return "Main math page.";
+//    }
 
     @GetMapping("/add/{numberA}/and/{numberB}")
     @ResponseBody

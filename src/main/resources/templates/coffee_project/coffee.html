@@ -1,21 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Coffee Project</title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
-    <div th:replace="partials/partials :: head"></div>
-</head>
+<head th:replace="partials/partials :: head"><title>Coffee Project</title></head>
 <body>
 <div th:replace="partials/partials :: top_banner"></div>
 <div th:replace="partials/partials :: standard_nav"></div>
 
-<div class="header"></div>
+<div class="coffee_header"></div>
 <br>
 <div class="coffee_box">
-    <input id="search" class="search" type="text" placeholder="(Search by Name or Roast)">
-    <br>
-    <br>
+    <input id="coffee_search" class="coffee_search" type="text" placeholder="(Search by Name or Roast)">
     <form>
         <label for="roast-selection"></label>
         <select id="roast-selection" class="roast-dropdown">
@@ -24,7 +17,7 @@
             <option>Dark</option>
         </select>
         <br>
-        <input id="submit" type="submit" class="button">
+        <input id="submit" type="submit" class="roast_dropdown_button">
     </form>
 </div>
 <br>

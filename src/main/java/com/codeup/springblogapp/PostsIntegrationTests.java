@@ -95,7 +95,7 @@ public class PostsIntegrationTests {
     public void testPostsIndex() throws Exception {
         Post existingPost = postsDao.findAll().get(0);
 
-        // Makes a Get request to /ads and verifies that we get some of the static text of the ads/index.html template and at least the title from the first Ad is present in the template.
+        // Makes a Get request to /ads and verifies that we get some of the static text of the ads/coffee.html template and at least the title from the first Ad is present in the template.
         this.mvc.perform(get("/posts"))
                 .andExpect(status().isOk())
                 // Test the static content of the page

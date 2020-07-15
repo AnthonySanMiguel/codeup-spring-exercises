@@ -1,9 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:fragment="head">
-    <meta charset="UTF-8"/>
-    <link th:href="@{/webjars/bootstrap/4.4.1-1/css/bootstrap.min.css}" rel="stylesheet">
-    <link th:href="@{/css/style.css}" rel="stylesheet">
+<html>
+<head>
+    <meta charset="utf-8" />
     <title>Gamedev Canvas Workshop</title>
     <style>
         * {
@@ -17,7 +15,6 @@
         }
     </style>
 </head>
-
 <body>
 
 <canvas id="myCanvas" width="480" height="320"></canvas>
@@ -59,20 +56,20 @@
     let lives = 3;
 
     // BRICK FIELD MEASUREMENTS:
-        // number of rows
-        let brickRowCount = 3;
-        // number of columns
-        let brickColumnCount = 5;
-        // brick width
-        let brickWidth = 75;
-        // brick height
-        let brickHeight = 20;
-        // padding around each brick
-        let brickPadding = 10;
-        // offset from top of canvas by 30
-        let brickOffsetTop = 30;
-        // offset from left of canvas by 30
-        let brickOffsetLeft = 30;
+    // number of rows
+    let brickRowCount = 3;
+    // number of columns
+    let brickColumnCount = 5;
+    // brick width
+    let brickWidth = 75;
+    // brick height
+    let brickHeight = 20;
+    // padding around each brick
+    let brickPadding = 10;
+    // offset from top of canvas by 30
+    let brickOffsetTop = 30;
+    // offset from left of canvas by 30
+    let brickOffsetLeft = 30;
 
     // BRICK ARRAY AND COLUMN/ROW LOOPS:
     // 2-dimensional array named "bricks" will hold all bricks made
@@ -135,18 +132,18 @@
 
     function drawBall() {
         ctx.beginPath();
-            // Use "x" and "y" coordinates as defined above
-            ctx.arc(x, y, ballRadius, 0, Math.PI*2);
-            ctx.fillStyle = "#0095DD";
-            ctx.fill();
+        // Use "x" and "y" coordinates as defined above
+        ctx.arc(x, y, ballRadius, 0, Math.PI*2);
+        ctx.fillStyle = "#0095DD";
+        ctx.fill();
         ctx.closePath();
     }
 
     function drawPaddle() {
         ctx.beginPath();
-            ctx.rect(paddleX, canvas.height - paddleHeight, paddleWidth, paddleHeight);
-            ctx.fillStyle = "#0095DD";
-            ctx.fill();
+        ctx.rect(paddleX, canvas.height - paddleHeight, paddleWidth, paddleHeight);
+        ctx.fillStyle = "#0095DD";
+        ctx.fill();
         ctx.closePath();
     }
 
@@ -157,7 +154,7 @@
                 if(bricks[c][r].status == 1) {
                     // Each brickX position is worked out as brickWidth + brickPadding, multiplied by the column number, c, plus the brickOffsetLeft
                     // The logic for the brickY is identical except that it uses the values for row number, r, brickHeight, and brickOffsetTop.
-                        // Now every single brick can be placed in its correct place row and column, with padding between each brick, drawn at an offset from the left and top canvas edges.
+                    // Now every single brick can be placed in its correct place row and column, with padding between each brick, drawn at an offset from the left and top canvas edges.
                     let brickX = (c * (brickWidth + brickPadding)) + brickOffsetLeft;
                     let brickY = (r * (brickHeight + brickPadding)) + brickOffsetTop;
                     bricks[c][r].x = brickX;
@@ -206,21 +203,21 @@
         // COLLISION DETECTION:
 
         // KEEP BALL WITHIN CANVAS BOUNDARIES:
-            // If the "x" coordinate of the ball's RADIUS (circumference; not center) on the [horizontal axis] exceeds the canvas WIDTH -- OR -- is less than 0...REVERSE the movement (e.g. increment [2] or decrement [-2] "dx" variable as needed)
+        // If the "x" coordinate of the ball's RADIUS (circumference; not center) on the [horizontal axis] exceeds the canvas WIDTH -- OR -- is less than 0...REVERSE the movement (e.g. increment [2] or decrement [-2] "dx" variable as needed)
         // KEEP BALL FROM "BLENDING" INTO WALLS ON COLLISION:
-            // When the distance between the center of the ball and the edge of the wall is exactly the same as the radius of the ball, reverse movement direction as above. Subtracting the radius from one edge's width and adding it onto the other gives us the impression of the proper collision detection.
+        // When the distance between the center of the ball and the edge of the wall is exactly the same as the radius of the ball, reverse movement direction as above. Subtracting the radius from one edge's width and adding it onto the other gives us the impression of the proper collision detection.
         if(x + dx > canvas.width - ballRadius || x + dx < ballRadius) {
             dx = -dx;
         }
         // KEEP BALL WITHIN CANVAS BOUNDARIES:
-            // If the "y" coordinate of the ball's RADIUS (circumference; not center) on the [vertical axis] is less than 10 (see ballRadius value)...REVERSE the movement (e.g. increment [2] or decrement [-2] "dy" variable as needed)
+        // If the "y" coordinate of the ball's RADIUS (circumference; not center) on the [vertical axis] is less than 10 (see ballRadius value)...REVERSE the movement (e.g. increment [2] or decrement [-2] "dy" variable as needed)
         if(y + dy < ballRadius) {
             dy = -dy;
             // OR if the "y" coordinate of the ball's RADIUS (circumference; not center) on the [vertical axis] exceeds the canvas HEIGHT...
-        // KEEP BALL FROM "BLENDING" INTO WALLS ON COLLISION:
+            // KEEP BALL FROM "BLENDING" INTO WALLS ON COLLISION:
             // When the distance between the center of the ball and the edge of the wall is exactly the same as the radius of the ball, reverse movement direction as above. Subtracting the radius from one edge's width and adding it onto the other gives us the impression of the proper collision detection.
         } else if(y + dy > canvas.height - ballRadius) {
-        // COLLISION DETECTION (Ball to Paddle):
+            // COLLISION DETECTION (Ball to Paddle):
             // Check whether the center of the ball (x) is between the left (x > paddleX) AND right (x < paddleX + paddleWidth) edges of the paddle.
             if(x > paddleX && x < paddleX + paddleWidth) {
                 // ...REVERSE the movement (e.g. increment [2] or decrement [-2] "dy" variable as needed)
@@ -275,9 +272,9 @@
     document.addEventListener("keyup", keyUpHandler, false);
 
     // When we press a key down, this information is stored in the variable "key".
-        // The relevant variable in each case is set to true...
-        // Most browsers use ArrowRight and ArrowLeft for the left/right cursor keys, but we need to also include Right and Left checks to support IE/Edge browsers.
-        function keyDownHandler(e) { // "e" equals "event" to LISTEN for
+    // The relevant variable in each case is set to true...
+    // Most browsers use ArrowRight and ArrowLeft for the left/right cursor keys, but we need to also include Right and Left checks to support IE/Edge browsers.
+    function keyDownHandler(e) { // "e" equals "event" to LISTEN for
         if(e.key == "Right" || e.key == "ArrowRight") {
             rightPressed = true;
         }
@@ -286,8 +283,8 @@
         }
     }
 
-        // When the key is released, the variable is set back to false.
-        // Most browsers use ArrowRight and ArrowLeft for the left/right cursor keys, but we need to also include Right and Left checks to support IE/Edge browsers.
+    // When the key is released, the variable is set back to false.
+    // Most browsers use ArrowRight and ArrowLeft for the left/right cursor keys, but we need to also include Right and Left checks to support IE/Edge browsers.
     function keyUpHandler(e) {
         if(e.key == "Right" || e.key == "ArrowRight") {
             rightPressed = false;
@@ -349,30 +346,26 @@
         }
     }
 
-        // Renders score on canvas
-        function drawScore() {
-            ctx.font = "16px Arial";
-            ctx.fillStyle = "#0095DD";
-            // Takes 3 parameters:
-            // The actual text itself ('score' variable starting at 0)
-            // The "x" coordinate for the text
-            // The "y" coordinate for the text
-            ctx.fillText("Score: " + score, 8, 20);
-        }
+    // Renders score on canvas
+    function drawScore() {
+        ctx.font = "16px Arial";
+        ctx.fillStyle = "#0095DD";
+        // Takes 3 parameters:
+        // The actual text itself ('score' variable starting at 0)
+        // The "x" coordinate for the text
+        // The "y" coordinate for the text
+        ctx.fillText("Score: " + score, 8, 20);
+    }
 
-        // Renders lives on canvas
-        function drawLives() {
-            ctx.font = "16px Arial";
-            ctx.fillStyle = "#0095DD";
-            ctx.fillText("Lives: "+lives, canvas.width-65, 20);
-        }
+    // Renders lives on canvas
+    function drawLives() {
+        ctx.font = "16px Arial";
+        ctx.fillStyle = "#0095DD";
+        ctx.fillText("Lives: "+lives, canvas.width-65, 20);
+    }
 
-        draw();
+    draw();
 
 </script>
-<div th:fragment="footer" th:remove="tag">
-    <script th:src="@{/webjars/jquery/3.4.1/jquery.min.js}"></script>
-    <script th:src="@{/webjars/bootstrap/4.4.1-1/js/bootstrap.min.js}"></script>
-</div>
 </body>
 </html>

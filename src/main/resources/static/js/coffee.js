@@ -64,7 +64,7 @@ let coffees = [
 coffees.reverse();
 let tbody = document.querySelector('#coffees');
 let submitButton = document.querySelector('#submit');
-let searchBar = document.querySelector('#search');
+let searchBar = document.querySelector('#coffee_search');
 let roastSelection = document.querySelector('#roast-selection');
 
 tbody.innerHTML = renderCoffees(coffees);
