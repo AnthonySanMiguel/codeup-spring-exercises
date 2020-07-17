@@ -4,20 +4,28 @@
 <body>
 <div th:replace="partials/partials :: top_banner"></div>
 <div th:replace="partials/partials :: standard_nav"></div>
-
-<h1>Click a link below to guess the number:</h1>
-<ul>
-    <li><a href="/roll_dice/1">Guess # 1</a></li>
-    <li><a href="/roll_dice/2">Guess # 2</a></li>
-    <li><a href="/roll_dice/3">Guess # 3</a></li>
-    <li><a href="/roll_dice/4">Guess # 4</a></li>
-    <li><a href="/roll_dice/5">Guess # 5</a></li>
-    <li><a href="/roll_dice/6">Guess # 6</a></li>
-    <li><a href="/roll_dice/7">Guess # 7</a></li>
-    <li><a href="/roll_dice/8">Guess # 8</a></li>
-    <li><a href="/roll_dice/9">Guess # 9</a></li>
-    <li><a href="/roll_dice/10">Guess # 10</a></li>
-</ul>
+<div class="container">
+    <div class="row">
+        <h1 class="mx-auto my-4">Click a link below to guess the number:</h1>
+    </div>
+<!--    <div class="row">-->
+<!--        <img src="../static/img/red_cup.jpeg" alt="red cup" class="mx-auto" style="height: 100px; width: 200px;"/>-->
+<!--    </div>-->
+    <div class="row">
+        <ul class="mx-auto">
+            <li><a href="/roll_dice/1">Guess # 1</a></li>
+            <li><a href="/roll_dice/2">Guess # 2</a></li>
+            <li><a href="/roll_dice/3">Guess # 3</a></li>
+            <li><a href="/roll_dice/4">Guess # 4</a></li>
+            <li><a href="/roll_dice/5">Guess # 5</a></li>
+            <li><a href="/roll_dice/6">Guess # 6</a></li>
+            <li><a href="/roll_dice/7">Guess # 7</a></li>
+            <li><a href="/roll_dice/8">Guess # 8</a></li>
+            <li><a href="/roll_dice/9">Guess # 9</a></li>
+            <li><a href="/roll_dice/10">Guess # 10</a></li>
+        </ul>
+    </div>
+</div>
 <div th:replace="partials/partials :: footer_nav"></div>
 <div th:replace="partials/partials :: footer"></div>
 </body>

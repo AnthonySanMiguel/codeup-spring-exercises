@@ -10,8 +10,9 @@
 <div th:replace="partials/partials :: standard_nav"></div>
 
 <div class="container">
-    <h2>Ad List</h2>
-    <br>
+    <div class="row">
+    <h2 class="mx-auto my-4">All Current Ads</h2>
+    </div>
     <ul>
         <div th:each="ad : ${ads}">
             <li><a th:href="@{'/ads/'+${ad.id}}"><h3 style="font-weight: bold" th:text="${ad.title}"></h3></a>
@@ -21,7 +22,14 @@
         </div>
     </ul>
 </div>
-
+<div class="row">
+<a th:href="@{'/ads/create'}" style="color: black" class="mx-auto">
+    <button type="button" class="btn btn-primary" data-target="/ads/create" id="create_ad">
+        <i class="fas fa-comment-dollar mr-2" style="color: white"></i>
+        Create New Ad
+    </button>
+</a>
+</div>
 <div th:replace="partials/partials :: footer_nav"></div>
 <div th:replace="partials/partials :: footer"></div>
 </body>

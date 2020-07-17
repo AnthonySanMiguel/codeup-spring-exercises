@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title>Gamedev Canvas Workshop</title>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/partials :: head"><title>Coffee Project</title>
+<meta charset="utf-8" />
+    <title>Breakout Game</title>
     <style>
         * {
             padding: 0;
@@ -16,6 +16,8 @@
     </style>
 </head>
 <body>
+<div th:replace="partials/partials :: top_banner"></div>
+<div th:replace="partials/partials :: standard_nav"></div>
 
 <canvas id="myCanvas" width="480" height="320"></canvas>
 
@@ -367,5 +369,7 @@
     draw();
 
 </script>
+<div th:replace="partials/partials :: footer_nav"></div>
+<div th:replace="partials/partials :: footer"></div>
 </body>
 </html>

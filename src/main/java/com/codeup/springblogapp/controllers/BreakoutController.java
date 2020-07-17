@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 public class BreakoutController {
 
     @GetMapping("/breakout_game/breakout_index")
-    public String coffeePage() {
+    public String breakoutPage() {
         return "/breakout_game/breakout_index";
     }
 }

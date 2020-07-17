@@ -1,6 +1,3 @@
 "use strict";
-(function () {
 
-    //Start Coding Here
-
-})();
+$('.dropdown-toggle').dropdown()

@@ -65,6 +65,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                         "/roll_dice",
                         "/coffee_project/coffee",
                         "/breakout_game/breakout_index",
+                        "/weather_map/weather_map",
                         "/logout"
 
                 )
