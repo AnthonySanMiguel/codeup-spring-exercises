@@ -36,3 +36,15 @@ body {
 
 .footer > .navbar-nav > li > a {padding-top:5px !important; padding-bottom:5px !important;}
 .footer > .navbar {min-height:32px !important}
+
+#login_button {
+    border: none;
+    color: white;
+    background-color: #007bff;
+}
+
+#login_button:hover {
+    border: none;
+    color: white;
+    background-color: rgb(9, 93, 221);
+}

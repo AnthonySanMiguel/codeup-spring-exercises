@@ -9,12 +9,10 @@
         <h1 class="mx-auto">Log In</h1>
     </div>
     <div class="row">
-        <div th:if="${param.error}" class="mx-auto">Invalid Username and Password.
-        </div>
+        <div th:if="${param.error}" class="mx-auto">Invalid Username and Password.</div>
     </div>
     <div class="row">
-        <div th:if="${param.logout}" class="mx-auto">You have been logged out.
-        </div>
+        <div th:if="${param.logout}" class="mx-auto">You have been logged out.</div>
     </div>
     <div class="row">
         <form th:action="@{/login}" method="post" class="mx-auto">
@@ -23,12 +21,14 @@
                 <input id="username" name="username" type="text" style="margin-left: 7%;" placeholder="Enter username"/>
             </div>
             <div class="row mb-4">
-
                 <label for="password" class="mr-4">Password:</label>
                 <input id="password" name="password" type="password" placeholder="Enter password"/>
             </div>
             <div class="row">
-                <input type="submit" value="Log In" class="mx-auto"/>
+<!--                <input type="submit" value="Log In" class="mx-auto"/>-->
+                <label class="btn btn-primary mx-auto" for="login_button">
+                    <input id="login_button" type="submit" value="Log In">
+                </label>
             </div>
         </form>
     </div>
