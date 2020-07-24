@@ -1,21 +1,48 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="partials/partials :: head"><title></title></head>
+<head>
+    <meta charset="UTF-8">
+    <title>Ads</title>
+    <div th:replace="partials/partials :: head"></div>
+</head>
 <body>
 <div th:replace="partials/partials :: top_banner"></div>
 <div th:replace="partials/partials :: standard_nav"></div>
-
 <div class="container">
-    <h2>View Post</h2>
+    <div class="row">
+        <p th:text="${post.getTitle()}" class="mt-5 float-left"
+           style="font-weight: bold; font-size: 2em; margin-left: 10%;"></p>
+    </div>
+    <div class="row">
+        <p style=" margin-left: 15%;" th:text="${post.getBody()}" class="float-left"></p>
+    </div>
+    <div class="row float-right pr-5">
+        <span>Author:<a th:text="${post.user.email}" class="pl-2"></a></span>
+    </div>
     <br>
-    <span style="font-weight: bold" th:text="${post.getTitle()}"></span>
-    <a th:text="${post.user.email}"></a>
-    <br>
-    <span style="padding-left: 2rem;" th:text="${post.getBody()}"></span>
-    <a th:href="@{'/posts/'+${post.id}+'/edit'}">Edit Post</a>
-    <a th:href="@{'/posts/'+${post.id}+'/delete'}">Delete Post</a>
+    <div class="row">
+        <div class="mx-auto mt-4">
+            <a th:href="@{'/posts'}" style="color: black" class="mx-auto">
+                <button type="button" class="btn btn-primary" data-target="/ads" id="return_posts_main">
+                    <i class="fas fa-undo mr-2" style="color: white"></i>
+                    Return to Posts
+                </button>
+            </a>
+            <a th:href="@{'/posts/'+${post.id}+'/delete'}" class="mx-auto pl-4 pr-4">
+                <button type="button" class="btn btn-danger" id="delete_post">
+                    <i class="fas fa-trash-alt mr-2" style="color: white"></i>
+                    Delete Post
+                </button>
+            </a>
+            <a th:href="@{'/posts/'+${post.id}+'/edit'}" class="mx-auto">
+                <button type="button" class="btn btn-warning" id="edit_post" style="color: white">
+                    <i class="fas fa-edit mr-2" style="color: white"></i>
+                    Edit Post
+                </button>
+            </a>
+        </div>
+    </div>
 </div>
-
 <div th:replace="partials/partials :: footer_nav"></div>
 <div th:replace="partials/partials :: footer"></div>
 </body>

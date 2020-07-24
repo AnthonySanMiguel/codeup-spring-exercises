@@ -4,15 +4,17 @@
 <body>
 <div th:replace="partials/partials :: top_banner"></div>
 <div th:replace="partials/partials :: standard_nav"></div>
-
 <div class="container">
     <div class="row">
-    <h2 class="mx-auto my-4">Recent Blog Posts</h2>
+        <h2 class="mx-auto my-4">Recent Blog Posts</h2>
     </div>
-    <ul>
+    <ul style="list-style: none">
         <div th:each="post : ${posts}">
             <li><a th:href="@{'/posts/'+${post.id}}"><h3 style="font-weight: bold" th:text="${post.title}"></h3></a>
                 <p style="padding-left: 2rem;" th:text="${post.getBody()}"></p></tr>
+                <div class="row float-right pr-5">
+                    <span>Author:<a th:text="${post.user.email}" class="pl-2"></a></span>
+                </div>
                 <br>
             </li>
         </div>
@@ -26,7 +28,6 @@
         </button>
     </a>
 </div>
-
 <div th:replace="partials/partials :: footer_nav"></div>
 <div th:replace="partials/partials :: footer"></div>
 </body>

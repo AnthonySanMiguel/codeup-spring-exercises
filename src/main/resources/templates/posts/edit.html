@@ -1,26 +1,44 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Edit a Post</title>
+    <title>Create an Ad</title>
     <div th:replace="partials/partials :: head"></div>
 </head>
 <body>
 <div th:replace="partials/partials :: top_banner"></div>
 <div th:replace="partials/partials :: standard_nav"></div>
-
 <div class="container">
-    <h2>Edit Post</h2>
-
-    <form th:action="@{'/posts/'+${post.id}+'/edit'}" method="post">
-        <label for="title">Title: </label>
-        <input type="text" name="title" id="title" class="field" th:value="${post.title}"/>
-        <br><br>
-        <label for="body">Body:</label><br>
-        <textarea name="body" id="body" class="field" rows="4" cols="50" th:text="${post.body}"></textarea><br>
-        <button>Save Changes</button>
-    </form>
+    <div class="row">
+        <h2 class="mx-auto my-4">Edit Post</h2>
+    </div>
+    <div class="row">
+        <form th:action="@{'/posts/'+${post.id}+'/edit'}" method="post" class="mx-auto">
+            <div class="row">
+                <label for="title">Title:</label>
+                <input type="text" name="title" id="title" class="field" th:value="${post.title}" style="width: 89%; margin-left: 2%;"/>
+            </div>
+            <br>
+            <div class="row mt-3">
+                <label for="body">Body:</label>
+                <textarea name="body" id="body" class="field" rows="6" cols="45" th:text="${post.body}" style="margin-left: 4px;"></textarea>
+            </div>
+            <div class="row">
+                <div class="mx-auto mt-4">
+                    <a th:href="@{'/posts'}" style="color: black" class="mx-auto">
+                        <button type="button" class="btn btn-danger mr-5" data-target="/posts" id="cancel_post_edit">
+                            <i class="fas fa-ban mr-2" style="color: white"></i>
+                            Cancel
+                        </button>
+                    </a>
+                    <button type="submit" class="btn btn-success" data-target="/posts" id="confirm_post_edit">
+                        <i class="fas fa-check mr-2" style="color: white"></i>
+                        Save Changes
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
 </div>
-
 <div th:replace="partials/partials :: footer_nav"></div>
 <div th:replace="partials/partials :: footer"></div>
 </body>

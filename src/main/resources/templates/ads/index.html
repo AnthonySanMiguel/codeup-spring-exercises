@@ -13,10 +13,13 @@
     <div class="row">
     <h2 class="mx-auto my-4">All Current Ads</h2>
     </div>
-    <ul>
+    <ul style="list-style: none">
         <div th:each="ad : ${ads}">
             <li><a th:href="@{'/ads/'+${ad.id}}"><h3 style="font-weight: bold" th:text="${ad.title}"></h3></a>
                 <p style="padding-left: 2rem;" th:text="${ad.getDescription()}"></p></tr>
+                <div class="row float-right pr-5">
+                    <span>Seller:<a th:text="${ad.user.email}" class="pl-2"></a></span>
+                </div>
                 <br>
             </li>
         </div>

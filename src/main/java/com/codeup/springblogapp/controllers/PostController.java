@@ -109,6 +109,6 @@ public class PostController {
         Post singlePost = postDao.getOne(id);
         postDao.delete(singlePost);
         postEmailService.prepareAndSend(singlePost, "You deleted an ad", "Title: \n" + singlePost.getTitle() + "\n\n" + "Description: \n" + singlePost.getBody());
-        return "redirect:/ads";
+        return "redirect:/posts";
     }
 }

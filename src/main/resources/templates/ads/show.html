@@ -8,42 +8,41 @@
 <body>
 <div th:replace="partials/partials :: top_banner"></div>
 <div th:replace="partials/partials :: standard_nav"></div>
-
 <div class="container">
     <div class="row">
-    <p th:text="${ad.title}" class="mt-5 float-left" style="font-weight: bold; font-size: 2em; margin-left: 10%;"></p>
+        <p th:text="${ad.title}" class="mt-5 float-left"
+           style="font-weight: bold; font-size: 2em; margin-left: 10%;"></p>
     </div>
     <div class="row">
-    <p style=" margin-left: 15%;" th:text="${ad.description}" class="float-left"></p>
+        <p style=" margin-left: 15%;" th:text="${ad.description}" class="float-left"></p>
     </div>
+    <div class="row float-right pr-5">
+        <span>Seller:<a th:text="${ad.user.email}" class="pl-2"></a></span>
+    </div>
+    <br>
     <div class="row">
         <div class="mx-auto mt-4">
-
             <a th:href="@{'/ads'}" style="color: black" class="mx-auto">
                 <button type="button" class="btn btn-primary" data-target="/ads" id="return_ads_main">
                     <i class="fas fa-undo mr-2" style="color: white"></i>
                     Return to Ads
                 </button>
             </a>
-
             <a th:href="@{'/ads/'+${ad.id}+'/delete'}" class="mx-auto pl-4 pr-4">
                 <button type="button" class="btn btn-danger" id="delete_ad">
                     <i class="fas fa-trash-alt mr-2" style="color: white"></i>
                     Delete Ad
                 </button>
             </a>
-
             <a th:href="@{'/ads/'+${ad.id}+'/edit'}" class="mx-auto">
                 <button type="button" class="btn btn-warning" id="edit_ad" style="color: white">
                     <i class="fas fa-edit mr-2" style="color: white"></i>
                     Edit Ad
                 </button>
             </a>
-
         </div>
     </div>
 </div>
-
 <div th:replace="partials/partials :: footer_nav"></div>
 <div th:replace="partials/partials :: footer"></div>
 </body>
