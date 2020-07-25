@@ -18,7 +18,7 @@
 <body>
 <div th:replace="partials/partials :: top_banner"></div>
 <div th:replace="partials/partials :: standard_nav"></div>
-<canvas id="myCanvas" width="480" height="320" class="mt-5" style="margin-left: 33%"></canvas>
+<canvas id="myCanvas" width="910" height="426" class="mt-5" style="margin-left: 16%; border: 2px solid black;"></canvas>
 <div th:replace="partials/partials :: footer_nav"></div>
 <div th:replace="partials/partials :: footer"></div>
 <script>
@@ -42,7 +42,7 @@
 
     // Paddle Size
     let paddleHeight = 10;
-    let paddleWidth = 75;
+    let paddleWidth = 95;
 
     // Paddle starting point on horizontal "x" axis
     let paddleX = (canvas.width - paddleWidth) / 2;
@@ -59,9 +59,9 @@
 
     // BRICK FIELD MEASUREMENTS:
     // number of rows
-    let brickRowCount = 3;
+    let brickRowCount = 4;
     // number of columns
-    let brickColumnCount = 5;
+    let brickColumnCount = 10;
     // brick width
     let brickWidth = 75;
     // brick height
@@ -69,7 +69,7 @@
     // padding around each brick
     let brickPadding = 10;
     // offset from top of canvas by 30
-    let brickOffsetTop = 30;
+    let brickOffsetTop = 45;
     // offset from left of canvas by 30
     let brickOffsetLeft = 30;
 
@@ -144,7 +144,7 @@
     function drawPaddle() {
         ctx.beginPath();
         ctx.rect(paddleX, canvas.height - paddleHeight, paddleWidth, paddleHeight);
-        ctx.fillStyle = "#0095DD";
+        ctx.fillStyle = "#008000";
         ctx.fill();
         ctx.closePath();
     }
@@ -164,7 +164,7 @@
 
                     ctx.beginPath();
                     ctx.rect(brickX, brickY, brickWidth, brickHeight);
-                    ctx.fillStyle = "#0095DD";
+                    ctx.fillStyle = "#DE1738";
                     ctx.fill();
                     ctx.closePath();
                 }
@@ -223,16 +223,23 @@
             // Check whether the center of the ball (x) is between the left (x > paddleX) AND right (x < paddleX + paddleWidth) edges of the paddle.
             if (x > paddleX && x < paddleX + paddleWidth) {
                 // ...REVERSE the movement (e.g. increment [2] or decrement [-2] "dy" variable as needed)
-                dy = -dy;
+                dy = -dy - 1; // Subtract -1 from "-dy" to increase ball speed upon each successful paddle hit
             }
             // If THE ball does NOT touch the paddle and hits the bottom canvas boundary...
             else {
+                // If lives left are greater than 2, display continue message
+                if (lives > 2) {
+                    continueMessage();
+                // If lives left equals 2, display last life message (after continuing, current life in play will equal "1")
+                } else if (lives == 2) {
+                    oneLifeRemaining();
+                }
                 // Subtract -1 from 'lives' variable
                 lives--;
                 // If no lives remaining...
                 if (!lives) {
                     // Alert message of "Game Over"
-                    alert("GAME OVER");
+                    alert("Game Over! Play again?");
                     // Reload the page on alert click
                     document.location.reload();
                 }
@@ -346,10 +353,30 @@
         }
     }
 
+    // Renders intro message
+    function introMessage() {
+        alert("Want to play a game?")
+    }
+
+    // Renders intro message
+    function continueMessage() {
+        alert("Good effort. Try again?")
+    }
+
+    // Renders 1 life warning message
+    function oneLifeRemaining() {
+        alert("Careful. You only have one life remaining...")
+    }
+
+    // Allows calling of function with a specified number for range
+    function getRandomInt(max) {
+        return Math.floor(Math.random() * Math.floor(max));
+    }
+
     // Renders score on canvas
     function drawScore() {
         ctx.font = "16px Arial";
-        ctx.fillStyle = "#0095DD";
+        ctx.fillStyle = "#000000";
         // Takes 3 parameters:
         // The actual text itself ('score' variable starting at 0)
         // The "x" coordinate for the text
@@ -360,10 +387,11 @@
     // Renders lives on canvas
     function drawLives() {
         ctx.font = "16px Arial";
-        ctx.fillStyle = "#0095DD";
+        ctx.fillStyle = "#000000";
         ctx.fillText("Lives: " + lives, canvas.width - 65, 20);
     }
 
+    introMessage();
     draw();
 
 </script>
