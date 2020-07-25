@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="partials/partials :: head"><title>Coffee Project</title>
-<meta charset="utf-8" />
-    <title>Breakout Game</title>
+<head th:replace="partials/partials :: head"><title>Breakout Game</title>
+    <meta charset="utf-8"/>
     <style>
         * {
             padding: 0;
             margin: 0;
         }
+
         canvas {
             background: #eee;
             display: block;
@@ -18,9 +18,9 @@
 <body>
 <div th:replace="partials/partials :: top_banner"></div>
 <div th:replace="partials/partials :: standard_nav"></div>
-
-<canvas id="myCanvas" width="480" height="320"></canvas>
-
+<canvas id="myCanvas" width="480" height="320" class="mt-5" style="margin-left: 33%"></canvas>
+<div th:replace="partials/partials :: footer_nav"></div>
+<div th:replace="partials/partials :: footer"></div>
 <script>
 
     // Creates JS variable for "canvas" as selected by HTML id
@@ -30,8 +30,8 @@
     let ctx = canvas.getContext("2d");
 
     // Establish starting position (coordinates) of object created by "draw()" function
-    let x = canvas.width/2;
-    let y = canvas.height-30;
+    let x = canvas.width / 2;
+    let y = canvas.height - 30;
 
     // Will add incremental changes to x and y coordinates after every frame change
     let dx = 2;
@@ -77,10 +77,10 @@
     // 2-dimensional array named "bricks" will hold all bricks made
     let bricks = [];
     // Loop through array and start with column(c) @ "0"
-    for(let c = 0; c < brickColumnCount; c++) {
+    for (let c = 0; c < brickColumnCount; c++) {
         bricks[c] = [];
         // Loop through array and start with row(r) @ "0"
-        for(let r = 0; r < brickRowCount; r++) {
+        for (let r = 0; r < brickRowCount; r++) {
             bricks[c][r] = {
                 x: 0,
                 y: 0,
@@ -135,7 +135,7 @@
     function drawBall() {
         ctx.beginPath();
         // Use "x" and "y" coordinates as defined above
-        ctx.arc(x, y, ballRadius, 0, Math.PI*2);
+        ctx.arc(x, y, ballRadius, 0, Math.PI * 2);
         ctx.fillStyle = "#0095DD";
         ctx.fill();
         ctx.closePath();
@@ -150,10 +150,10 @@
     }
 
     function drawBricks() {
-        for(let c = 0; c < brickColumnCount; c++) {
-            for(let r = 0; r < brickRowCount; r++) {
+        for (let c = 0; c < brickColumnCount; c++) {
+            for (let r = 0; r < brickRowCount; r++) {
                 // Check the value of each brick's status before drawing it —> if status = 1, draw it; if status = 0, then the brick was hit by the ball and we don't want it on screen anymore.
-                if(bricks[c][r].status == 1) {
+                if (bricks[c][r].status == 1) {
                     // Each brickX position is worked out as brickWidth + brickPadding, multiplied by the column number, c, plus the brickOffsetLeft
                     // The logic for the brickY is identical except that it uses the values for row number, r, brickHeight, and brickOffsetTop.
                     // Now every single brick can be placed in its correct place row and column, with padding between each brick, drawn at an offset from the left and top canvas edges.
@@ -208,20 +208,20 @@
         // If the "x" coordinate of the ball's RADIUS (circumference; not center) on the [horizontal axis] exceeds the canvas WIDTH -- OR -- is less than 0...REVERSE the movement (e.g. increment [2] or decrement [-2] "dx" variable as needed)
         // KEEP BALL FROM "BLENDING" INTO WALLS ON COLLISION:
         // When the distance between the center of the ball and the edge of the wall is exactly the same as the radius of the ball, reverse movement direction as above. Subtracting the radius from one edge's width and adding it onto the other gives us the impression of the proper collision detection.
-        if(x + dx > canvas.width - ballRadius || x + dx < ballRadius) {
+        if (x + dx > canvas.width - ballRadius || x + dx < ballRadius) {
             dx = -dx;
         }
         // KEEP BALL WITHIN CANVAS BOUNDARIES:
         // If the "y" coordinate of the ball's RADIUS (circumference; not center) on the [vertical axis] is less than 10 (see ballRadius value)...REVERSE the movement (e.g. increment [2] or decrement [-2] "dy" variable as needed)
-        if(y + dy < ballRadius) {
+        if (y + dy < ballRadius) {
             dy = -dy;
             // OR if the "y" coordinate of the ball's RADIUS (circumference; not center) on the [vertical axis] exceeds the canvas HEIGHT...
             // KEEP BALL FROM "BLENDING" INTO WALLS ON COLLISION:
             // When the distance between the center of the ball and the edge of the wall is exactly the same as the radius of the ball, reverse movement direction as above. Subtracting the radius from one edge's width and adding it onto the other gives us the impression of the proper collision detection.
-        } else if(y + dy > canvas.height - ballRadius) {
+        } else if (y + dy > canvas.height - ballRadius) {
             // COLLISION DETECTION (Ball to Paddle):
             // Check whether the center of the ball (x) is between the left (x > paddleX) AND right (x < paddleX + paddleWidth) edges of the paddle.
-            if(x > paddleX && x < paddleX + paddleWidth) {
+            if (x > paddleX && x < paddleX + paddleWidth) {
                 // ...REVERSE the movement (e.g. increment [2] or decrement [-2] "dy" variable as needed)
                 dy = -dy;
             }
@@ -249,18 +249,18 @@
         }
 
         // If right arrow is pressed, move paddle on the "x" axis to the right by 7px (+7)
-        if(rightPressed) {
+        if (rightPressed) {
             paddleX = paddleX + 7;
             // If paddle position on "x" value exceeds canvas width (too much positive moving right), stop paddle by making its position the value of the canvas - paddle width
-            if (paddleX + paddleWidth > canvas.width){
+            if (paddleX + paddleWidth > canvas.width) {
                 paddleX = canvas.width - paddleWidth;
             }
         }
         // If left arrow is pressed, move paddle on the "x" axis to the left by 7px (-7)
-        else if(leftPressed) {
+        else if (leftPressed) {
             paddleX = paddleX - 7;
             // If paddle position on "x" value is LESS THAN 0 (too much negative moving left), stop paddle by making its position the value of 0 ("start" of canvas)
-            if (paddleX < 0){
+            if (paddleX < 0) {
                 paddleX = 0;
             }
         }
@@ -277,10 +277,9 @@
     // The relevant variable in each case is set to true...
     // Most browsers use ArrowRight and ArrowLeft for the left/right cursor keys, but we need to also include Right and Left checks to support IE/Edge browsers.
     function keyDownHandler(e) { // "e" equals "event" to LISTEN for
-        if(e.key == "Right" || e.key == "ArrowRight") {
+        if (e.key == "Right" || e.key == "ArrowRight") {
             rightPressed = true;
-        }
-        else if(e.key == "Left" || e.key == "ArrowLeft") {
+        } else if (e.key == "Left" || e.key == "ArrowLeft") {
             leftPressed = true;
         }
     }
@@ -288,10 +287,9 @@
     // When the key is released, the variable is set back to false.
     // Most browsers use ArrowRight and ArrowLeft for the left/right cursor keys, but we need to also include Right and Left checks to support IE/Edge browsers.
     function keyUpHandler(e) {
-        if(e.key == "Right" || e.key == "ArrowRight") {
+        if (e.key == "Right" || e.key == "ArrowRight") {
             rightPressed = false;
-        }
-        else if(e.key == "Left" || e.key == "ArrowLeft") {
+        } else if (e.key == "Left" || e.key == "ArrowLeft") {
             leftPressed = false;
         }
     }
@@ -304,10 +302,10 @@
         // 'relativeX' is equal to the distance between the canvas left edge and the mouse pointer.
         let relativeX = e.clientX - canvas.offsetLeft;
         // If the 'relativeX' pointer position is greater than zero -- AND -- lower than the Canvas width...
-        if(relativeX > 0 && relativeX < canvas.width) {
+        if (relativeX > 0 && relativeX < canvas.width) {
             // Then the pointer is within the Canvas boundaries, and the paddleX position (anchored on the left edge of the paddle) is set to
             // the 'relativeX 'value minus half the width of the paddle, so that the movement will actually be relative to the middle of the paddle.
-            paddleX = relativeX - paddleWidth/2;
+            paddleX = relativeX - paddleWidth / 2;
         }
     }
 
@@ -363,13 +361,11 @@
     function drawLives() {
         ctx.font = "16px Arial";
         ctx.fillStyle = "#0095DD";
-        ctx.fillText("Lives: "+lives, canvas.width-65, 20);
+        ctx.fillText("Lives: " + lives, canvas.width - 65, 20);
     }
 
     draw();
 
 </script>
-<div th:replace="partials/partials :: footer_nav"></div>
-<div th:replace="partials/partials :: footer"></div>
 </body>
 </html>
