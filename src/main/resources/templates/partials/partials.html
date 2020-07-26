@@ -42,8 +42,11 @@
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                             <a class="dropdown-item" href="/coffee_project/coffee" sec:authorize="isAuthenticated()"><i class="fas fa-mug-hot mr-2"></i>Coffee Project</a>
                             <a class="dropdown-item" href="/weather_map/weather_map" sec:authorize="isAuthenticated()"><i class="fas fa-cloud-sun-rain mr-2"></i>Weather Map</a>
+                            <a class="dropdown-item" href="/movie_database/movie_database" sec:authorize="isAuthenticated()"><i class="fas fa-film mr-2"></i>Movie Database</a>
+                            <a class="dropdown-item" href="/text_game/text_game" sec:authorize="isAuthenticated()"><i class="fab fa-fort-awesome mr-2"></i>Text Adventure Game</a>
                             <a class="dropdown-item" href="/ads" sec:authorize="isAuthenticated()"><i class="fas fa-comments-dollar mr-2"></i>Craigslist Clone</a>
-                            <a class="dropdown-item" href="/posts" sec:authorize="isAuthenticated()"><i class="fas fa-book mr-2"></i>Blog Area</a>
+                            <a class="dropdown-item" href="/posts" sec:authorize="isAuthenticated()"><i class="fas fa-book mr-2"></i>Blog Space</a>
+                            <a class="dropdown-item" href="https://quackertracker.com/" sec:authorize="isAuthenticated()"><i class="fas fa-project-diagram mr-2"></i>Capstone Project</a>
                         </div>
                     </div>
                 </li>
@@ -55,6 +58,7 @@
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                             <a class="dropdown-item" href="/roll_dice" sec:authorize="isAuthenticated()"><i class="fas fa-dice mr-2"></i>Dice Game</a>
                             <a class="dropdown-item" href="/breakout_game/breakout_index" sec:authorize="isAuthenticated()"><i class="fas fa-gamepad mr-2"></i>Breakout Game</a>
+                            <a class="dropdown-item" href="/superhero_database/superhero_database_preview" sec:authorize="isAuthenticated()"><i class="fas fa-mask mr-2"></i>Superhero Database</a>
                         </div>
                     </div>
                 </li>
@@ -84,7 +88,6 @@
         </div>
     </nav>
 </standard_nav>
-
 <footer_nav th:fragment="footer_nav">
 
     <!-- collapsing navbar elements -->
