@@ -8,7 +8,7 @@
     clear: both;
 }
 
-img {
+.weather_icon img {
     height: 6em;
     width: 60%;
 }

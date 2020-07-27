@@ -37,8 +37,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 /* Login configuration */
                 .formLogin()
                 .loginPage("/login")
-//                .defaultSuccessUrl("/ads") // user's home page, it can be any URL
-                .defaultSuccessUrl("/posts") // user's home page, it can be any URL
+                .defaultSuccessUrl("/welcome") // user's home page, it can be any URL
                 .permitAll() // Anyone can go to the login page
 
                 /* Logout configuration */
@@ -49,13 +48,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 /* Pages that can be viewed without having to log in */
                 .and()
                 .authorizeRequests()
-                .antMatchers("/welcome", "/register") // anyone can see the home and the ads pages
-                .permitAll()
-
-                /* Pages that require authentication */
-                .and()
-                .authorizeRequests()
                 .antMatchers(
+                        "/welcome",
+                        "/register",
                         "/ads",
                         "/posts",
                         "/ads/create", // only authenticated users can create ads
@@ -66,8 +61,20 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                         "/coffee_project/coffee",
                         "/breakout_game/breakout_index",
                         "/weather_map/weather_map",
-                        "/logout"
+                        "/text_game/text_game",
+                        "/movie_database/movie_database",
+                        "https://quackertracker.com/",
+                        "/superhero_database/superhero_database_preview",
+                        "/login"
+                ) // anyone can see the home and the ads pages
+                .permitAll()
 
+                /* Pages that require authentication */
+                .and()
+                .authorizeRequests()
+                .antMatchers(
+                        "/logout"
+// Enter Here ----->
                 )
                 .authenticated()
         ;

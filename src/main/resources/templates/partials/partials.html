@@ -36,47 +36,47 @@
                 </li>
             <li>
                     <div class="dropdown show">
-                        <a class="btn btn-secondary" style="background-color: rgb(248 249 250); border: none; color: rgb(124 124 125); padding-top: 8px" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" sec:authorize="isAuthenticated()">
+                        <a class="btn btn-secondary" style="background-color: rgb(248 249 250); border: none; color: rgb(124 124 125); padding-top: 8px" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-cogs mr-2"></i>Projects
                         </a>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <a class="dropdown-item" href="/coffee_project/coffee" sec:authorize="isAuthenticated()"><i class="fas fa-mug-hot mr-2"></i>Coffee Project</a>
-                            <a class="dropdown-item" href="/weather_map/weather_map" sec:authorize="isAuthenticated()"><i class="fas fa-cloud-sun-rain mr-2"></i>Weather Map</a>
-                            <a class="dropdown-item" href="/movie_database/movie_database" sec:authorize="isAuthenticated()"><i class="fas fa-film mr-2"></i>Movie Database</a>
-                            <a class="dropdown-item" href="/text_game/text_game" sec:authorize="isAuthenticated()"><i class="fab fa-fort-awesome mr-2"></i>Text Adventure Game</a>
-                            <a class="dropdown-item" href="/ads" sec:authorize="isAuthenticated()"><i class="fas fa-comments-dollar mr-2"></i>Craigslist Clone</a>
-                            <a class="dropdown-item" href="/posts" sec:authorize="isAuthenticated()"><i class="fas fa-book mr-2"></i>Blog Space</a>
-                            <a class="dropdown-item" href="https://quackertracker.com/" sec:authorize="isAuthenticated()"><i class="fas fa-project-diagram mr-2"></i>Capstone Project</a>
+                            <a class="dropdown-item" href="/coffee_project/coffee"><i class="fas fa-mug-hot mr-2"></i>Coffee Project</a>
+                            <a class="dropdown-item" href="/weather_map/weather_map"><i class="fas fa-cloud-sun-rain mr-2"></i>Weather Map</a>
+                            <a class="dropdown-item" href="/movie_database/movie_database"><i class="fas fa-film mr-2"></i>Movie Database</a>
+                            <a class="dropdown-item" href="/text_game/text_game"><i class="fab fa-fort-awesome mr-2"></i>Text Adventure Game</a>
+                            <a class="dropdown-item" href="/ads"><i class="fas fa-comments-dollar mr-2"></i>Craigslist Clone</a>
+                            <a class="dropdown-item" href="/posts"><i class="fas fa-book mr-2"></i>Blog Space</a>
+                            <a class="dropdown-item" href="https://quackertracker.com/"><i class="fas fa-project-diagram mr-2"></i>Capstone Project</a>
                         </div>
                     </div>
                 </li>
                 <li>
                     <div class="dropdown show">
-                        <a class="btn btn-secondary" style="background-color: rgb(248 249 250); border: none; color: rgb(124 124 125); padding-top: 8px" href="#" role="button" id="dropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" sec:authorize="isAuthenticated()">
+                        <a class="btn btn-secondary" style="background-color: rgb(248 249 250); border: none; color: rgb(124 124 125); padding-top: 8px" href="#" role="button" id="dropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-gifts mr-2"></i>Extras
                         </a>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <a class="dropdown-item" href="/roll_dice" sec:authorize="isAuthenticated()"><i class="fas fa-dice mr-2"></i>Dice Game</a>
-                            <a class="dropdown-item" href="/breakout_game/breakout_index" sec:authorize="isAuthenticated()"><i class="fas fa-gamepad mr-2"></i>Breakout Game</a>
-                            <a class="dropdown-item" href="/superhero_database/superhero_database_preview" sec:authorize="isAuthenticated()"><i class="fas fa-mask mr-2"></i>Superhero Database</a>
+                            <a class="dropdown-item" href="/roll_dice"><i class="fas fa-dice mr-2"></i>Dice Game</a>
+                            <a class="dropdown-item" href="/breakout_game/breakout_index"><i class="fas fa-gamepad mr-2"></i>Breakout Game</a>
+                            <a class="dropdown-item" href="/superhero_database/superhero_database_preview"><i class="fas fa-mask mr-2"></i>Superhero Database</a>
                         </div>
                     </div>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item" sec:authorize="isAnonymous()">
+                <li class="nav-item" style="display: none">
                     <a class="nav-link" href="/register">
                         <i class="fas fa-user-plus"></i>
                         Register
                     </a>
                 </li>
-                <li class="nav-item" sec:authorize="isAnonymous()">
+                <li class="nav-item" style="display: none">
                     <a class="nav-link" href="/login" style="color:green">
                         <i class="fas fa-sign-in-alt" style="color:green"></i>
                         Login
                     </a>
                 </li>
-                <li class="nav-item" sec:authorize="isAuthenticated()">
+                <li class="nav-item" style="display: none">
                     <form th:action="@{/logout}" th:method="post">
                         <button class="nav-link" style="border:none; background:none; color: red;">
                             <i class="fas fa-sign-out-alt" style="color:red"></i>
