@@ -8,13 +8,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class HomeController {
 
     @GetMapping("/") // Comment out direct to single slash "/" so there is no conflict with this file, HelloController, and MathController
-    @ResponseBody
     public String sayHello(){
-        return "/welcome";
+        return "/home";
     }
 
     @GetMapping("/home")
     public String welcome() {
-        return "home";
+        return "/home";
     }
 }

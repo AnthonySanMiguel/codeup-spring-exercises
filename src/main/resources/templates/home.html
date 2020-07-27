@@ -1,13 +1,25 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="partials/partials :: head"></head>
+<head th:replace="partials/partials :: head"><title></title></head>
 <body>
 <div th:replace="partials/partials :: top_banner"></div>
 <div th:replace="partials/partials :: standard_nav"></div>
-
-<h1>This is the home page.</h1>
-
+<div class="container">
+    <div class="row my-5">
+        <h1 class="mx-auto">(Profile Pic Here)</h1>
+    </div>
+    <div class="row">
+            <p class="mx-auto">Thank you for visiting! Click the button below to begin browsing.</p>
+    </div>
+</div>
+<form th:action="@{/login}" method="post">
+    <input id="username" name="username" type="text" value="anthony" style="display: none;"/>
+    <input id="password" name="password" type="password" value="anthony" style="display: none;"/>
+    <button type="submit" class="btn btn-success mx-auto mt-2" style="display: block;">
+        <i class="fas fa-door-open mr-2" style="color: white"></i>
+        Enter
+    </button>
+</form>
 <div th:replace="partials/partials :: footer_nav"></div>
 <div th:replace="partials/partials :: footer"></div>
 </body>
-</html>
