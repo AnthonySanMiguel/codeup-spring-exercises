@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/partials :: head"><title>Movie Database</title></head>
+<body>
+<div th:replace="partials/partials :: top_banner"></div>
+<div th:replace="partials/partials :: standard_nav"></div>
+<div class="container">
+    <div class="row">
+        <p class="mx-auto mt-4"><em><strong>Overview:</strong> A full stack application that delivers a user-friendly
+            means of tracking one's budget. Displays summarizations of upcoming bills, payments, and budgets.
+            Expenditures can be logged and categorized, and the Budget page allows creation of custom
+            financial goals with dynamic tracking Credit to: <a href="https://github.com/tzamarron">https://github.com/tzamarron</a>,
+            <a href="https://github.com/GuillermoDeLeon">https://github.com/GuillermoDeLeon</a> and <a
+                    href="https://github.com/James-Muralles">https://github.com/James-Muralles</a> for their
+            contributions.</em></p>
+    </div>
+    <div class="row">
+        <p class="mx-auto">Click the link below to visit the secure site.</p>
+    </div>
+    <div class="row">
+        <span class="mx-auto"><strong><a style="font-size: 2em" href="https://quackertracker.com">Quacker Tracker!</a></strong></span>
+    </div>
+</div>
+<div th:replace="partials/partials :: footer_nav"></div>
+<div th:replace="partials/partials :: footer"></div>
+</body>
+</html>

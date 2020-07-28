@@ -129,7 +129,7 @@ $(document).ready(function () {
         $("#day1").html(
             "<div class='text-center' style='background-color:whitesmoke'>" +
             "<h4>" + "High " + data.daily.data[0].temperatureMax + "&#176" + " / " + "Low: " + data.daily.data[0].temperatureMin + "&#176" + "</h4>" +
-            "<div class='weather_icon'><img alt='icon' src=" + data.daily.data[0].icon + "" + "'../../img/.gif'</div>" +
+            "<div><img class='weather_icon' alt='icon' src='../img/" + data.daily.data[0].icon + ".gif'" + "</div>" +
             "<div>" + "<strong>Summary: </strong>" + "<em>" + data.daily.data[0].summary + "</em>" + "</div>" +
             "<div>" + "<strong>Humidity [0-1]: </strong>" + data.daily.data[0].humidity + "%" + "</div>" +
             "<div>" + "<strong>Wind: </strong>" + data.daily.data[0].windSpeed + " mph" + "</div>" +
@@ -143,7 +143,7 @@ $(document).ready(function () {
         $("#day2").html(
             "<div class='text-center' style='background-color:whitesmoke'>" +
             "<h4>" + "High " + data.daily.data[1].temperatureMax + "&#176" + " / " + "Low: " + data.daily.data[1].temperatureMin + "&#176" + "</h4>" +
-            "<div class='weather_icon'><img alt='icon' src=" + data.daily.data[1].icon + "" + "'../../img/.gif'</div>" +
+            "<div><img class='weather_icon' alt='icon' src='../img/" + data.daily.data[1].icon + ".gif'" + "</div>" +
             "<div>" + "<strong>Summary: </strong>" + "<em>" + data.daily.data[1].summary + "</em>" + "</div>" +
             "<div>" + "<strong>Humidity [0-1]: </strong>" + data.daily.data[1].humidity + "%" + "</div>" +
             "<div>" + "<strong>Wind: </strong>" + data.daily.data[1].windSpeed + " mph" + "</div>" +
@@ -157,7 +157,7 @@ $(document).ready(function () {
         $("#day3").html(
             "<div class='text-center' style='background-color:whitesmoke'>" +
             "<h4>" + "High " + data.daily.data[2].temperatureMax + "&#176" + " / " + "Low: " + data.daily.data[2].temperatureMin + "&#176" + "</h4>" +
-            "<div class='weather_icon'><img alt='icon' src=" + data.daily.data[2].icon + "" + "'../../img/.gif'</div>" +
+            "<div><img class='weather_icon' alt='icon' src='../img/" + data.daily.data[2].icon + ".gif'" + "</div>" +
             "<div>" + "<strong>Summary: </strong>" + "<em>" + data.daily.data[2].summary + "</em>" + "</div>" +
             "<div>" + "<strong>Humidity [0-1]: </strong>" + data.daily.data[2].humidity + "%" + "</div>" +
             "<div>" + "<strong>Wind: </strong>" + data.daily.data[2].windSpeed + " mph" + "</div>" +

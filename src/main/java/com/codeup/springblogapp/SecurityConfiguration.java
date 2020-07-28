@@ -64,6 +64,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                         "/weather_map/weather_map",
                         "/text_game/text_game",
                         "/movie_database/movie_database",
+                        "/capstone",
                         "https://quackertracker.com/",
                         "/superhero_database/superhero_database_preview",
                         "/login"

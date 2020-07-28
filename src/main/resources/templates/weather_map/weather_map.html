@@ -10,7 +10,9 @@
 <div th:replace="partials/partials :: standard_nav"></div>
 
 <div class="container">
-    <h1 class="text-center">Weather Application</h1>
+    <div class="row">
+        <p class="mx-auto mt-4"><em><strong>Overview:</strong> A web page to search for weather conditions globally by typing in a location or dragging a marker. An AJAX call pings the DarkSky API to retrieve data over a three-day period, and the Mapbox API projects the location coordinates onto a generated map model.</em></p>
+    </div>
     <h3 id="location_name" class="text-center font-italic"></h3>
 
     <div class="row">
