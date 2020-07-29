@@ -66,6 +66,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                         "/movie_database/movie_database",
                         "/capstone",
                         "https://quackertracker.com/",
+                        "/superhero_database/superhero_database",
                         "/superhero_database/superhero_database_preview",
                         "/login"
                 ) // anyone can see the home and the ads pages

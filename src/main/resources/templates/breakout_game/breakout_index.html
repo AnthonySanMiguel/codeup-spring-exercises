@@ -18,7 +18,12 @@
 <body>
 <div th:replace="partials/partials :: top_banner"></div>
 <div th:replace="partials/partials :: standard_nav"></div>
-<canvas id="myCanvas" width="910" height="426" class="mt-5" style="margin-left: 16%; border: 2px solid black;"></canvas>
+<div class="container">
+    <div class="row">
+        <p class="mx-auto mt-4"><em><strong>Overview:</strong> A game made with vanilla JavaScript and HTML's canvas element. The paddle can be moved with either the left and right arrow keys or with mouse movement. The speed of the ball will increase with each successful collision.</em></p>
+    </div>
+</div>
+<canvas id="myCanvas" width="910" height="426" class="mt-1" style="margin-left: 16%; border: 2px solid black;"></canvas>
 <div th:replace="partials/partials :: footer_nav"></div>
 <div th:replace="partials/partials :: footer"></div>
 <script>

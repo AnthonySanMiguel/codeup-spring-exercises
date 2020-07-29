@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class SuperheroDatabaseController {
 
-    @GetMapping("/superhero_database/superhero_database_preview")
+    @GetMapping("/superhero_database/superhero_database")
     public String SuperheroDatabasePage() {
-        return "/superhero_database/superhero_database_preview";
+        return "/superhero_database/superhero_database";
     }
 }

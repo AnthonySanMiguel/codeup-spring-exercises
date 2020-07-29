@@ -6,6 +6,11 @@
 <div th:replace="partials/partials :: standard_nav"></div>
 
 <!--<body style="background-image: url('background.gif')">-->
+<div class="container">
+    <div class="row">
+        <p class="mx-auto mt-4"><em><strong>Overview:</strong> A personal page inspired by the Coffee Project concept which incorporates DOM elements and a computer speech synthesis function.</em></p>
+    </div>
+</div>
 <div class="header">
     <h4>Batcomputer Database:
         <text style="color: green">Online</text>
@@ -29,7 +34,8 @@
 <div class="column">
     <span id="superheroes" class="superhero-names content-cards"></span>
 </div>
-<div th:replace="partials/partials :: footer_nav"></div>
-<div th:replace="partials/partials :: footer"></div>
+<!--<div th:replace="partials/partials :: footer_nav"></div>-->
+<!--<div th:replace="partials/partials :: footer"></div>-->
+<script th:src="@{/js/superhero_database.js}"></script>
 </body>
 </html>
