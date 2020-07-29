@@ -4,15 +4,11 @@
 <head th:fragment="head">
     <meta charset="UTF-8"/>
     <link th:href="@{/webjars/bootstrap/4.4.1-1/css/bootstrap.min.css}" rel="stylesheet">
-    <link href='https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.css' rel='stylesheet'/>
-    <link href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.css" rel="stylesheet" type="text/css"/>
-    <link th:href="@{/css/style.css}" rel="stylesheet">
-    <link th:href="@{/css/coffee_style.css}" rel="stylesheet">
-    <link th:href="@{/css/superhero_database.css}" rel="stylesheet">
-    <link th:href="@{/css/weather_map.css}" rel="stylesheet">
+    <link th:href="@{/css/main.css}" rel="stylesheet">
     <script src="https://kit.fontawesome.com/5811016069.js" crossorigin="anonymous"></script>
     <title></title>
 </head>
+
 <body>
 <top_banner th:fragment="top_banner">
     <div class="top_banner nav-top-margin">Personal Website</div>
@@ -30,36 +26,36 @@
             <!-- left side content -->
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/home">
+                    <a class="nav-link" href="/home" sec:authorize="isAnonymous()">
                         <i class="fas fa-home"></i>
                         Home
                     </a>
                 </li>
             <li>
                     <div class="dropdown show">
-                        <a class="btn btn-secondary" style="background-color: rgb(248 249 250); border: none; color: rgb(124 124 125); padding-top: 8px" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="btn btn-secondary" style="background-color: rgb(248 249 250); border: none; color: rgb(124 124 125); padding-top: 8px" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" sec:authorize="isAuthenticated()">
                             <i class="fas fa-cogs mr-2"></i>Projects
                         </a>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <a class="dropdown-item" href="/coffee_project/coffee"><i class="fas fa-mug-hot mr-2"></i>Coffee Project</a>
-                            <a class="dropdown-item" href="/weather_map/weather_map"><i class="fas fa-cloud-sun-rain mr-2"></i>Weather Map</a>
-                            <a class="dropdown-item" href="/movie_database/movie_database"><i class="fas fa-film mr-2"></i>Movie Database</a>
-                            <a class="dropdown-item" href="/text_game/text_game"><i class="fab fa-fort-awesome mr-2"></i>Text Adventure Game</a>
-                            <a class="dropdown-item" href="/ads"><i class="fas fa-comments-dollar mr-2"></i>Craigslist Clone</a>
+                            <a class="dropdown-item" href="/coffee_project/coffee"><i class="fas fa-mug-hot mr-2" sec:authorize="isAuthenticated()"></i>Coffee Project</a>
+                            <a class="dropdown-item" href="/weather_map/weather_map"><i class="fas fa-cloud-sun-rain mr-2" sec:authorize="isAuthenticated()"></i>Weather Map</a>
+                            <a class="dropdown-item" href="/movie_database/movie_database"><i class="fas fa-film mr-2" sec:authorize="isAuthenticated()"></i>Movie Database</a>
+                            <a class="dropdown-item" href="/text_game/text_game"><i class="fab fa-fort-awesome mr-2" sec:authorize="isAuthenticated()"></i>Text Adventure Game</a>
+                            <a class="dropdown-item" href="/ads"><i class="fas fa-comments-dollar mr-2" sec:authorize="isAuthenticated()"></i>Craigslist Clone</a>
 <!--                            <a class="dropdown-item" href="/posts"><i class="fas fa-book mr-2"></i>Blog Space</a>-->
-                            <a class="dropdown-item" href="/capstone/capstone"><i class="fas fa-project-diagram mr-2"></i>Capstone Project</a>
+                            <a class="dropdown-item" href="/capstone/capstone"><i class="fas fa-project-diagram mr-2" sec:authorize="isAuthenticated()"></i>Capstone Project</a>
                         </div>
                     </div>
                 </li>
                 <li>
                     <div class="dropdown show">
-                        <a class="btn btn-secondary" style="background-color: rgb(248 249 250); border: none; color: rgb(124 124 125); padding-top: 8px" href="#" role="button" id="dropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="btn btn-secondary" style="background-color: rgb(248 249 250); border: none; color: rgb(124 124 125); padding-top: 8px" href="#" role="button" id="dropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" sec:authorize="isAuthenticated()">
                             <i class="fas fa-gifts mr-2"></i>Extras
                         </a>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <a class="dropdown-item" href="/roll_dice"><i class="fas fa-dice mr-2"></i>Dice Game</a>
-                            <a class="dropdown-item" href="/breakout_game/breakout_index"><i class="fas fa-gamepad mr-2"></i>Breakout Game</a>
-                            <a class="dropdown-item" href="/superhero_database/superhero_database"><i class="fas fa-mask mr-2"></i>Superhero Database</a>
+                            <a class="dropdown-item" href="/roll_dice"><i class="fas fa-dice mr-2" sec:authorize="isAuthenticated()"></i>Dice Game</a>
+                            <a class="dropdown-item" href="/breakout_game/breakout_index"><i class="fas fa-gamepad mr-2" sec:authorize="isAuthenticated()"></i>Breakout Game</a>
+                            <a class="dropdown-item" href="/superhero_database/superhero_database"><i class="fas fa-mask mr-2" sec:authorize="isAuthenticated()"></i>Superhero Database</a>
                         </div>
                     </div>
                 </li>
@@ -104,16 +100,7 @@
     <script th:src="@{/webjars/jquery/3.4.1/jquery.min.js}"></script>
     <script th:src="@{/js/jquery-2.2.4.js}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src='https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.js'></script>
-    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
     <script th:src="@{/webjars/bootstrap/4.4.1-1/js/bootstrap.min.js}"></script>
-    <script th:src="@{/js/main.js}"></script>
-    <script th:src="@{/js/coffee.js}"></script>
-    <script th:src="@{/js/weather_map.js}"></script>
-    <script th:src="@{/js/mapbox-geocoder-utils.js}"></script>
-    <script th:src="@{/js/keys.js}"></script>
     <script th:src="@{/js/main.js}"></script>
 </div>
 </body>

@@ -50,7 +50,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers(
                         "home",
-                        "/welcome",
+                        "/welcome"
+                ) // anyone can see the home and the ads pages
+                .permitAll()
+
+                /* Pages that require authentication */
+                .and()
+                .authorizeRequests()
+                .antMatchers(
+                        "/logout",
                         "/register",
                         "/ads",
                         "/posts",
@@ -67,16 +75,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                         "/capstone",
                         "https://quackertracker.com/",
                         "/superhero_database/superhero_database",
-                        "/superhero_database/superhero_database_preview",
                         "/login"
-                ) // anyone can see the home and the ads pages
-                .permitAll()
-
-                /* Pages that require authentication */
-                .and()
-                .authorizeRequests()
-                .antMatchers(
-                        "/logout"
 // Enter Here ----->
                 )
                 .authenticated()

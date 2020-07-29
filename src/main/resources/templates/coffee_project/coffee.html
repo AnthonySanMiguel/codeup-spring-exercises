@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="partials/partials :: head"><title>Coffee Project</title></head>
+<link th:href="@{/css/coffee_style.css}" rel="stylesheet">
 <body>
 <div th:replace="partials/partials :: top_banner"></div>
 <div th:replace="partials/partials :: standard_nav"></div>
@@ -29,6 +30,11 @@
     <span id="coffees"></span>
 </div>
 <div th:replace="partials/partials :: footer_nav"></div>
-<div th:replace="partials/partials :: footer"></div>
+<!--<div th:replace="partials/partials :: footer"></div>-->
+<script th:src="@{/webjars/jquery/3.4.1/jquery.min.js}"></script>
+<script th:src="@{/js/jquery-2.2.4.js}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script th:src="@{/webjars/bootstrap/4.4.1-1/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/coffee.js}"></script>
 </body>
 </html>
