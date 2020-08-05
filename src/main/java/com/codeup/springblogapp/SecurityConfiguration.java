@@ -49,7 +49,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .antMatchers(
-                        "home",
+                        "/home",
                         "/welcome"
                 ) // anyone can see the home and the ads pages
                 .permitAll()

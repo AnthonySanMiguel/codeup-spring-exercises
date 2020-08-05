@@ -11,7 +11,7 @@
 
 <body>
 <top_banner th:fragment="top_banner">
-    <div class="top_banner nav-top-margin">Personal Website</div>
+    <div class="top_banner nav-top-margin" style="color: darkblue">Anthony A. San Miguel II</div>
 </top_banner>
 
 <standard_nav th:fragment="navbar">
@@ -26,7 +26,7 @@
             <!-- left side content -->
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/home" sec:authorize="isAnonymous()">
+                    <a class="nav-link" href="/home" sec:authorize="isAuthenticated()">
                         <i class="fas fa-home"></i>
                         Home
                     </a>
@@ -91,11 +91,13 @@
     <!-- collapsing navbar elements -->
     <div class="navbar navbar-expand-lg navbar-light footer">
 
-        <!-- left side content -->
-<!--        <ul class="navbar-nav mr-auto" id="footer-nav">-->
-<!--            <li class="nav-item"><a class="nav-link" href="https://www.codeup.com/" target="_blank" style="color: white;">About Us</a></li>-->
-<!--        </ul>-->
+<!--         left side content -->
+        <ul class="navbar-nav ml-auto" id="footer-nav">
+            <li class="nav-item"><a class="nav-link mr-3 hvr-grow" href="https://github.com/AnthonySanMiguel" target="_blank" style="color: white;"><i class="fab fa-github mr-2 hvr-gicon"></i>AnthonySanMiguel</a></li>
+            <li class="nav-item"><a class="nav-link hvr-grow" href="https://www.linkedin.com/in/anthony-san-miguel-ii/" target="_blank" style="color: white;"><i class="fab fa-linkedin mr-2 hvr-icon"></i>anthony-san-miguel-ii</a></li>
+        </ul>
     </div>
+
 </footer_nav>
 <div th:fragment="footer" th:remove="tag">
     <script th:src="@{/webjars/jquery/3.4.1/jquery.min.js}"></script>
