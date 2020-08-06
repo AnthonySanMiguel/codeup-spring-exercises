@@ -75,6 +75,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                         "/capstone",
                         "https://quackertracker.com/",
                         "/tictactoe/tictactoe",
+                        "/exoplanet/exoplanet",
                         "/superhero_database/superhero_database",
                         "/login"
 // Enter Here ----->

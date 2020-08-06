@@ -1,0 +1,14 @@
+/*body{*/
+/*    margin: 1em;*/
+/*    background-color: lightgray;*/
+/*}*/
+
+td,
+th {
+    border: 1px solid black;
+    text-align: center;
+}
+
+.grey {
+    background-color: lightgray;
+}

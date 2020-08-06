@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/partials :: head"><title>ExoPlanet Project</title></head>
+<link th:href="@{/css/exoplanet.css}" rel="stylesheet">
+<body>
+<div th:replace="partials/partials :: top_banner"></div>
+<div th:replace="partials/partials :: standard_nav"></div>
+
+<div class="container">
+    <div class="row">
+        <p class="mx-auto mt-4"><em><strong>Overview:</strong> A paired programming project to successfully ping NASA's Exoplanet Archive (https://exoplanetarchive.ipac.caltech.edu/) and display selected data fields with options to search or filter and dynamically update the retrieved results. Credit to: <a href="https://github.com/SpicerRJames">https://github.com/SpicerRJames</a> and <a href="https://github.com/brycedpayne">"https://github.com/brycedpayne</a> for their contributions.</em></p>
+    </div>
+    <!-- <form action="GET">
+        <select name="years" id="years"></select>
+        <select name="years" id="facilities"></select>
+        <select name="years" id="method"></select>
+        <select name="years" id="host"></select>
+
+        <button id="clear">Clear</button>
+
+        <button id="search">Search</button>
+
+    </form> -->
+
+        <div id="queryPanel">
+            <label for="years" class="text-left" style="margin-left: 25%; margin-right: 2.8%;">Year Discovered:</label><select name="year_discovered" id="years" style="width: 31.5%"></select>
+            <br>
+            <label for="facilities" class="text-left" style="margin-left: 25%; margin-right: 4%;">Discovered By:</label><select name="discovered_by" id="facilities"></select>
+            <br>
+            <label for="method" class="text-left" style="margin-left: 25%; margin-right: 1.5%;">Discovery Method:</label><select name="discovery_method" id="method" style="width: 31.5%"></select>
+            <br>
+            <label for="host" class="text-left" style="margin-left: 25%; margin-right: 3%;">Host Star Name:</label><select name="host_star_name" id="host" style="width: 31.5%"></select>
+            <br>
+            <div class="row">
+            <div class="mx-auto my-3">
+            <button id="clear" onclick="clearQueryFields()">Clear</button>
+            <button id="search" class="ml-5" onclick="postData(refine(myData, getCriteria()))">Search</button>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <table class="mx-auto my-4 table table-bordered">
+            <thead class="grey">
+            <tr>
+                <th>Year Discovered</th>
+                <th>Discovered By</th>
+                <th>Discovery Method</th>
+                <th>Planet Name</th>
+            </tr>
+            </thead>
+            <tbody class="toAdd"></tbody>
+        </table>
+    </div>
+</div>
+<div th:replace="partials/partials :: footer_nav"></div>
+<script th:src="@{/webjars/jquery/3.4.1/jquery.min.js}"></script>
+<script th:src="@{/js/jquery-2.2.4.js}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script th:src="@{/webjars/bootstrap/4.4.1-1/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/exoplanet.js}"></script>
+</body>
+</html>
+
