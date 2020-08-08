@@ -3,9 +3,13 @@
 
 <head th:fragment="head">
     <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device=width, initial-scale=1">
     <link th:href="@{/webjars/bootstrap/4.4.1-1/css/bootstrap.min.css}" rel="stylesheet">
     <link th:href="@{/css/main.css}" rel="stylesheet">
     <script src="https://kit.fontawesome.com/5811016069.js" crossorigin="anonymous"></script>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <title></title>
 </head>
 
@@ -31,7 +35,7 @@
                         Home
                     </a>
                 </li>
-            <li>
+                <li>
                     <div class="dropdown show">
                         <a class="btn btn-secondary" style="background-color: rgb(248 249 250); border: none; color: rgb(124 124 125); padding-top: 8px" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" sec:authorize="isAuthenticated()">
                             <i class="fas fa-cogs mr-2"></i>Projects
@@ -42,7 +46,7 @@
                             <a class="dropdown-item" href="/movie_database/movie_database"><i class="fas fa-film mr-2" sec:authorize="isAuthenticated()"></i>Movie Database</a>
                             <a class="dropdown-item" href="/text_game/text_game"><i class="fab fa-fort-awesome mr-2" sec:authorize="isAuthenticated()"></i>Text Adventure Game</a>
                             <a class="dropdown-item" href="/ads"><i class="fas fa-comments-dollar mr-2" sec:authorize="isAuthenticated()"></i>Craigslist Clone</a>
-<!--                            <a class="dropdown-item" href="/posts"><i class="fas fa-book mr-2"></i>Blog Space</a>-->
+                            <!--                            <a class="dropdown-item" href="/posts"><i class="fas fa-book mr-2"></i>Blog Space</a>-->
                             <a class="dropdown-item" href="/capstone/capstone"><i class="fas fa-project-diagram mr-2" sec:authorize="isAuthenticated()"></i>Capstone Project</a>
                         </div>
                     </div>
@@ -92,7 +96,7 @@
     <!-- collapsing navbar elements -->
     <div class="navbar navbar-expand-lg navbar-light footer">
 
-<!--         left side content -->
+        <!--         left side content -->
         <ul class="navbar-nav ml-auto" id="footer-nav">
             <li class="nav-item"><a class="nav-link mr-3 hvr-grow" href="https://github.com/AnthonySanMiguel" target="_blank" style="color: white;"><i class="fab fa-github mr-2 hvr-gicon"></i>AnthonySanMiguel</a></li>
             <li class="nav-item"><a class="nav-link hvr-grow" href="https://www.linkedin.com/in/anthony-san-miguel-ii/" target="_blank" style="color: white;"><i class="fab fa-linkedin mr-2 hvr-icon"></i>anthony-san-miguel-ii</a></li>

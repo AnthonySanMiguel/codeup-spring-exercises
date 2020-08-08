@@ -5,57 +5,107 @@
 <div th:replace="partials/partials :: top_banner"></div>
 <div th:replace="partials/partials :: standard_nav"></div>
 <div class="container">
-    <div class="row">
-        <p class="mx-auto mt-4"><em><strong>Overview:</strong> A paired-programming project to create a text style, turn-based adventure game. By linking multiple Java methods, the final product was a player-choice driven game supplemented with ASCII art for visual impact. Credit to: <a href="https://github.com/JoshMarchand">https://github.com/JoshMarchand</a> for his contributions.</em></p>
+    <div class="row mb-4">
+        <p class="mx-auto mt-4"><em><strong>Overview:</strong> A paired-programming project to create a text style,
+            turn-based adventure game. By linking multiple Java methods, the final product was a player-choice driven
+            game supplemented with ASCII art for visual impact. Credit to: <a href="https://github.com/JoshMarchand">https://github.com/JoshMarchand</a>
+            for his contributions.</em></p>
     </div>
 </div>
-<div class="row mt-3" style="width: 100%;">
-    <img class="movie_pic_shadow rounded" src="/img/textgame_1.png" style="height: 22em; width: 40em; margin-left: 5%"/>
-    <img class="movie_pic_shadow rounded" src="/img/textgame_2.png" style="height: 22em; width: 40em; margin-left: 3.5%"/>
+<div class="row justify-content-center mb-4">
+    <div class="card border-white" style="width: 45%;">
+        <img class="card-img-top mx-auto" src="/img/textgame_1.png" alt="..." style="height: 80%; width: auto">
+        <div class="card-body">
+            <p class="card-text text-center">Upon program execution, user will be greeted by an image of a castle with a
+                Start prompt (<em>Do you want to enter?</em>)</p>
+        </div>
+    </div>
+    <div class="card ml-4 border-white" style="width: 45%;">
+        <img class="card-img-top mx-auto" src="/img/textgame_2.png" alt="..." style="height: 80%; width: 50%">
+        <div class="card-body">
+            <p class="card-text text-center">After confirming, they will be asked to enter their name and an enemy will
+                appear, initiating the turn-based fighting game.</p>
+        </div>
+    </div>
 </div>
-<div class="row mt-4" style="width: 100%;">
-    <p style="width: 30em; margin-left: 11%">Upon program execution, user will be greeted by an image of a castle with a Start prompt (<em>Do you want to enter?</em>)</p>
-    <p style="width: 30em; margin-left: 16%">After confirming, they will be asked to enter their name and an enemy will appear, initiating the turn-based fighting game.</p>
+<div class="row justify-content-center mb-4">
+    <div class="card border-white" style="width: 45%">
+        <img class="card-img-top mx-auto" src="/img/textgame_3.png" alt="..." style="height: 80%; width: 100%">
+        <div class="card-body">
+            <p class="card-text text-center">The player will then have the option of selecting their weapon, each of
+                which has its own unique buff property:
+            </p>
+        </div>
+    </div>
+    <div class="card ml-4 border-white" style="width: 45%">
+        <img class="card-img-top mx-auto" src="/img/textgame_4.png" alt="..." style="height: 80%; width: auto">
+        <div class="card-body">
+            <p class="card-text text-center"><strong>Sword</strong> = increases critical hit chance.</p>
+        </div>
+    </div>
 </div>
-<div class="row mt-3" style="width: 100%;">
-    <img class="movie_pic_shadow rounded my-auto" src="/img/textgame_3.png" style="height: 22em; width: 40em; margin-left: 5%"/>
-    <img class="movie_pic_shadow rounded" src="/img/textgame_4.png" style="height: 22em; width: 40em; margin-left: 3.5%"/>
+<div class="row justify-content-center mb-4">
+    <div class="card border-white" style="width: 45%">
+        <img class="card-img-top mx-auto" src="/img/textgame_5.png" alt="..." style="height: 80%; width: 98%">
+        <div class="card-body">
+            <p class="card-text text-center"><strong>Axe</strong> = increases attack power.</p>
+        </div>
+    </div>
+    <div class="card ml-4 border-white" style="width: 45%">
+        <img class="card-img-top mx-auto" src="/img/textgame_6.png" alt="..." style="height: 80%; width: auto">
+        <div class="card-body">
+            <p class="card-text text-center"><strong>Mace</strong> = increases defense level.</p>
+        </div>
+    </div>
 </div>
-<div class="row mt-4" style="width: 100%;">
-    <p style="width: 30em; margin-left: 11%">The player will then have the option of selecting their weapon, each of which has its own unique buff property:</p>
-    <p style="width: 30em; margin-left: 20%"><strong>Sword</strong> = increases critical hit chance.<p>
+<div class="row justify-content-center mb-4">
+    <div class="card border-white" style="width: 45%">
+        <img class="card-img-top mx-auto" src="/img/textgame_7.png" alt="..." style="height: 80%; width: 60%">
+        <div class="card-body">
+            <p class="card-text text-center">After selecting their weapon, the player is then prompted with what action
+                to take: <strong>Attack</strong> will allow for one hit opportunity from both the player and enemy;
+                <strong>Defend</strong> will halve incoming enemy attack damage.</p>
+        </div>
+    </div>
+    <div class="card ml-4 border-white" style="width: 45%">
+        <img class="card-img-top mx-auto" src="/img/textgame_8.png" alt="..." style="height: 80%; width: 75%">
+        <div class="card-body">
+            <p class="card-text text-center"><strong>Potion</strong> will replenish player hit points (HP).</p>
+        </div>
+    </div>
 </div>
-<div class="row mt-3" style="width: 100%;">
-    <img class="movie_pic_shadow rounded my-auto" src="/img/textgame_5.png" style="height: 22em; width: 40em; margin-left: 5%"/>
-    <img class="movie_pic_shadow rounded" src="/img/textgame_6.png" style="height: 22em; width: 40em; margin-left: 3.5%"/>
+<div class="row justify-content-center mb-4">
+    <div class="card border-white" style="width: 45%">
+        <img class="card-img-top mx-auto" src="/img/textgame_9.png" alt="..." style="height: 80%; width: 98%">
+        <div class="card-body">
+            <p class="card-text text-center">In the background of each fight, a "Critical Hit" percentage is always
+                present, which may present itself on attack.
+            </p>
+        </div>
+    </div>
+    <div class="card ml-4 border-white" style="width: 45%">
+        <img class="card-img-top mx-auto" src="/img/textgame_10.png" alt="..." style="height: 80%; width: 50%">
+        <div class="card-body">
+            <p class="card-text text-center">Also running in the background, if the battle meets or exceeds 6 "turns" by
+                the player, the special move <em>Kiss of Death!</em> appears as an option. This spell will reduce
+                enemy's HP to 1, allowing for a swift end to the fight.</p>
+        </div>
+    </div>
 </div>
-<div class="row mt-4" style="width: 100%;">
-    <p style="width: 30em; margin-left: 16%"><strong>Axe</strong> = increases attack power.</p>
-    <p style="width: 30em; margin-left: 16%"><strong>Mace</strong> = increases defense level.<p>
-</div>
-<div class="row mt-3" style="width: 100%;">
-    <img class="movie_pic_shadow rounded" src="/img/textgame_7.png" style="height: 22em; width: 40em; margin-left: 5%"/>
-    <img class="movie_pic_shadow rounded my-auto" src="/img/textgame_8.png" style="height: 22em; width: 40em; margin-left: 3.5%"/>
-</div>
-<div class="row mt-4" style="width: 100%;">
-    <p style="width: 30em; margin-left: 11%">After selecting their weapon, the player is then prompted with what action to take: <em>Attack</em> will allow for one hit opportunity from both the player and enemy; <em>Defend</em> will halve incoming enemy attack damage...</p>
-    <p style="width: 30em; margin-left: 16%">...and <em>Potion</em> will replenish player hit points (HP).<p>
-</div>
-<div class="row mt-3" style="width: 100%;">
-    <img class="movie_pic_shadow rounded my-auto" src="/img/textgame_9.png" style="height: 22em; width: 40em; margin-left: 5%"/>
-    <img class="movie_pic_shadow rounded" src="/img/textgame_10.png" style="height: 22em; width: 40em; margin-left: 3.5%"/>
-</div>
-<div class="row mt-4" style="width: 100%;">
-    <p style="width: 30em; margin-left: 11%">In the background of each fight, a "Critical Hit" percentage is always present, which may present itself on attack.</p>
-    <p style="width: 30em; margin-left: 16%">Also running in the background, if the battle meets or exceeds 6 "turns" by the player, the special move <em>Kiss of Death!</em> appears as an option. This spell will reduce enemy's HP to 1, allowing for a swift end to the fight.<p>
-</div>
-<div class="row mt-3" style="width: 100%;">
-    <img class="movie_pic_shadow rounded" src="/img/textgame_11.png" style="height: 22em; width: 40em; margin-left: 5%"/>
-    <img class="movie_pic_shadow rounded" src="/img/textgame_12.png" style="height: 22em; width: 40em; margin-left: 3.5%"/>
-</div>
-<div class="row mt-4" style="width: 100%;">
-    <p style="width: 30em; margin-left: 11%">After vanquishing the enemy, the player is shown a victory message and symbol.</p>
-    <p style="width: 30em; margin-left: 16%">If defeated, they will see a different message and image.<p>
+<div class="row justify-content-center mb-4">
+    <div class="card border-white" style="width: 45%">
+        <img class="card-img-top mx-auto" src="/img/textgame_11.png" alt="..." style="height: 75%; width: auto">
+        <div class="card-body">
+            <p class="card-text text-center">After vanquishing the enemy, the player is shown a victory message and
+                symbol.</p>
+        </div>
+    </div>
+    <div class="card ml-4 border-white" style="width: 45%">
+        <img class="card-img-top mx-auto" src="/img/textgame_12.png" alt="..." style="height: 75%; width: auto">
+        <div class="card-body">
+            <p class="card-text text-center">If defeated, they will see a different message and image.</p>
+        </div>
+    </div>
 </div>
 <div th:replace="partials/partials :: footer_nav"></div>
 <div th:replace="partials/partials :: footer"></div>

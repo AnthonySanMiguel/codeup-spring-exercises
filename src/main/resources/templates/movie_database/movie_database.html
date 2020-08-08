@@ -6,32 +6,62 @@
 <div th:replace="partials/partials :: standard_nav"></div>
 <div class="container">
     <div class="row" style="width: 100%;">
-        <p class="mx-auto mt-4"><em><strong>Overview:</strong> A paired-programming project using an AJAX call to simulate pinging a server database, retrieving the data, and presenting it in a user-friendly format. Users may add, edit, or delete entries, which dynamically update. Credit to: <a href="https://github.com/GuillermoDeLeon">https://github.com/GuillermoDeLeon</a> and <a href="https://github.com/johnnymdelgado12">https://github.com/johnnymdelgado12</a> for their contributions.</em></p>
+        <p class="mx-auto mt-4 mb-4"><em><strong>Overview:</strong> A paired-programming project using an AJAX call to
+            simulate pinging a server database, retrieving the data, and presenting it in a user-friendly format. Users
+            may add, edit, or delete entries, which dynamically update. Credit to: <a
+                    href="https://github.com/GuillermoDeLeon">https://github.com/GuillermoDeLeon</a> and <a
+                    href="https://github.com/johnnymdelgado12">https://github.com/johnnymdelgado12</a> for their
+            contributions.</em></p>
     </div>
 </div>
-<div class="row mt-3" style="width: 100%;">
-    <img class="movie_pic_shadow rounded" src="/img/moviedb_1.png" style="height: 20em; width: 40em; margin-left: 5%"/>
-    <img class="movie_pic_shadow rounded" src="/img/moviedb_2.png" style="height: 20em; width: 40em; margin-left: 3.5%"/>
+<div class="row justify-content-center mb-4">
+    <div class="card border-white" style="width: 45%">
+        <img class="card-img-top" src="/img/moviedb_1.png" alt="...">
+        <div class="card-body">
+            <p class="card-text text-center">Users are greeted with a tabular display of movies available in the
+                database, to include the entry ID, title, genre, and rating for each.</p>
+        </div>
+    </div>
+    <div class="card ml-4 border-white" style="width: 45%">
+        <img class="card-img-top" src="/img/moviedb_2.png" alt="...">
+        <div class="card-body">
+            <p class="card-text text-center">At the bottom of the table, users have the option to Add new entries, or
+                Edit existing ones.</p>
+        </div>
+    </div>
 </div>
-<div class="row mt-4" style="width: 100%;">
-    <p style="width: 30em; margin-left: 11%">Users are greeted with a tabular display of movies available in the database, to include the entry ID, title, genre, and rating for each.</p>
-    <p style="width: 30em; margin-left: 16%">At the bottom of the table, users have the option to Add new entries, or Edit existing ones.</p>
+<div class="row justify-content-center mb-4">
+    <div class="card border-white" style="width: 45%">
+        <img class="card-img-top" src="/img/moviedb_3.png" alt="...">
+        <div class="card-body">
+            <p class="card-text text-center">As an example, if we add a movie to the list (<em>The Terminator</em>)...
+            </p>
+        </div>
+    </div>
+    <div class="card ml-4 border-white" style="width: 45%">
+        <img class="card-img-top" src="/img/moviedb_4.png" alt="...">
+        <div class="card-body">
+            <p class="card-text text-center">After clicking the "Add a Movie" button, we see the table refresh and the
+                new entry populate on the list.</p>
+        </div>
+    </div>
 </div>
-<div class="row mt-3" style="width: 100%;">
-    <img class="movie_pic_shadow rounded" src="/img/moviedb_3.png" style="height: 20em; width: 40em; margin-left: 5%"/>
-    <img class="movie_pic_shadow rounded" src="/img/moviedb_4.png" style="height: 20em; width: 40em; margin-left: 3.5%"/>
-</div>
-<div class="row mt-4" style="width: 100%;">
-    <p style="width: 30em; margin-left: 11%">As an example, if we add a movie to the list (<em>The Terminator</em>)...</p>
-    <p style="width: 30em; margin-left: 16%">After clicking the "Add a Movie" button, we see the table refresh and the new entry populate on the list.<p>
-</div>
-<div class="row mt-3" style="width: 100%;">
-    <img class="movie_pic_shadow rounded" src="/img/moviedb_5.png" style="height: 20em; width: 40em; margin-left: 5%"/>
-    <img class="movie_pic_shadow rounded" src="/img/moviedb_6.png" style="height: 20em; width: 40em; margin-left: 3.5%"/>
-</div>
-<div class="row mt-4" style="width: 100%;">
-    <p style="width: 30em; margin-left: 11%">By clicking the "Remove" button on the right of the entry (<em>The Terminator</em>), the user is greeted by a confirmation prompt.</p>
-    <p style="width: 30em; margin-left: 16%">Once confirmed, the table once again refreshes on click and the data is updated dynamically.<p>
+<div class="row justify-content-center">
+    <div class="card border-white" style="width: 45%">
+        <img class="card-img-top" src="/img/moviedb_5.png" alt="...">
+        <div class="card-body">
+            <p class="card-text text-center">By clicking the "Remove" button on the right of the entry (<em>The
+                Terminator</em>), the user is greeted by a confirmation prompt.</p>
+        </div>
+    </div>
+
+    <div class="card ml-4 border-white" style="width: 45%">
+        <img class="card-img-top" src="/img/moviedb_6.png" alt="...">
+        <div class="card-body">
+            <p class="card-text text-center">Once confirmed, the table once again refreshes on click and the data is
+                updated dynamically.</p>
+        </div>
+    </div>
 </div>
 <div th:replace="partials/partials :: footer_nav"></div>
 <div th:replace="partials/partials :: footer"></div>

@@ -4,27 +4,49 @@
 <div th:replace="partials/partials :: top_banner"></div>
 <div th:replace="partials/partials :: standard_nav"></div>
 <div class="container">
-    <div class="row">
-        <p class="mx-auto mt-4"><em><strong>Overview:</strong> A React tutorial for building a tic-tac-toe game with alternating player moves, an interactive "history" feature to allow rewinding of moves, and a status change showing either winner or draw for results.</p>
+    <div class="row mb-4">
+        <p class="mx-auto mt-4"><em><strong>Overview:</strong> A React tutorial for building a tic-tac-toe game with
+            alternating player moves, an interactive "history" feature to allow rewinding of moves, and a status change
+            showing either winner or draw for results.</em>
     </div>
 </div>
-<div class="row mt-3" style="width: 100%;">
-    <img class="tictactoe_pic_shadow rounded" src="/img/tictactoe1.png" style="height: 25em; width: 27em; margin-left: 15%"/>
-    <img class="tictactoe_pic_shadow rounded" src="/img/tictactoe2.png" style="height: 25em; width: 27em; margin-left: 9%"/>
+<div class="row justify-content-center mb-4">
+    <div class="card border-white" style="width: 45%">
+        <img class="card-img-top mx-auto" src="/img/tictactoe1.png" alt="..." style="width: 50%; height: 75%">
+        <div class="card-body">
+            <p class="card-text text-center">Player is greeted by a game board consisting of 9 squares, prompting the
+                first player ("X") to make the first move.</p>
+        </div>
+    </div>
+    <div class="card ml-4 border-white" style="width: 45%">
+        <img class="card-img-top mx-auto" src="/img/tictactoe2.png" alt="..." style="width: 50%; height: 75%">
+        <div class="card-body">
+            <p class="card-text text-center">Players take turns clicking on one square in the game board, where an image
+                will be placed on click denoting who made the selection. Additionally, the status screen at the top will
+                show which player's turn it is, and the history log on the right will keep track of the movements.</p>
+        </div>
+    </div>
 </div>
-<div class="row mt-4" style="width: 100%;">
-    <p style="width: 30em; margin-left: 15.5%">Player is greeted by a game board consisting of 9 squares, prompting the first player ("X") to make the first move.</p>
-    <p style="width: 30em; margin-left: 4.5%">Players take turns clicking on one square in the game board, where an image will be placed on click denoting who made the selection. Additionally, the status screen at the top will show which player's turn it is, and the history log on the right will keep track of the movements.</p>
-</div>
-<div class="row mt-3" style="width: 100%;">
-    <img class="tictactoe_pic_shadow rounded" src="/img/tictactoe3.png" style="height: 25em; width: 27em; margin-left: 15%"/>
-    <img class="tictactoe_pic_shadow rounded" src="/img/tictactoe4.png" style="height: 25em; width: 27em; margin-left: 9%"/>
-</div>
-<div class="row mt-4" style="width: 100%;">
-    <p style="width: 30em; margin-left: 14.5%">Once the victory conditions/pattern is met, the game will end with a message announcing the winner, as well as highlighting where the conditions were fulfilled, and display their location on the game board.</p>
-    <p style="width: 30em; margin-left: 5.5%">By clicking any of the history log buttons, players may "rewind" their session to render the game to the respective moment in time where that particular move was made.<p>
+<div class="row justify-content-center mb-4">
+    <div class="card border-white" style="width: 45%">
+        <img class="card-img-top mx-auto" src="/img/tictactoe3.png" alt="..." style="width: 50%; height: 75%">
+        <div class="card-body">
+            <p class="card-text text-center">Once the victory conditions/pattern is met, the game will end with a
+                message announcing the winner, as well as highlighting where the conditions were fulfilled, and display
+                their location on the game board.</p>
+        </div>
+    </div>
+    <div class="card ml-4 border-white" style="width: 45%">
+        <img class="card-img-top mx-auto" src="/img/tictactoe4.png" alt="..." style="width: 50%; height: 75%">
+        <div class="card-body">
+            <p class="card-text text-center">By clicking any of the history log buttons, players may "rewind" their
+                session to render the game to the respective moment in time where that particular move was made.</p>
+        </div>
+    </div>
 </div>
 <div th:replace="partials/partials :: footer_nav"></div>
 <div th:replace="partials/partials :: footer"></div>
 </body>
 </html>
+
+
