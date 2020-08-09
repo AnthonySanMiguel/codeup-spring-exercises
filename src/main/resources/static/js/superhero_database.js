@@ -1,40 +1,40 @@
 "use strict";
 
 let superheroes = [
-    {name:"Batman", publisher:"DC", alterEgo:"[ENCRYPTED]", firstAppearance:"Detective Comics #27", characters:"[ENCRYPTED]", img: '<img src="../img/classified.jpg" class="card-picture" alt="" onclick="this.src.=`../img/batman.gif`"/>', btn: '<button id="batman-btn">Analyze</button>', btnCancel: '<button id="batman-cancel-btn">Stop</button>'},
-    {name:"Superman", publisher:"DC", alterEgo:"Kal-El", firstAppearance:"Action Comics #1", characters:"N/A", img: '<img src="../img/classified.jpg" class="card-picture" alt="" onclick="this.src=`../img/superman.gif`"/>', btn: '<button id="superman-btn">Analyze</button>'},
-    {name:"Flash", publisher:"DC", alterEgo:"Jay Garrick", firstAppearance:"Flash Comics #1", characters:"Barry Allen, Wally West, Bart Allen", img: '<img src="../img/classified.jpg" class="card-picture" alt="" onclick="this.src=`../img/flash.gif`"/>', btn: '<button id="flash-btn">Analyze</button>'},
-    {name:"Green Lantern", publisher:"DC", alterEgo:"Alan Scott", firstAppearance:"All-American Comics #16", characters:"Hal Jordan, Guy Gardner, John Stewart", img: '<img src="../img/classified.jpg" class="card-picture" alt="" onclick="this.src=`../img/green_lantern.gif`"/>', btn: '<button id="green_lantern-btn">Analyze</button>'},
-    {name:"Green Arrow", publisher:"DC", alterEgo:"Oliver Queen", firstAppearance:"More Fun Comics #73", characters:"N/A", img: '<img src="../img/classified.jpg" class="card-picture" alt="" onclick="this.src=`../img/green_arrow.gif`"/>', btn: '<button id="green_arrow-btn">Analyze</button>'},
-    {name:"Wonder Woman", publisher:"DC", alterEgo:"Princess Diana", firstAppearance:"All Star Comics #8", characters:"N/A", img: '<img src="../img/classified.jpg" class="card-picture" alt="" onclick="this.src=`../img/wonder_woman.gif`"/>', btn: '<button id="wonder_woman-btn">Analyze</button>'},
-    {name:"Martian Manhunter", publisher:"DC", alterEgo:"J'onn J'onzz", firstAppearance:"Detective Comics #225", characters:"N/A", img: '<img src="../img/classified.jpg" class="card-picture" alt="" onclick="this.src=`../img/martian_manhunter.gif`"/>', btn: '<button id="martian_manhunter-btn">Analyze</button>'},
-    {name:"Robin/Nightwing", publisher:"DC", alterEgo:"Dick Grayson", firstAppearance:"Detective Comics #38", characters:"N/A", img: '<img src="../img/classified.jpg" class="card-picture" alt="" onclick="this.src=`../img/nightwing.gif`"/>', btn: '<button id="nightwing-btn">Analyze</button>'},
-    {name:"Blue Beetle", publisher:"DC", alterEgo:"Dan Garret", firstAppearance:"Mystery Men Comics #1", characters:"Ted Kord, Jaime Reyes", img: '<img src="../img/classified.jpg" class="card-picture" alt="" onclick="this.src=`../img/blue_beetle.gif`"/>', btn: '<button id="blue_beetle-btn">Analyze</button>'},
-    {name:"Black Canary", publisher:"DC", alterEgo:"Dinah Drake", firstAppearance:"Flash Comics #86", characters:"Dinah Lance", img: '<img src="../img/classified.jpg" class="card-picture" alt="" onclick="this.src=`../img/black_canary.gif`"/>', btn: '<button id="black_canary-btn">Analyze</button>'},
-    {name:"Spider-Man", publisher:"Marvel", alterEgo:"Peter Parker", firstAppearance:"Amazing Fantasy #15", characters:"N/A", img: '<img src="../img/classified.jpg" class="card-picture" alt="" onclick="this.src=`../img/spiderman.gif`"/>', btn: '<button id="spiderman-btn">Analyze</button>'},
-    {name:"Captain America", publisher:"Marvel", alterEgo:"Steve Rogers", firstAppearance:"Captain America Comics #1", characters:"N/A", img: '<img src="../img/classified.jpg" class="card-picture" alt="" onclick="this.src=`../img/captain_america.gif`"/>', btn: '<button id="captain_america-btn">Analyze</button>'},
-    {name:"Iron Man", publisher:"Marvel", alterEgo:"Tony Stark", firstAppearance:"Tales of Suspense #39", characters:"N/A", img: '<img src="../img/classified.jpg" class="card-picture" alt="" onclick="this.src=`../img/iron_man.gif`"/>', btn: '<button id="iron_man-btn">Analyze</button>'},
-    {name:"Thor", publisher:"Marvel", alterEgo:"Thor Odinson", firstAppearance:"Journey into Mystery #83", characters:"N/A", img: '<img src="../img/classified.jpg" class="card-picture" alt="" onclick="this.src=`../img/thor.gif`"/>', btn: '<button id="thor-btn">Analyze</button>'},
-    {name:"Hulk", publisher:"Marvel", alterEgo:"Bruce Banner", firstAppearance:"The Incredible Hulk #1", characters:"N/A", img: '<img src="../img/classified.jpg" class="card-picture" alt="" onclick="this.src=`../img/hulk.gif`"/>', btn: '<button id="hulk-btn">Analyze</button>'},
-    {name:"Wolverine", publisher:"Marvel", alterEgo:"James Howlett", firstAppearance:"The Incredible Hulk #180", characters:"N/A", img: '<img src="../img/classified.jpg" class="card-picture" alt="" onclick="this.src=`../img/wolverine.gif`"/>', btn: '<button id="wolverine-btn">Analyze</button>'},
-    {name:"Daredevil", publisher:"Marvel", alterEgo:"Matthew Michael Murdock", firstAppearance:"Daredevil #1", characters:"N/A", img: '<img src="../img/classified.jpg" class="card-picture" alt="" onclick="this.src=`../img/daredevil.txt`"/>', btn: '<button id="daredevil-btn">Analyze</button>'},
-    {name:"Hawkeye", publisher:"Marvel", alterEgo:"Clinton Francis Barton", firstAppearance:"Tales of Suspense #57", characters:"N/A", img: '<img src="../img/classified.jpg" class="card-picture" alt="" onclick="this.src=`../img/hawkeye.gif`"/>', btn: '<button id="hawkeye-btn">Analyze</button>'},
-    {name:"Cyclops", publisher:"Marvel", alterEgo:"Scott Summers", firstAppearance:"X-Men #1", characters:"N/A", img: '<img src="../img/classified.jpg" class="card-picture" alt="" onclick="this.src=`../img/cyclops.txt`"/>', btn: '<button id="cyclops-btn">Analyze</button>'},
-    {name:"Silver Surfer", publisher:"Marvel", alterEgo:"Norrin Radd", firstAppearance:"The Fantastic Four #48", characters:"N/A", img: '<img src="../img/classified.jpg" class="card-picture" alt="" onclick="this.src=`../img/silver_surfer.webp`"/>', btn: '<button id="silver_surfer-btn">Analyze</button>'},
-    {name:"The Punisher", publisher:"Marvel", alterEgo:"Frank Castle", firstAppearance:"The Amazing Spider-Man #129", characters:"Microchip", img: '<img src="../img/classified.jpg" class="card-picture" alt="" onclick="this.src=`../img/punisher.gif`"/>', btn: '<button id="punisher-btn">Analyze</button>'}
+    {name:"Batman", publisher:"DC", alterEgo:"[ENCRYPTED]", firstAppearance:"Detective Comics #27", characters:"[ENCRYPTED]", img: '<img src="../img/classified.jpg" class="card-picture" alt="" onclick="this.src=`../img/batman.gif`"/>', btn: '<button id="batman-btn" class="analysis_start"><span>Start Analysis </span></button>', btnCancel: '<button id="batman-cancel-btn" class="analysis_stop"><span>Stop Analysis </span></button>'},
+    {name:"Superman", publisher:"DC", alterEgo:"Kal-El", firstAppearance:"Action Comics #1", characters:"N/A", img: '<img src="../img/classified.jpg" class="card-picture" alt="" onclick="this.src=`../img/superman.gif`"/>', btn: '<button id="superman-btn" class="analysis_start"><span>Start Analysis </span></button>', btnCancel: '<button id="superman-cancel-btn" class="analysis_stop"><span>Stop Analysis </span></button>'},
+    {name:"Flash", publisher:"DC", alterEgo:"Jay Garrick", firstAppearance:"Flash Comics #1", characters:"Barry Allen, Wally West, Bart Allen", img: '<img src="../img/classified.jpg" class="card-picture" alt="" onclick="this.src=`../img/flash.gif`"/>', btn: '<button id="flash-btn" class="analysis_start"><span>Start Analysis </span></button>', btnCancel: '<button id="flash-cancel-btn" class="analysis_stop"><span>Stop Analysis </span></button>'},
+    {name:"Green Lantern", publisher:"DC", alterEgo:"Alan Scott", firstAppearance:"All-American Comics #16", characters:"Hal Jordan, Guy Gardner, John Stewart", img: '<img src="../img/classified.jpg" class="card-picture" alt="" onclick="this.src=`../img/green_lantern.gif`"/>', btn: '<button id="green_lantern-btn" class="analysis_start"><span>Start Analysis </span></button>', btnCancel: '<button id="green_lantern-cancel-btn" class="analysis_stop"><span>Stop Analysis </span></button>'},
+    {name:"Green Arrow", publisher:"DC", alterEgo:"Oliver Queen", firstAppearance:"More Fun Comics #73", characters:"N/A", img: '<img src="../img/classified.jpg" class="card-picture" alt="" onclick="this.src=`../img/green_arrow.gif`"/>', btn: '<button id="green_arrow-btn" class="analysis_start"><span>Start Analysis </span></button>', btnCancel: '<button id="green_arrow-cancel-btn" class="analysis_stop"><span>Stop Analysis </span></button>'},
+    {name:"Wonder Woman", publisher:"DC", alterEgo:"Princess Diana", firstAppearance:"All Star Comics #8", characters:"N/A", img: '<img src="../img/classified.jpg" class="card-picture" alt="" onclick="this.src=`../img/wonder_woman.gif`"/>', btn: '<button id="wonder_woman-btn" class="analysis_start"><span>Start Analysis </span></button>', btnCancel: '<button id="wonder_woman-cancel-btn" class="analysis_stop"><span>Stop Analysis </span></button>'},
+    {name:"Martian Manhunter", publisher:"DC", alterEgo:"J'onn J'onzz", firstAppearance:"Detective Comics #225", characters:"N/A", img: '<img src="../img/classified.jpg" class="card-picture" alt="" onclick="this.src=`../img/martian_manhunter.gif`"/>', btn: '<button id="martian_manhunter-btn" class="analysis_start"><span>Start Analysis </span></button>', btnCancel: '<button id="martian_manhunter-cancel-btn" class="analysis_stop"><span>Stop Analysis </span></button>'},
+    {name:"Robin/Nightwing", publisher:"DC", alterEgo:"Dick Grayson", firstAppearance:"Detective Comics #38", characters:"N/A", img: '<img src="../img/classified.jpg" class="card-picture" alt="" onclick="this.src=`../img/nightwing.gif`"/>', btn: '<button id="nightwing-btn" class="analysis_start"><span>Start Analysis </span></button>', btnCancel: '<button id="nightwing-cancel-btn" class="analysis_stop"><span>Stop Analysis </span></button>'},
+    {name:"Blue Beetle", publisher:"DC", alterEgo:"Dan Garret", firstAppearance:"Mystery Men Comics #1", characters:"Ted Kord, Jaime Reyes", img: '<img src="../img/classified.jpg" class="card-picture" alt="" onclick="this.src=`../img/blue_beetle.gif`"/>', btn: '<button id="blue_beetle-btn" class="analysis_start"><span>Start Analysis </span></button>', btnCancel: '<button id="blue_beetle-cancel-btn" class="analysis_stop"><span>Stop Analysis </span></button>'},
+    {name:"Black Canary", publisher:"DC", alterEgo:"Dinah Drake", firstAppearance:"Flash Comics #86", characters:"Dinah Lance", img: '<img src="../img/classified.jpg" class="card-picture" alt="" onclick="this.src=`../img/black_canary.gif`"/>', btn: '<button id="black_canary-btn" class="analysis_start"><span>Start Analysis </span></button>', btnCancel: '<button id="black_canary-cancel-btn" class="analysis_stop"><span>Stop Analysis </span></button>'},
+    {name:"Spider-Man", publisher:"Marvel", alterEgo:"Peter Parker", firstAppearance:"Amazing Fantasy #15", characters:"N/A", img: '<img src="../img/classified.jpg" class="card-picture" alt="" onclick="this.src=`../img/spiderman.gif`"/>', btn: '<button id="spiderman-btn" class="analysis_start"><span>Start Analysis </span></button>', btnCancel: '<button id="spiderman-cancel-btn" class="analysis_stop"><span>Stop Analysis </span></button>'},
+    {name:"Captain America", publisher:"Marvel", alterEgo:"Steve Rogers", firstAppearance:"Captain America Comics #1", characters:"N/A", img: '<img src="../img/classified.jpg" class="card-picture" alt="" onclick="this.src=`../img/captain_america.gif`"/>', btn: '<button id="captain_america-btn" class="analysis_start"><span>Start Analysis </span></button>', btnCancel: '<button id="captain_america-cancel-btn" class="analysis_stop"><span>Stop Analysis </span></button>'},
+    {name:"Iron Man", publisher:"Marvel", alterEgo:"Tony Stark", firstAppearance:"Tales of Suspense #39", characters:"N/A", img: '<img src="../img/classified.jpg" class="card-picture" alt="" onclick="this.src=`../img/iron_man.gif`"/>', btn: '<button id="iron_man-btn" class="analysis_start"><span>Start Analysis </span></button>', btnCancel: '<button id="iron_man-cancel-btn" class="analysis_stop"><span>Stop Analysis </span></button>'},
+    {name:"Thor", publisher:"Marvel", alterEgo:"Thor Odinson", firstAppearance:"Journey into Mystery #83", characters:"N/A", img: '<img src="../img/classified.jpg" class="card-picture" alt="" onclick="this.src=`../img/thor.gif`"/>', btn: '<button id="thor-btn" class="analysis_start"><span>Start Analysis </span></button>', btnCancel: '<button id="thor-cancel-btn" class="analysis_stop"><span>Stop Analysis </span></button>'},
+    {name:"Hulk", publisher:"Marvel", alterEgo:"Bruce Banner", firstAppearance:"The Incredible Hulk #1", characters:"N/A", img: '<img src="../img/classified.jpg" class="card-picture" alt="" onclick="this.src=`../img/hulk.gif`"/>', btn: '<button id="hulk-btn" class="analysis_start"><span>Start Analysis </span></button>', btnCancel: '<button id="hulk-cancel-btn" class="analysis_stop"><span>Stop Analysis </span></button>'},
+    {name:"Wolverine", publisher:"Marvel", alterEgo:"James Howlett", firstAppearance:"The Incredible Hulk #180", characters:"N/A", img: '<img src="../img/classified.jpg" class="card-picture" alt="" onclick="this.src=`../img/wolverine.gif`"/>', btn: '<button id="wolverine-btn" class="analysis_start"><span>Start Analysis </span></button>', btnCancel: '<button id="wolverine-cancel-btn" class="analysis_stop"><span>Stop Analysis </span></button>'},
+    {name:"Daredevil", publisher:"Marvel", alterEgo:"Matthew Michael Murdock", firstAppearance:"Daredevil #1", characters:"N/A", img: '<img src="../img/classified.jpg" class="card-picture" alt="" onclick="this.src=`../img/daredevil.txt`"/>', btn: '<button id="daredevil-btn" class="analysis_start"><span>Start Analysis </span></button>', btnCancel: '<button id="daredevil-cancel-btn" class="analysis_stop"><span>Stop Analysis </span></button>'},
+    {name:"Hawkeye", publisher:"Marvel", alterEgo:"Clinton Francis Barton", firstAppearance:"Tales of Suspense #57", characters:"N/A", img: '<img src="../img/classified.jpg" class="card-picture" alt="" onclick="this.src=`../img/hawkeye.gif`"/>', btn: '<button id="hawkeye-btn" class="analysis_start"><span>Start Analysis </span></button>', btnCancel: '<button id="hawkeye-cancel-btn" class="analysis_stop"><span>Stop Analysis </span></button>'},
+    {name:"Cyclops", publisher:"Marvel", alterEgo:"Scott Summers", firstAppearance:"X-Men #1", characters:"N/A", img: '<img src="../img/classified.jpg" class="card-picture" alt="" onclick="this.src=`../img/cyclops.txt`"/>', btn: '<button id="cyclops-btn" class="analysis_start"><span>Start Analysis </span></button>', btnCancel: '<button id="cyclops-cancel-btn" class="analysis_stop"><span>Stop Analysis </span></button>'},
+    {name:"Silver Surfer", publisher:"Marvel", alterEgo:"Norrin Radd", firstAppearance:"The Fantastic Four #48", characters:"N/A", img: '<img src="../img/classified.jpg" class="card-picture" alt="" onclick="this.src=`../img/silver_surfer.webp`"/>', btn: '<button id="silver_surfer-btn" class="analysis_start"><span>Start Analysis </span></button>', btnCancel: '<button id="silver_surfer-cancel-btn" class="analysis_stop"><span>Stop Analysis </span></button>'},
+    {name:"The Punisher", publisher:"Marvel", alterEgo:"Frank Castle", firstAppearance:"The Amazing Spider-Man #129", characters:"Microchip", img: '<img src="../img/classified.jpg" class="card-picture" alt="" onclick="this.src=`../img/punisher.gif`"/>', btn: '<button id="punisher-btn" class="analysis_start"><span>Start Analysis </span></button>', btnCancel: '<button id="punisher-cancel-btn" class="analysis_stop"><span>Stop Analysis </span></button>'}
     ];
 
 function renderHeroCard(x) {
     let html = '<div style="border: 10px solid lightslategray; border-radius: 15px; margin: 0 0 1em 0; background-color: linen;">';
-    html = html + '<div style="color: red; margin: 5px 0 5px 0; font-size: 1em;">' + 'Subject:' + '</div>';
-    html = html + '<h3 style="margin: .5em 0 .5em 0; font-size: 1.5em"><em>' + x.name + '</em></h3>';
+    html = html + '<div style="color: red; margin: 5px 0 5px 0; font-size: 18px; font-weight: bold">' + 'Subject:' + '</div>';
+    html = html + '<h3 style="margin: 0 0 .5em 0; font-size: 20px; font-weight: bold"><em>' + x.name + '</em></h3>';
     html = html + '<span>' + x.img + '</span>';
     html = html + '<p>' + 'Alter Ego: ' + x.alterEgo + '</p>';
     html = html + '<p>' + 'Known Associates: ' + x.characters + '</p>';
     html = html + '<p>' + 'Affiliation: ' + x.publisher + '</p>';
-    html = html + '<p>' + 'Case Origin: ' + x.firstAppearance + '</p>';
-    html = html + '<p style="margin: .5em 0 .5em 0">' + x.btn + '</p>';
-    html = html + '<p style="margin: .5em 0 .5em 0">' + x.btnCancel + '</p>';
+    html = html + '<p>' + 'Case Origin: ' + '<em>' + x.firstAppearance + '</em>' + '</p>';
+    html = html + '<p style="margin: .5em 0 .5em 0;">' + x.btn + '</p>';
+    html = html + '<p style="margin: .5em 0 .5em 0;">' + x.btnCancel + '</p>';
     html = html + '</div>';
     return html;
 }
@@ -95,7 +95,7 @@ function computerSpeak(lyrics, pitch) {
     });
 }
 
-// Character Descriptions via Speech Synthesis:
+// Character Descriptions via Speech Synthesis (from https://comicvine.gamespot.com/):
 
 // Batman
 const analyze_batman = () => {
@@ -114,11 +114,21 @@ const analyze_superman = () => {
 };
 document.getElementById('superman-btn').addEventListener('click', analyze_superman);
 
+const analyze_superman_cancel = () => {
+    return speechSynthesis.cancel();
+};
+document.getElementById('superman-cancel-btn').addEventListener('click', analyze_superman_cancel);
+
 // Flash
 const analyze_flash = () => {
     return computerSpeak('After being doused in chemicals and struck by lightning, Barry was granted the gift of super-speed. Now he protects his hometown of Central City as The Flash, the fastest man alive and founding member of the Justice League.', 0);
 };
 document.getElementById('flash-btn').addEventListener('click', analyze_flash);
+
+const analyze_flash_cancel = () => {
+    return speechSynthesis.cancel();
+};
+document.getElementById('flash-cancel-btn').addEventListener('click', analyze_flash_cancel);
 
 // Green Lantern
 const analyze_green_lantern = () => {
@@ -126,11 +136,21 @@ const analyze_green_lantern = () => {
 };
 document.getElementById('green_lantern-btn').addEventListener('click', analyze_green_lantern);
 
+const analyze_green_lantern_cancel = () => {
+    return speechSynthesis.cancel();
+};
+document.getElementById('green_lantern-cancel-btn').addEventListener('click', analyze_green_lantern_cancel);
+
 // Green Arrow
 const analyze_green_arrow = () => {
     return computerSpeak('Oliver Queen was a spoiled, thrill-seeking playboy, until he was left stranded on a deserted island for several years. There, he trained to become a master archer in order to survive. After his return home, he used his new-found skills and his wealth to became the costumed vigilante known as Green Arrow.', 0);
 };
 document.getElementById('green_arrow-btn').addEventListener('click', analyze_green_arrow);
+
+const analyze_green_arrow_cancel = () => {
+    return speechSynthesis.cancel();
+};
+document.getElementById('green_arrow-cancel-btn').addEventListener('click', analyze_green_arrow_cancel);
 
 // Wonder Woman
 const analyze_wonder_woman = () => {
@@ -138,11 +158,21 @@ const analyze_wonder_woman = () => {
 };
 document.getElementById('wonder_woman-btn').addEventListener('click', analyze_wonder_woman);
 
+const analyze_wonder_woman_cancel = () => {
+    return speechSynthesis.cancel();
+};
+document.getElementById('wonder_woman-cancel-btn').addEventListener('click', analyze_wonder_woman_cancel);
+
 // Martian Manhunter
 const analyze_martian_manhunter = () => {
     return computerSpeak('Sole survivor of the Martian people, John Jones was teleported to Earth decades ago by Dr. Saul Err Dell. Since then, he has adopted Earth as his new home, playing many roles over his time with humanity: detective, secret agent, explorer, and even a founding member of the Justice League.', 0);
 };
 document.getElementById('martian_manhunter-btn').addEventListener('click', analyze_martian_manhunter);
+
+const analyze_martian_manhunter_cancel = () => {
+    return speechSynthesis.cancel();
+};
+document.getElementById('martian_manhunter-cancel-btn').addEventListener('click', analyze_martian_manhunter_cancel);
 
 // Robin/Nightwing
 const analyze_nightwing = () => {
@@ -150,11 +180,21 @@ const analyze_nightwing = () => {
 };
 document.getElementById('nightwing-btn').addEventListener('click', analyze_nightwing);
 
+const analyze_nightwing_cancel = () => {
+    return speechSynthesis.cancel();
+};
+document.getElementById('nightwing-cancel-btn').addEventListener('click', analyze_nightwing_cancel);
+
 // Blue Beetle
 const analyze_blue_beetle = () => {
     return computerSpeak('An archaeologist who gains powers from a Blue Beetle Scarab found in Egypt.', 0);
 };
 document.getElementById('blue_beetle-btn').addEventListener('click', analyze_blue_beetle);
+
+const analyze_blue_beetle_cancel = () => {
+    return speechSynthesis.cancel();
+};
+document.getElementById('blue_beetle-cancel-btn').addEventListener('click', analyze_blue_beetle_cancel);
 
 // Black Canary
 const analyze_black_canary = () => {
@@ -162,11 +202,21 @@ const analyze_black_canary = () => {
 };
 document.getElementById('black_canary-btn').addEventListener('click', analyze_black_canary);
 
+const analyze_black_canary_cancel = () => {
+    return speechSynthesis.cancel();
+};
+document.getElementById('black_canary-cancel-btn').addEventListener('click', analyze_black_canary_cancel);
+
 // Spider Man
 const analyze_spiderman = () => {
     return computerSpeak('Peter Parker was bitten by a radioactive spider as a teenager, granting him spider-like powers.', 0);
 };
 document.getElementById('spiderman-btn').addEventListener('click', analyze_spiderman);
+
+const analyze_spiderman_cancel = () => {
+    return speechSynthesis.cancel();
+};
+document.getElementById('spiderman-cancel-btn').addEventListener('click', analyze_spiderman_cancel);
 
 // Captain America
 const analyze_captain_america = () => {
@@ -174,11 +224,21 @@ const analyze_captain_america = () => {
 };
 document.getElementById('captain_america-btn').addEventListener('click', analyze_captain_america);
 
+const analyze_captain_america_cancel = () => {
+    return speechSynthesis.cancel();
+};
+document.getElementById('captain_america-cancel-btn').addEventListener('click', analyze_captain_america_cancel);
+
 // Iron Man
 const analyze_iron_man = () => {
     return computerSpeak('Tony uses his vast resources and intellect to make the world a better place as The Invincible Iron Man. Starks super hero identity led him to become a founding member of the Avengers.', 0);
 };
 document.getElementById('iron_man-btn').addEventListener('click', analyze_iron_man);
+
+const analyze_iron_man_cancel = () => {
+    return speechSynthesis.cancel();
+};
+document.getElementById('iron_man-cancel-btn').addEventListener('click', analyze_iron_man_cancel);
 
 // Thor
 const analyze_thor = () => {
@@ -186,11 +246,21 @@ const analyze_thor = () => {
 };
 document.getElementById('thor-btn').addEventListener('click', analyze_thor);
 
+const analyze_thor_cancel = () => {
+    return speechSynthesis.cancel();
+};
+document.getElementById('thor-cancel-btn').addEventListener('click', analyze_thor_cancel);
+
 // Hulk
 const analyze_hulk = () => {
     return computerSpeak('After being bombarded with a massive dose of gamma radiation while saving a young mans life during the testing of an experimental bomb, Dr. Robert Bruce Banner was transformed into the Incredible Hulk: a green behemoth who is the living personification of rage and pure physical strength.', 0);
 };
 document.getElementById('hulk-btn').addEventListener('click', analyze_hulk);
+
+const analyze_hulk_cancel = () => {
+    return speechSynthesis.cancel();
+};
+document.getElementById('hulk-cancel-btn').addEventListener('click', analyze_hulk_cancel);
 
 // Wolverine
 const analyze_wolverine = () => {
@@ -198,11 +268,21 @@ const analyze_wolverine = () => {
 };
 document.getElementById('wolverine-btn').addEventListener('click', analyze_wolverine);
 
+const analyze_wolverine_cancel = () => {
+    return speechSynthesis.cancel();
+};
+document.getElementById('wolverine-cancel-btn').addEventListener('click', analyze_wolverine_cancel);
+
 // Daredevil
 const analyze_daredevil = () => {
     return computerSpeak('As a child, Matt Murdock was blinded by radioactive waste while trying to save an elderly stranger about to get hit by a truck carrying the dangerous material. In turn, his other senses were heightened to superhuman sharpness and he gained a form of "radar sense". By day, he is a successful trial lawyer; but by night, he guards Hells Kitchen as Daredevil: the Man Without Fear.', 0);
 };
 document.getElementById('daredevil-btn').addEventListener('click', analyze_daredevil);
+
+const analyze_daredevil_cancel = () => {
+    return speechSynthesis.cancel();
+};
+document.getElementById('daredevil-cancel-btn').addEventListener('click', analyze_daredevil_cancel);
 
 // Hawkeye
 const analyze_hawkeye = () => {
@@ -210,11 +290,21 @@ const analyze_hawkeye = () => {
 };
 document.getElementById('hawkeye-btn').addEventListener('click', analyze_hawkeye);
 
+const analyze_hawkeye_cancel = () => {
+    return speechSynthesis.cancel();
+};
+document.getElementById('hawkeye-cancel-btn').addEventListener('click', analyze_hawkeye_cancel);
+
 // Cyclops
 const analyze_cyclops = () => {
     return computerSpeak('The first X-Man, Scott Summers possesses the mutant ability to draw ambient energy from another dimension through his eyes which are actually portals to the dimension, he usually channels this energy into concussive force blasts. He is visually distinctive for the ruby quartz visor he wears to control his devastating power. A born leader, Cyclops succeeded his mentor Professor X to command the X-Men.', 0);
 };
 document.getElementById('cyclops-btn').addEventListener('click', analyze_cyclops);
+
+const analyze_cyclops_cancel = () => {
+    return speechSynthesis.cancel();
+};
+document.getElementById('cyclops-cancel-btn').addEventListener('click', analyze_cyclops_cancel);
 
 // Silver Surfer
 const analyze_silver_surfer = () => {
@@ -222,8 +312,18 @@ const analyze_silver_surfer = () => {
 };
 document.getElementById('silver_surfer-btn').addEventListener('click', analyze_silver_surfer);
 
+const analyze_silver_surfer_cancel = () => {
+    return speechSynthesis.cancel();
+};
+document.getElementById('silver_surfer-cancel-btn').addEventListener('click', analyze_silver_surfer_cancel);
+
 // The Punisher
 const analyze_punisher = () => {
     return computerSpeak('After his family was killed by the mob, U.S. Marine Special Forces veteran Frank Castle vowed to avenge their deaths and became a one-man army in his personal war against the criminal underworld.', 0);
 };
 document.getElementById('punisher-btn').addEventListener('click', analyze_punisher);
+
+const analyze_punisher_cancel = () => {
+    return speechSynthesis.cancel();
+};
+document.getElementById('punisher-cancel-btn').addEventListener('click', analyze_punisher_cancel);

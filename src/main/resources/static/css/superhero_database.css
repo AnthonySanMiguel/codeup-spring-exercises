@@ -1,20 +1,20 @@
-div.header h1, h2, h4{
+div.header h1, h2, h4 {
     color: black;
     margin: .5em;
 }
 
-p{
+p {
     color: black;
     font-size: 22px;
 }
 
-span{
+span {
     font-size: 1.8em;
 }
 
 /* Banners*/
 
-.header{
+.header {
     margin: 0;
     text-align: center;
     /*background-image: url(".jpg");*/
@@ -29,11 +29,11 @@ input:focus::placeholder {
     color: transparent;
 }
 
-#search{
+#search {
     width: 17em;
 }
 
-.search{
+.search {
     border: 1px solid grey;
     border-radius: 5px;
     height: 50px;
@@ -44,14 +44,14 @@ input:focus::placeholder {
     font-size: medium;
 }
 
-.search:hover, .search:focus{
+.search:hover, .search:focus {
     /*border: 2px solid black;*/
     background-color: lightgoldenrodyellow;
 }
 
 /* Dropdown menu */
 
-.affiliation-dropdown{
+.affiliation-dropdown {
     font-size: 14px;
     border-radius: 5px;
     height: 50px;
@@ -61,7 +61,7 @@ input:focus::placeholder {
     background-color: lightgoldenrodyellow;
 }
 
-.button{
+.button {
     background-color: darkred;
     border: 2px solid darkred;
     color: white;
@@ -74,7 +74,7 @@ input:focus::placeholder {
     transition-duration: .1s;
 }
 
-.button:hover{
+.button:hover {
     background-color: brown;
     border: 2px solid brown;
     color: white;
@@ -88,7 +88,7 @@ input:focus::placeholder {
 
 /*Superhero display list*/
 
-.column{
+.column {
     columns: 3;
     height: auto;
     width: 100%;
@@ -100,31 +100,103 @@ input:focus::placeholder {
     margin: 0;
 }
 
-.content-cards{
+.content-cards {
     text-align: center;
-    font-size: .9em;
+    font-size: 16px;
     padding: 0;
     margin: 0;
 }
 
 .content-cards p {
-    font-size: .7em;
+    font-size: 16px;
     padding: 0;
     margin: .3em 0 0 2em;
 }
 
-.search_boxes{
+.search_boxes {
     text-align: center;
     margin: 3em;
 }
 
-.superhero-names{
+.superhero-names {
     font-family: 'Roboto Mono';
 }
 
-.card-picture{
-    width:90%;
-    height:90%;
+.card-picture {
+    width: 90%;
+    height: 90%;
     object-fit: cover;
     overflow: hidden;
+}
+
+.analysis_start {
+    background-color: forestgreen;
+    color: white;
+    font-size: 10px;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+.analysis_start span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.analysis_start span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+}
+
+.analysis_start:hover span {
+    padding-right: 20px;
+}
+
+.analysis_start:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+.analysis_stop {
+    background-color: indianred;
+    color: white;
+    font-size: 10px;
+    text-shadow:
+            -1px -1px 0 #000,
+            1px -1px 0 #000,
+            -1px 1px 0 #000,
+            1px 1px 0 #000;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+.analysis_stop span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.analysis_stop span:after {
+    content: '\00d8';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+}
+
+.analysis_stop:hover span {
+    padding-right: 20px;
+}
+
+.analysis_stop:hover span:after {
+    opacity: 1;
+    right: 0;
 }
