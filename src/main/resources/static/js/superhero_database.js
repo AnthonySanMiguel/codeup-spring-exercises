@@ -1,7 +1,7 @@
 "use strict";
 
 let superheroes = [
-    {name:"Batman", publisher:"DC", alterEgo:"[ENCRYPTED]", firstAppearance:"Detective Comics #27", characters:"[ENCRYPTED]", img: '<img src="../img/classified.jpg" class="card-picture" alt="" onclick="this.src=`../img/batman.gif`"/>', btn: '<button id="batman-btn">Analyze</button>'},
+    {name:"Batman", publisher:"DC", alterEgo:"[ENCRYPTED]", firstAppearance:"Detective Comics #27", characters:"[ENCRYPTED]", img: '<img src="../img/classified.jpg" class="card-picture" alt="" onclick="this.src.=`../img/batman.gif`"/>', btn: '<button id="batman-btn">Analyze</button>', btnCancel: '<button id="batman-cancel-btn">Stop</button>'},
     {name:"Superman", publisher:"DC", alterEgo:"Kal-El", firstAppearance:"Action Comics #1", characters:"N/A", img: '<img src="../img/classified.jpg" class="card-picture" alt="" onclick="this.src=`../img/superman.gif`"/>', btn: '<button id="superman-btn">Analyze</button>'},
     {name:"Flash", publisher:"DC", alterEgo:"Jay Garrick", firstAppearance:"Flash Comics #1", characters:"Barry Allen, Wally West, Bart Allen", img: '<img src="../img/classified.jpg" class="card-picture" alt="" onclick="this.src=`../img/flash.gif`"/>', btn: '<button id="flash-btn">Analyze</button>'},
     {name:"Green Lantern", publisher:"DC", alterEgo:"Alan Scott", firstAppearance:"All-American Comics #16", characters:"Hal Jordan, Guy Gardner, John Stewart", img: '<img src="../img/classified.jpg" class="card-picture" alt="" onclick="this.src=`../img/green_lantern.gif`"/>', btn: '<button id="green_lantern-btn">Analyze</button>'},
@@ -34,6 +34,7 @@ function renderHeroCard(x) {
     html = html + '<p>' + 'Affiliation: ' + x.publisher + '</p>';
     html = html + '<p>' + 'Case Origin: ' + x.firstAppearance + '</p>';
     html = html + '<p style="margin: .5em 0 .5em 0">' + x.btn + '</p>';
+    html = html + '<p style="margin: .5em 0 .5em 0">' + x.btnCancel + '</p>';
     html = html + '</div>';
     return html;
 }
@@ -101,6 +102,11 @@ const analyze_batman = () => {
     return computerSpeak('File encrypted. Access denied.', 0);
 };
 document.getElementById('batman-btn').addEventListener('click', analyze_batman);
+
+const analyze_batman_cancel = () => {
+    return speechSynthesis.cancel();
+};
+document.getElementById('batman-cancel-btn').addEventListener('click', analyze_batman_cancel);
 
 //Superman
 const analyze_superman = () => {
