@@ -29,12 +29,12 @@ function renderHeroCard(x) {
     html = html + '<div style="color: red; margin: 5px 0 5px 0; font-size: 18px; font-weight: bold">' + 'Subject:' + '</div>';
     html = html + '<h3 style="margin: 0 0 .5em 0; font-size: 20px; font-weight: bold"><em>' + x.name + '</em></h3>';
     html = html + '<span>' + x.img + '</span>';
-    html = html + '<p>' + 'Alter Ego: ' + x.alterEgo + '</p>';
-    html = html + '<p>' + 'Known Associates: ' + x.characters + '</p>';
-    html = html + '<p>' + 'Affiliation: ' + x.publisher + '</p>';
-    html = html + '<p>' + 'Case Origin: ' + '<em>' + x.firstAppearance + '</em>' + '</p>';
-    html = html + '<p style="margin: .5em 0 .5em 0;">' + x.btn + '</p>';
-    html = html + '<p style="margin: .5em 0 .5em 0;">' + x.btnCancel + '</p>';
+    html = html + '<p class="mx-auto" style="text-decoration-line: underline">' + 'Alter Ego:' + '</p>' + '<p class="mx-auto">' + x.alterEgo + '</p>';
+    html = html + '<p class="mx-auto" style="text-decoration-line: underline">' + 'Known Associates:' + '</p>' + '<p class="mx-auto">' + x.characters + '</p>';
+    html = html + '<p class="mx-auto" style="text-decoration-line: underline">' + 'Affiliation:' + '</p>' + '<p class="mx-auto">' + x.publisher + '</p>';
+    html = html + '<p class="mx-auto" style="text-decoration-line: underline">' + 'Case Origin:' + '</p>' + '<p class="mx-auto">' + '<em>' + x.firstAppearance+ '</em>' + '</p>';
+    html = html + '<p class="mx-auto">' + x.btn + '</p>';
+    html = html + '<p class="mx-auto" style="margin-bottom: .3em">' + x.btnCancel + '</p>';
     html = html + '</div>';
     return html;
 }
