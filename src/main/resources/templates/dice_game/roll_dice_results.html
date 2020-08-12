@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/partials :: head"><title></title></head>
+<body>
+<div th:replace="partials/partials :: top_banner"></div>
+<div th:replace="partials/partials :: standard_nav"></div>
+<div class="container">
+    <div class="row">
+        <h2 class="mx-auto mt-2">You guessed: <span th:text="${userGuess}"></span></h2>
+    </div>
+    <div class="row">
+        <h2 class="mx-auto mt-2">The random number was: </h2>
+    </div>
+    <div class="row mb-4">
+        <img src="../../img/red_cup.jpeg" alt="red cup" class="mx-auto" style="height: auto; width: 200px; transform: rotate(38deg); padding-left: 100px"/>
+    </div>
+    <div class="row mt-5 mb-3 mx-auto">
+        <h2 class="mx-auto"><span th:text="${randomSelection}"></span></h2>
+    </div>
+    <div class="row">
+        <div class="alert alert-success mx-auto" th:if="${userGuess == randomSelection}">
+            <h3>Congratulations!</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="alert alert-danger mx-auto" th:unless="${userGuess == randomSelection}">
+            <h3>Try again!</h3>
+        </div>
+    </div>
+    <div class="row">
+        <a th:href="@{'/roll_dice'}" style="color: black" class="mx-auto mt-2">
+            <button type="button" class="btn btn-primary" data-target="/roll_dice" id="play_again">
+                <i class="fas fa-undo mr-2" style="color: white"></i>
+                Guess Again
+            </button>
+        </a>
+    </div>
+</div>
+<div th:replace="partials/partials :: footer_nav"></div>
+<div th:replace="partials/partials :: footer"></div>
+</body>
+</html>
