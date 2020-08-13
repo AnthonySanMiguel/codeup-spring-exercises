@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class RollDiceController {
 
-    @GetMapping("/roll_dice")
+    @GetMapping("/dice_game/roll_dice")
     public String diceGreeter() {
-        return "dice_game/roll_dice";
+        return "/dice_game/roll_dice";
     }
 
     @GetMapping("/roll_dice/{guessedNumber}")
@@ -18,6 +18,6 @@ public class RollDiceController {
         int randomNumber = (int) Math.floor(Math.random() * 10 + 1);
         model.addAttribute("userGuess", guessedNumber);
         model.addAttribute("randomSelection", randomNumber);
-        return "dice_game/roll_dice_results";
+        return "/dice_game/roll_dice_results";
     }
 }
