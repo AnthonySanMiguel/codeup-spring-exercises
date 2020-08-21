@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/partials :: head"><title>React-Three-Fiber Tutorial</title></head>
+<body>
+<div th:replace="partials/partials :: top_banner"></div>
+<div th:replace="partials/partials :: standard_nav"></div>
+<div class="container">
+    <div class="row" style="width: 100%;">
+        <p class="mx-auto mt-4 mb-4"><em><strong>Overview:</strong> A tutorial on how to implement three.js models in React using 'react-three-fiber' to create a <em> Star Fox </em> inspired template.
+            <br>Credit to: <a href="https://codeworkshop.dev/blog/2020-03-31-creating-a-3d-spacefox-scene-with-react-three-fiber/">https://codeworkshop.dev/blog/2020-03-31-creating-a-3d-spacefox-scene-with-react-three-fiber/</a>
+            for the lesson.</em></p>
+    </div>
+</div>
+<div class="row justify-content-center mb-4">
+    <div class="card border-white" style="width: 45%">
+        <img class="card-img-top" src="/img/reactfox_wireframe.png" alt="...">
+        <div class="card-body">
+            <p class="card-text text-center">Upon completion of all three tutorials, you are now able to run a basic wireframe of a shooter-style game.</p>
+        </div>
+    </div>
+    <div class="card ml-4 border-white" style="width: 45%">
+        <img class="card-img-top" src="/img/reactfox_custom.png" alt="..." style="height: 73%; width: auto">
+        <div class="card-body">
+            <p class="card-text text-center">After a little bit more experimentation, you can add custom models, colors, and even textures! I attempted a more 'grounded' destroy-the-base game rather than blasting incoming asteroids in space.</p>
+        </div>
+    </div>
+<div th:replace="partials/partials :: footer_nav"></div>
+<div th:replace="partials/partials :: footer"></div>
+</body>
+</html>
