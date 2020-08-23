@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/partials :: head"><title>Rock, Paper, Scissors Tutorial</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            font-size: 150px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+<div th:replace="partials/partials :: top_banner"></div>
+<div th:replace="partials/partials :: standard_nav"></div>
+<div class="container">
+    <div class="row" style="width: 100%;">
+        <p class="mx-auto mt-4 mb-4"><em><strong>Overview:</strong> A tutorial on how to create a rock, paper, scissors
+            game using only JQuery, Bootstrap, and FontAwesome.
+            <br>Credit to: <a
+                    href="https://davewritescode.com/blog/coding-a-rock-paper-scissors-game-with-jquery-bootstrap-and-fontawesome/">https://davewritescode.com/blog/coding-a-rock-paper-scissors-game-with-jquery-bootstrap-and-fontawesome/</a>
+            for the lesson.</em></p>
+    </div>
+</div>
+<section>
+    <div class="container">
+        <div id="status" class="text-center"></div>
+        <div id="player" class="text-center"></div>
+        <div id="computer" class="text-center mb-4"></div>
+    </div>
+</section>
+<section>
+    <center>
+        <div class="row justify-content-center">
+            <!--        <div class="btn-group btn-group-lg" role="group">-->
+            <button type="button" onclick="rock()" class="btn btn-secondary">Rock</button>
+            <button type="button" onclick="paper()" class="btn btn-info">Paper</button>
+            <button type="button" onclick="scissors()" class="btn btn-primary">Scissors</button>
+            <!--        </div>-->
+        </div>
+    </center>
+</section>
+<div th:replace="partials/partials :: footer_nav"></div>
+<div th:replace="partials/partials :: footer"></div>
+</body>
+<script>
+    $(function () {
+    });
+    let hand = ["rock", "paper", "scissors"];
+
+    function rock() {
+        $("#player").html("You picked: <i class='far fa-hand-rock'></i> Rock");
+        rockPaperScissors();
+    }
+
+    function paper() {
+        $("#player").html("You picked: <i class='far fa-newspaper'></i> Paper");
+        rockPaperScissors();
+    }
+
+    function scissors() {
+        $("#player").html("You picked: <i class='far fa-hand-scissors'></i> Scissors");
+        rockPaperScissors();
+    }
+
+    function rockPaperScissors() {
+        let symbol = arguments.callee.caller.name;
+        let cpuSymbol = hand[Math.floor(Math.random() * 3)];
+        switch (cpuSymbol) {
+            case "rock":
+                $("#computer").html("Computer chose: <i class='far fa-hand-rock'></i> Rock");
+                symbol == "scissors" ? denoteLoser() : symbol == "paper" ? denoteWinner() : denoteDraw();
+                break;
+            case "paper":
+                $("#computer").html("Computer chose: <i class='far fa-newspaper'></i> Paper");
+                symbol == "rock" ? denoteLoser() : symbol == "scissors" ? denoteWinner() : denoteDraw()
+                break;
+            case "scissors":
+                $("#computer").html("Computer chose: <i class='far fa-hand-scissors'></i> Scissors");
+                symbol == "paper" ? denoteLoser() : symbol == "rock" ? denoteWinner() : denoteDraw()
+                break;
+        }
+
+        function denoteWinner() {
+            return $("#status").html("You Win!");
+        }
+
+        function denoteLoser() {
+            return $("#status").html("You Lose...");
+        }
+
+        function denoteDraw() {
+            return $("#status").html("It's a Draw!");
+        }
+    }
+
+</script>
+</html>

@@ -78,6 +78,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                         "/exoplanet/exoplanet",
                         "/superhero_database/superhero_database",
                         "/reactfox_tutorial/reactfox_tutorial",
+                        "/rock_paper_scissors_tutorial/rock_paper_scissors_tutorial",
                         "/login"
 // Enter Here ----->
                 )
