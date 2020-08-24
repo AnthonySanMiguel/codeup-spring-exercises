@@ -21,17 +21,16 @@
 <div class="container">
     <div class="row" style="width: 100%;">
         <p class="mx-auto mt-4 mb-4"><em><strong>Overview:</strong> A tutorial on how to create a rock, paper, scissors
-            game using only JQuery, Bootstrap, and FontAwesome.
-            <br>Credit to: <a
+            game using only JQuery, Bootstrap, and FontAwesome. Credit to: <a
                     href="https://davewritescode.com/blog/coding-a-rock-paper-scissors-game-with-jquery-bootstrap-and-fontawesome/">https://davewritescode.com/blog/coding-a-rock-paper-scissors-game-with-jquery-bootstrap-and-fontawesome/</a>
             for the lesson.</em></p>
     </div>
 </div>
 <section>
     <div class="container">
-        <div id="status" class="text-center"></div>
         <div id="player" class="text-center"></div>
-        <div id="computer" class="text-center mb-4"></div>
+        <div id="computer" class="text-center"></div>
+        <div id="status" class="text-center alert mb-4" role="alert"></div>
     </div>
 </section>
 <section>
@@ -54,50 +53,50 @@
     let hand = ["rock", "paper", "scissors"];
 
     function rock() {
-        $("#player").html("You picked: <i class='far fa-hand-rock'></i> Rock");
+        $("#player").html("<h2> You picked: <i class='far fa-hand-rock'></i> (Rock) </h2>");
         rockPaperScissors();
     }
 
     function paper() {
-        $("#player").html("You picked: <i class='far fa-newspaper'></i> Paper");
+        $("#player").html("<h2> You picked: <i class='far fa-hand-paper'></i> (Paper) </h2>");
         rockPaperScissors();
     }
 
     function scissors() {
-        $("#player").html("You picked: <i class='far fa-hand-scissors'></i> Scissors");
+        $("#player").html("<h2> You picked: <i class='far fa-hand-scissors'></i> (Scissors) </h2>");
         rockPaperScissors();
     }
 
-    function rockPaperScissors() {
+        function rockPaperScissors() {
         let symbol = arguments.callee.caller.name;
         let cpuSymbol = hand[Math.floor(Math.random() * 3)];
         switch (cpuSymbol) {
             case "rock":
-                $("#computer").html("Computer chose: <i class='far fa-hand-rock'></i> Rock");
+                $("#computer").html("<h2> Computer chose: <i class='far fa-hand-rock'></i> (Rock) </h2>");
                 symbol == "scissors" ? denoteLoser() : symbol == "paper" ? denoteWinner() : denoteDraw();
                 break;
             case "paper":
-                $("#computer").html("Computer chose: <i class='far fa-newspaper'></i> Paper");
+                $("#computer").html("<h2> Computer chose: <i class='far fa-hand-paper'></i> (Paper) </h2>");
                 symbol == "rock" ? denoteLoser() : symbol == "scissors" ? denoteWinner() : denoteDraw()
                 break;
             case "scissors":
-                $("#computer").html("Computer chose: <i class='far fa-hand-scissors'></i> Scissors");
+                $("#computer").html("<h2> Computer chose: <i class='far fa-hand-scissors'></i> (Scissors) </h2>");
                 symbol == "paper" ? denoteLoser() : symbol == "rock" ? denoteWinner() : denoteDraw()
                 break;
+            }
         }
 
         function denoteWinner() {
-            return $("#status").html("You Win!");
+            return $("#status").html("<h2 class='alert-success'> You Win! </h2>");
         }
 
         function denoteLoser() {
-            return $("#status").html("You Lose...");
+            return $("#status").html("<h2 class='alert-danger'> You Lose... </h2>");
         }
 
         function denoteDraw() {
-            return $("#status").html("It's a Draw!");
+            return $("#status").html("<h2 class='alert-warning'> It's a Draw! </h2>");
         }
-    }
 
 </script>
 </html>
