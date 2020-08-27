@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/partials :: head"><title>Hangman Game</title></head>
+<body>
+<div th:replace="partials/partials :: top_banner"></div>
+<div th:replace="partials/partials :: standard_nav"></div>
+<div class="container">
+    <div class="row" style="width: 100%;">
+        <p class="mx-auto mt-4 mb-4"><em><strong>Overview:</strong> A tutorial for re-creating the classic game of 'Hangman' in Python. Credit to: <a
+                    href="https://inventwithpython.com/chapter9.html">https://inventwithpython.com/chapter9.html</a> for the
+            lesson.</em></p>
+    </div>
+</div>
+<div class="row justify-content-center mb-4">
+    <div class="card border-white" style="width: 45%">
+        <img class="card-img-top" src="/img/hangman1.png" alt="...">
+        <div class="card-body">
+            <p class="card-text text-center">Program begins displaying the game title, as well as a blank 'gallows'. A random word is selected from a list of words and the game begins!</p>
+        </div>
+    </div>
+    <div class="card ml-4 border-white" style="width: 45%">
+        <img class="card-img-top" src="/img/hangman2.png" alt="...">
+        <div class="card-body">
+            <p class="card-text text-center">The player will take turns entering one letter for each of their guesses, with an allowance of 6 incorrect guesses until the game is over. For each incorrect guess, the ASCII art will be re-rendered and add a piece of the 'hangman' until complete. Letters guessed incorrectly will be helpfully displayed to the player, and anytime a correct letter is guessed, the blank fields will populate where appropriate.</p>
+        </div>
+    </div>
+</div>
+<div class="row justify-content-center mb-4">
+    <div class="card border-white" style="width: 45%">
+        <img class="card-img-top" src="/img/hangman3.png" alt="...">
+        <div class="card-body">
+            <p class="card-text text-center">Also, an excellent condensation of logic is that whenever the player enters a CAPITALIZED word...
+            </p>
+        </div>
+    </div>
+    <div class="card ml-4 border-white" style="width: 45%">
+        <img class="card-img-top" src="/img/hangman4.png" alt="...">
+        <div class="card-body">
+            <p class="card-text text-center">The program will automatically convert it down to lowercase for faster verification. It will also validate whether or not the entry was in fact an alpha character (letter) and prompt the player if their input was not the correct type.</p>
+        </div>
+    </div>
+</div>
+<div class="row justify-content-center">
+    <div class="card border-white" style="width: 45%">
+        <img class="card-img-top" src="/img/hangman5.png" alt="...">
+        <div class="card-body">
+            <p class="card-text text-center">If the player does not correctly guess all the letters within their 6 turns, the game will end. Both their number of correct and incorrect guesses will be shown, as well as the word that was in play.</p>
+        </div>
+    </div>
+</div>
+<div th:replace="partials/partials :: footer_nav"></div>
+<div th:replace="partials/partials :: footer"></div>
+</body>
+</html>
