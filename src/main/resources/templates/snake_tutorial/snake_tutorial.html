@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/partials :: head"><title>Snake Tutorial</title></head>
+<body>
+<div th:replace="partials/partials :: top_banner"></div>
+<div th:replace="partials/partials :: standard_nav"></div>
+<div class="container">
+    <div class="row" style="width: 100%;">
+        <p class="mx-auto mt-4 mb-4"><em><strong>Overview:</strong> A tutorial on how to recreate the classic game Snake in Java.
+            <br>Credit to: <a href="http://zetcode.com/javagames/snake/">http://zetcode.com/javagames/snake/</a>
+            for the tutorial.</em></p>
+    </div>
+</div>
+<div class="row justify-content-center mb-4">
+    <div class="card border-white" style="width: 25%">
+        <img class="card-img-top" src="/img/snake_1.png" alt="...">
+        <div class="card-body">
+            <p class="card-text text-center">Completing this tutorial will provide you with a great starting template to dive into and tweak to your liking.</p>
+        </div>
+    </div>
+<!--    <div class="card ml-4 border-white" style="width: 45%">-->
+<!--        <img class="card-img-top" src="/img/reactfox_custom.png" alt="..." style="height: 73%; width: auto">-->
+<!--        <div class="card-body">-->
+<!--            <p class="card-text text-center">After a little bit more experimentation, you can add custom models, colors, and even textures! I attempted a more 'grounded' destroy-the-base game rather than blasting incoming asteroids in space.</p>-->
+<!--        </div>-->
+<!--    </div>-->
+</div>
+<div th:replace="partials/partials :: footer_nav"></div>
+<div th:replace="partials/partials :: footer"></div>
+</body>
+</html>
