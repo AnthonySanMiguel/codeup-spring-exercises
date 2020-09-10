@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/partials :: head"><title>React Calculator Tutorial</title></head>
+<body>
+<div th:replace="partials/partials :: top_banner"></div>
+<div th:replace="partials/partials :: standard_nav"></div>
+<div class="container">
+    <div class="row" style="width: 100%;">
+        <p class="mx-auto mt-4 mb-4"><em><strong>Overview:</strong> A tutorial on how to create a calculator with discount capabilities in React. Credit to: <a href="https://www.golangprograms.com/react-js-projects-for-beginners/bill-and-discount-calculator-in-react-js.html">https://www.golangprograms.com/react-js-projects-for-beginners/bill-and-discount-calculator-in-react-js.html</a>
+            for the tutorial.</em></p>
+    </div>
+</div>
+<div class="row justify-content-center mb-4">
+    <div class="card border-white" style="width: 25%">
+        <img class="card-img-top" src="/img/react_calculator_1.png" alt="...">
+        <div class="card-body">
+            <p class="card-text text-center">Completing the tutorial will give you the calculator as shown above, which you can enter a bill amount and dynamically see percentages and tip amounts.</p>
+        </div>
+    </div>
+    <div class="card ml-4 border-white" style="width: 25%">
+        <img class="card-img-top" src="/img/pacman_2.png" alt="...">
+        <div class="card-body">
+            <p class="card-text text-center">Of course, feel free to experiment once completed and change the colors, ghost pngs, and even design your own maze!</p>
+        </div>
+    </div>
+</div>
+<div th:replace="partials/partials :: footer_nav"></div>
+<div th:replace="partials/partials :: footer"></div>
+</body>
+</html>

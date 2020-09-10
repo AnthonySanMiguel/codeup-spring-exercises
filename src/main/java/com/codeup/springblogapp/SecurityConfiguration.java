@@ -82,6 +82,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                         "/hangman/hangman,",
                         "/snake_tutorial/snake_tutorial",
                         "/java_pacman_tutorial/java_pacman_tutorial",
+                        "/react_calculator/react_calculator",
                         "/login"
 // Enter Here ----->
                 )
