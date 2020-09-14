@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/partials :: head"><title>React Compass Clock Tutorial</title></head>
+<body>
+<div th:replace="partials/partials :: top_banner"></div>
+<div th:replace="partials/partials :: standard_nav"></div>
+<div class="container">
+    <div class="row" style="width: 100%;">
+        <p class="mx-auto mt-4 mb-4"><em><strong>Overview:</strong> A tutorial on how to create a compass style clock using React. Credit to: <a href="https://www.golangprograms.com/react-js-projects-for-beginners/react-js-compass-clock.html">https://www.golangprograms.com/react-js-projects-for-beginners/react-js-compass-clock.html</a>
+            for the tutorial.</em></p>
+    </div>
+</div>
+<div class="row justify-content-center mb-4">
+    <div class="card border-white" style="width: 45%">
+        <img class="card-img-top" src="/img/react_compass_clock_1.png" alt="...">
+        <div class="card-body">
+            <p class="card-text text-center">The final result is a fully functioning compass clock which dynamically tracks year, month, day, week, hour, minute, and seconds.</p>
+        </div>
+    </div>
+    <div class="card ml-4 border-white" style="width: 25%">
+        <img class="card-img-top" src="/img/pacman_2.png" alt="...">
+        <div class="card-body">
+            <p class="card-text text-center">Of course, feel free to experiment once completed and change the colors, ghost pngs, and even design your own maze!</p>
+        </div>
+    </div>
+</div>
+<div th:replace="partials/partials :: footer_nav"></div>
+<div th:replace="partials/partials :: footer"></div>
+</body>
+</html>

@@ -84,6 +84,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                         "/java_pacman_tutorial/java_pacman_tutorial",
                         "/react_calculator/react_calculator",
                         "/memory_game/memory_game",
+                        "react_compass_clock/react_compass_clock",
                         "/login"
 // Enter Here ----->
                 )
