@@ -8,6 +8,6 @@ public class TextGameController {
 
     @GetMapping("/text_game/text_game")
     public String TextGamePage() {
-        return "/text_game/text_game";
+        return "text_adventure_game";
     }
 }

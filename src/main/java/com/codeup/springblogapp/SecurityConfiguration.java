@@ -85,6 +85,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                         "/react_calculator/react_calculator",
                         "/memory_game/memory_game",
                         "react_compass_clock/react_compass_clock",
+                        "/react_metronome/react_metronome",
                         "/login"
 // Enter Here ----->
                 )

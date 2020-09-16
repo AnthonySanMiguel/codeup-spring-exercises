@@ -8,6 +8,6 @@ public class TicTacToeController {
 
     @GetMapping("/tictactoe/tictactoe")
     public String ticTacToePage() {
-        return "/tictactoe/tictactoe";
+        return "react_tictactoe";
     }
 }
