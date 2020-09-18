@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/partials :: head"><title>React Todo Tutorial</title></head>
+<body>
+<div th:replace="partials/partials :: top_banner"></div>
+<div th:replace="partials/partials :: standard_nav"></div>
+<div class="container">
+    <div class="row" style="width: 100%;">
+        <p class="mx-auto mt-4 mb-4"><em><strong>Overview:</strong> A tutorial on how to create a simple "To Do" app using React.
+            <br>Credit to: <a href="https://ibaslogic.com/react-tutorial-for-beginners/">https://ibaslogic.com/react-tutorial-for-beginners/</a>
+            for the lesson.</em></p>
+    </div>
+</div>
+<div class="row justify-content-center mb-4">
+    <div class="card border-white" style="width: 45%">
+        <img class="card-img-top" src="/img/react_todo_1.png" alt="...">
+        <div class="card-body">
+            <p class="card-text text-center">The end result is a simple task tracker which allows custom entries via user input, state change on checkbox selection, and a deletion button to remove entirely.</p>
+        </div>
+    </div>
+</div>
+<div th:replace="partials/partials :: footer_nav"></div>
+<div th:replace="partials/partials :: footer"></div>
+</body>
+</html>
