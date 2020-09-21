@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class HangmanController {
 
-    @GetMapping("/hangman/hangman")
+    @GetMapping("/python_hangman/python_hangman")
     public String HangmanPage() {
-        return "/hangman/hangman";
+        return "/python_hangman/python_hangman";
     }
 }

@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class TextGameController {
 
-    @GetMapping("/text_game/text_game")
+    @GetMapping("/text_adventure_game/text_adventure_game")
     public String TextGamePage() {
-        return "text_adventure_game";
+        return "text_adventure_game/text_adventure_game";
     }
 }

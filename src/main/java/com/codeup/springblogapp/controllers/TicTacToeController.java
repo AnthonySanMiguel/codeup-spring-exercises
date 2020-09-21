@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class TicTacToeController {
 
-    @GetMapping("/tictactoe/tictactoe")
+    @GetMapping("/react_tictactoe/react_tictactoe")
     public String ticTacToePage() {
-        return "react_tictactoe";
+        return "react_tictactoe/react_tictactoe";
     }
 }

@@ -44,7 +44,7 @@
                             <a class="dropdown-item" href="/coffee_project/coffee"><i class="fas fa-mug-hot mr-2" sec:authorize="isAuthenticated()"></i>Coffee Project</a>
                             <a class="dropdown-item" href="/weather_map/weather_map"><i class="fas fa-cloud-sun-rain mr-2" sec:authorize="isAuthenticated()"></i>Weather Map</a>
                             <a class="dropdown-item" href="/movie_database/movie_database"><i class="fas fa-film mr-2" sec:authorize="isAuthenticated()"></i>Movie Database</a>
-                            <a class="dropdown-item" href="/text_game/text_game"><i class="fab fa-fort-awesome mr-2" sec:authorize="isAuthenticated()"></i>Text Adventure Game</a>
+                            <a class="dropdown-item" href="/text_adventure_game/text_adventure_game"><i class="fab fa-fort-awesome mr-2" sec:authorize="isAuthenticated()"></i>Text Adventure Game</a>
                             <a class="dropdown-item" href="/ads"><i class="fas fa-comments-dollar mr-2" sec:authorize="isAuthenticated()"></i>Craigslist Clone</a>
                             <!--                            <a class="dropdown-item" href="/posts"><i class="fas fa-book mr-2"></i>Blog Space</a>-->
                             <a class="dropdown-item" href="/capstone/capstone"><i class="fas fa-project-diagram mr-2" sec:authorize="isAuthenticated()"></i>Capstone Project</a>
@@ -54,24 +54,51 @@
                 <li>
                     <div class="dropdown show">
                         <a class="btn btn-secondary" style="background-color: rgb(248 249 250); border: none; color: rgb(124 124 125); padding-top: 8px" href="#" role="button" id="dropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" sec:authorize="isAuthenticated()">
-                            <i class="fas fa-gifts mr-2"></i>Extras
+                            <i class="fab fa-js-square mr-2"></i>JavaScript
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-item" href="/breakout_game/breakout_index"><i class="fas fa-gamepad mr-2" sec:authorize="isAuthenticated()"></i>Breakout Game</a>
+                            <a class="dropdown-item" href="/superhero_database/superhero_database"><i class="fas fa-mask mr-2" sec:authorize="isAuthenticated()"></i>Superhero Database</a>
+                            <a class="dropdown-item" href="/rock_paper_scissors_tutorial/rock_paper_scissors_tutorial"><i class="fas fa-hand-scissors mr-2" sec:authorize="isAuthenticated()"></i>Rock, Paper, Scissors</a>
+                            <a class="dropdown-item" href="/exoplanet/exoplanet"><i class="fas fa-satellite-dish mr-2" sec:authorize="isAuthenticated()"></i>ExoPlanet Archive</a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="dropdown show">
+                        <a class="btn btn-secondary" style="background-color: rgb(248 249 250); border: none; color: rgb(124 124 125); padding-top: 8px" href="#" role="button" id="dropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" sec:authorize="isAuthenticated()">
+                            <i class="fab fa-java mr-2"></i>Java
                         </a>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                             <a class="dropdown-item" href="/dice_game/roll_dice"><i class="fas fa-dice mr-2" sec:authorize="isAuthenticated()"></i>Dice Game</a>
-                            <a class="dropdown-item" href="/breakout_game/breakout_index"><i class="fas fa-gamepad mr-2" sec:authorize="isAuthenticated()"></i>Breakout Game</a>
-                            <a class="dropdown-item" href="/superhero_database/superhero_database"><i class="fas fa-mask mr-2" sec:authorize="isAuthenticated()"></i>Superhero Database</a>
-                            <a class="dropdown-item" href="/exoplanet/exoplanet"><i class="fas fa-satellite-dish mr-2" sec:authorize="isAuthenticated()"></i>ExoPlanet Archive</a>
-                            <a class="dropdown-item" href="/tictactoe/tictactoe"><i class="fab fa-slack-hash mr-2" sec:authorize="isAuthenticated()"></i>Tic-Tac-Toe Game</a>
-                            <a class="dropdown-item" href="/reactfox_tutorial/reactfox_tutorial"><i class="fas fa-fighter-jet mr-2" sec:authorize="isAuthenticated()"></i>Reactfox Game</a>
-                            <a class="dropdown-item" href="/rock_paper_scissors_tutorial/rock_paper_scissors_tutorial"><i class="fas fa-hand-scissors mr-2" sec:authorize="isAuthenticated()"></i>Rock, Paper, Scissors</a>
-                            <a class="dropdown-item" href="/hangman/hangman"><i class="fas fa-question mr-2" sec:authorize="isAuthenticated()"></i>Hangman Game</a>
                             <a class="dropdown-item" href="/java_snake_tutorial/java_snake_tutorial"><i class="fas fa-wave-square mr-2" sec:authorize="isAuthenticated()"></i>Snake Game</a>
                             <a class="dropdown-item" href="/java_pacman_tutorial/java_pacman_tutorial"><i class="fas fa-ellipsis-h mr-2" sec:authorize="isAuthenticated()"></i>Pacman Game</a>
-                            <a class="dropdown-item" href="/react_calculator/react_calculator"><i class="fas fa-calculator mr-2" sec:authorize="isAuthenticated()"></i>Discount Calculator</a>
-                            <a class="dropdown-item" href="/memory_game/memory_game"><i class="far fa-address-card mr-2" sec:authorize="isAuthenticated()"></i>Memory Game</a>
-                            <a class="dropdown-item" href="/react_compass_clock/react_compass_clock"><i class="fas fa-history mr-2" sec:authorize="isAuthenticated()"></i>Compass Clock</a>
-                            <a class="dropdown-item" href="/react_metronome/react_metronome"><i class="fas fa-sliders-h mr-2" sec:authorize="isAuthenticated()"></i>Metronome</a>
-                            <a class="dropdown-item" href="/react_todo_tutorial/react_todo_tutorial"><i class="fas fa-tasks mr-2" sec:authorize="isAuthenticated()"></i>Task Tracker</a>
+                        </div>
+                    </div>
+                </li>
+            <li>
+                <div class="dropdown show">
+                    <a class="btn btn-secondary" style="background-color: rgb(248 249 250); border: none; color: rgb(124 124 125); padding-top: 8px" href="#" role="button" id="dropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" sec:authorize="isAuthenticated()">
+                        <i class="fab fa-react mr-2"></i>React
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="/react_tictactoe/react_tictactoe"><i class="fab fa-slack-hash mr-2" sec:authorize="isAuthenticated()"></i>Tic-Tac-Toe Game</a>
+                        <a class="dropdown-item" href="/reactfox_tutorial/reactfox_tutorial"><i class="fas fa-fighter-jet mr-2" sec:authorize="isAuthenticated()"></i>Reactfox Game</a>
+                        <a class="dropdown-item" href="/react_calculator/react_calculator"><i class="fas fa-calculator mr-2" sec:authorize="isAuthenticated()"></i>Discount Calculator</a>
+                        <a class="dropdown-item" href="/memory_game/memory_game"><i class="far fa-address-card mr-2" sec:authorize="isAuthenticated()"></i>Memory Game</a>
+                        <a class="dropdown-item" href="/react_compass_clock/react_compass_clock"><i class="fas fa-history mr-2" sec:authorize="isAuthenticated()"></i>Compass Clock</a>
+                        <a class="dropdown-item" href="/react_metronome/react_metronome"><i class="fas fa-sliders-h mr-2" sec:authorize="isAuthenticated()"></i>Metronome</a>
+                        <a class="dropdown-item" href="/react_todo_tutorial/react_todo_tutorial"><i class="fas fa-tasks mr-2" sec:authorize="isAuthenticated()"></i>Task Tracker</a>
+                    </div>
+                </div>
+            </li>
+                <li>
+                    <div class="dropdown show">
+                        <a class="btn btn-secondary" style="background-color: rgb(248 249 250); border: none; color: rgb(124 124 125); padding-top: 8px" href="#" role="button" id="dropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" sec:authorize="isAuthenticated()">
+                            <i class="fab fa-python mr-2"></i>Python
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-item" href="/python_hangman/python_hangman"><i class="fas fa-question mr-2" sec:authorize="isAuthenticated()"></i>Hangman Game</a>
                         </div>
                     </div>
                 </li>
