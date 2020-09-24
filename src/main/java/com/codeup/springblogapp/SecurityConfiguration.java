@@ -87,6 +87,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                         "react_compass_clock/react_compass_clock",
                         "/react_metronome/react_metronome",
                         "react_todo_tutorial",
+                        "/react_piano/react_piano",
                         "/login"
 // Enter Here ----->
                 )
