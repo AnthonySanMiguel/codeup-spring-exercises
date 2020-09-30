@@ -88,6 +88,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                         "/react_metronome/react_metronome",
                         "react_todo_tutorial",
                         "/react_piano/react_piano",
+                        "/react_space_invaders/react_space_invaders",
                         "/login"
 // Enter Here ----->
                 )

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/partials :: head"><title>React Space Invaders Tutorial</title></head>
+<body>
+<div th:replace="partials/partials :: top_banner"></div>
+<div th:replace="partials/partials :: standard_nav"></div>
+<div class="container">
+    <div class="row" style="width: 100%;">
+        <p class="mx-auto mt-4 mb-4"><em><strong>Overview:</strong> A tutorial on how to create a simple clone of <em>Space Invaders</em> in React. Credit to: <a href="https://cheesyprogrammer.com/2017/09/25/game-programming-using-javascript-react-canvas2d-and-css-part-1/">https://cheesyprogrammer.com/2017/09/25/game-programming-using-javascript-react-canvas2d-and-css-part-1/</a>
+            for the tutorial.</em></p>
+    </div>
+</div>
+<div class="row justify-content-center mb-4">
+    <div class="card border-white" style="width: 25%">
+        <img class="card-img-top" src="/img/react_space_invaders_1.png" alt="...">
+        <div class="card-body">
+            <p class="card-text text-center">Completing the tutorial will provide a basic framework of this popular game where the player controls a movable ship and must destroy oncoming enemies. This version incorporates a score counter and proper collision detection.</p>
+        </div>
+    </div>
+</div>
+<div th:replace="partials/partials :: footer_nav"></div>
+<div th:replace="partials/partials :: footer"></div>
+</body>
+</html>
