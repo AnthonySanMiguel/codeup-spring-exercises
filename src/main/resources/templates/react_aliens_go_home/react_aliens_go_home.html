@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/partials :: head"><title>React Calculator Tutorial</title></head>
+<body>
+<div th:replace="partials/partials :: top_banner"></div>
+<div th:replace="partials/partials :: standard_nav"></div>
+<div class="container">
+    <div class="row" style="width: 100%;">
+        <p class="mx-auto mt-4 mb-4"><em><strong>Overview:</strong> A tutorial on how to create a stylish game using React and Redux. Credit to: <a href="https://auth0.com/blog/developing-games-with-react-redux-and-svg-part-1/#Conclusion-and-Next-Steps">https://auth0.com/blog/developing-games-with-react-redux-and-svg-part-1/#Conclusion-and-Next-Steps</a>
+            for the tutorial.</em></p>
+    </div>
+</div>
+<div class="row justify-content-center mb-4">
+
+    <div class="card border-white" style="width: 45%">
+        <img class="card-img-top" src="/img/aliens_go_home_1.png" alt="...">
+        <div class="card-body">
+            <p class="card-text text-center">Completing the tutorial will present you with a uniquely designed game with many custom elements.</p>
+        </div>
+    </div>
+    <div class="card ml-4 border-white" style="width: 45%">
+        <img class="card-img-top" src="/img/aliens_go_home_2.png" alt="...">
+        <div class="card-body">
+            <p class="card-text text-center">This one incorporates a "lives" system where enemy hits detract from a specified amount of health (e.g. hearts).</p>
+        </div>
+    </div>
+</div>
+<div th:replace="partials/partials :: footer_nav"></div>
+<div th:replace="partials/partials :: footer"></div>
+</body>
+</html>
