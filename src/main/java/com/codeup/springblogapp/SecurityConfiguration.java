@@ -90,6 +90,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                         "/react_piano/react_piano",
                         "/react_space_invaders/react_space_invaders",
                         "react_aliens_go_home/react_aliens_go_home",
+                        "flappy_bird/flappy_bird",
                         "/login"
 // Enter Here ----->
                 )
