@@ -92,6 +92,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                         "react_aliens_go_home/react_aliens_go_home",
                         "flappy_bird/flappy_bird",
                         "/javascript_tetris/javascript_tetris",
+                        "/js_quiz_app/js_quiz_app",
                         "/login"
 // Enter Here ----->
                 )
