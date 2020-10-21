@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/partials :: head"><title>Movie Database</title></head>
+<body>
+<div th:replace="partials/partials :: top_banner"></div>
+<div th:replace="partials/partials :: standard_nav"></div>
+<div class="container">
+    <div class="row" style="width: 100%;">
+        <p class="mx-auto mt-4 mb-4"><em><strong>Overview:</strong> A recreation of the home console favorite, Pong! Credit to: <a href="https://www.ansoriweb.com/2020/03/javascript-game.html">https://www.ansoriweb.com/2020/03/javascript-game.html</a> for the tutorial.</em></p>
+    </div>
+</div>
+<div class="row justify-content-center mb-4">
+    <div class="card border-white" style="width: 45%">
+        <img class="card-img-top mx-auto" src="/img/javascript_pong_1.png" alt="..." style="width: 45%">
+        <div class="card-body">
+            <p class="card-text text-center">This purely JavaScript of Pong functions with mouse control and a score tracker.</p>
+        </div>
+    </div>
+</div>
+<div th:replace="partials/partials :: footer_nav"></div>
+<div th:replace="partials/partials :: footer"></div>
+</body>
+</html>

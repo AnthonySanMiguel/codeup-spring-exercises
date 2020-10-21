@@ -93,6 +93,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                         "flappy_bird/flappy_bird",
                         "/javascript_tetris/javascript_tetris",
                         "/js_quiz_app/js_quiz_app",
+                        "/javascript_pong/javascript_pong",
                         "/login"
 // Enter Here ----->
                 )
