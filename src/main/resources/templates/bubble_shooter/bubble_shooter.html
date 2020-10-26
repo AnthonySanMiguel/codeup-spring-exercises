@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/partials :: head"><title>Bubble Shooter Tutorial</title></head>
+<body>
+<div th:replace="partials/partials :: top_banner"></div>
+<div th:replace="partials/partials :: standard_nav"></div>
+<div class="container">
+    <div class="row" style="width: 100%;">
+        <p class="mx-auto mt-4 mb-4"><em><strong>Overview:</strong> A freeware version of the typical 'bubble shooter' using just JavaScript and HTML. Credit to: <a href="https://www.ansoriweb.com/2020/03/javascript-game.html">https://www.ansoriweb.com/2020/03/javascript-game.html</a> for the tutorial.</em></p>
+    </div>
+</div>
+
+<div class="row justify-content-center mb-4">
+    <div class="card border-white" style="width: 45%">
+        <img class="card-img-top" src="/img/bubble_shooter_1.png" alt="...">
+        <div class="card-body">
+            <p class="card-text text-center">This tutorial provides an absolutely beautiful bubble shooter game at a stunning 60 fps!.</p>
+        </div>
+    </div>
+</div>
+
+<div th:replace="partials/partials :: footer_nav"></div>
+<div th:replace="partials/partials :: footer"></div>
+</body>
+</html>

@@ -94,6 +94,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                         "/javascript_tetris/javascript_tetris",
                         "/js_quiz_app/js_quiz_app",
                         "/javascript_pong/javascript_pong",
+                        "/bubble_shooter/bubble_shooter",
                         "/login"
 // Enter Here ----->
                 )
