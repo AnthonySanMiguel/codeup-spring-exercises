@@ -1,23 +1,113 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="partials/partials :: head"><title>JavaScript Flappy Bird Clone</title></head>
+<head th:replace="partials/partials :: head"><title>Flappy Bird</title>
+    <meta charset="utf-8"/>
+</head>
 <body>
 <div th:replace="partials/partials :: top_banner"></div>
 <div th:replace="partials/partials :: standard_nav"></div>
 <div class="container">
-    <div class="row" style="width: 100%;">
-        <p class="mx-auto mt-4 mb-4"><em><strong>Overview:</strong> A clone of the popular game Flappy Bird using just JavaScript and HTML. Credit to: <a href="https://www.ansoriweb.com/2020/03/javascript-game.html">https://www.ansoriweb.com/2020/03/javascript-game.html</a> for the tutorial.</em></p>
-    </div>
+    <div class="row">
+        <p class="mx-auto mt-4 mb-4"><em><strong>Overview:</strong> A clone of the popular game Flappy Bird using just
+            JavaScript and HTML. Credit to: <a href="https://www.ansoriweb.com/2020/03/javascript-game.html">https://www.ansoriweb.com/2020/03/javascript-game.html</a>
+            for the tutorial.</em></p></div>
 </div>
-<div class="row justify-content-center mb-4">
-    <div class="card border-white" style="width: 45%">
-        <img class="card-img-top mx-auto" src="/img/javascript_flappy_bird_1.png" alt="..." style="width: 45%">
-        <div class="card-body">
-            <p class="card-text text-center">A simple game yet difficult to master. Repeatedly press any key to keep the bird afloat and avoid the pipes!</p>
-        </div>
-    </div>
-</div>
+<canvas id="canvas" width="288" height="512" style="margin-left: 35%; border: 2px solid black"></canvas>
 <div th:replace="partials/partials :: footer_nav"></div>
 <div th:replace="partials/partials :: footer"></div>
+<script>
+
+    let cvs = document.getElementById("canvas");
+    let ctx = cvs.getContext("2d");
+
+    // load images
+    let bird = new Image();
+    let bg = new Image();
+    let fg = new Image();
+    let pipeNorth = new Image();
+    let pipeSouth = new Image();
+
+    bird.src = "/img/bird.png";
+    bg.src = "/img/bg.png";
+    fg.src = "/img/fg.png";
+    pipeNorth.src = "/img/pipeNorth.png";
+    pipeSouth.src = "/img/pipeSouth.png";
+
+    // some variables
+    let gap = 85;
+    let constant;
+    let bX = 10;
+    let bY = 150;
+    let gravity = 1.5;
+    let score = 0;
+
+    // ---- MISSING AUDIO FILES ----
+    let fly = new Audio();
+    let scor = new Audio();
+    fly.src = "sounds/fly.mp3";
+    scor.src = "sounds/score.mp3";
+
+    // on key down
+    document.addEventListener("keydown", moveUp);
+    function moveUp() {
+        bY -= 25;
+        fly.play();
+    }
+
+    // pipe coordinates
+    let pipe = [];
+    pipe[0] = {
+        x: cvs.width,
+        y: 0
+    };
+
+    // draw images
+    function draw() {
+        ctx.drawImage(bg, 0, 0);
+        for (let i = 0; i < pipe.length; i++) {
+            constant = pipeNorth.height + gap;
+            ctx.drawImage(pipeNorth, pipe[i].x, pipe[i].y);
+            ctx.drawImage(pipeSouth, pipe[i].x, pipe[i].y + constant);
+            pipe[i].x--;
+            if (pipe[i].x == 125) {
+                pipe.push({
+                    x: cvs.width,
+                    y: Math.floor(Math.random() * pipeNorth.height) - pipeNorth.height
+                });
+            }
+
+            // detect collision
+            if (bX + bird.width >= pipe[i].x &&
+                bX <= pipe[i].x + pipeNorth.width &&
+                (bY <= pipe[i].y + pipeNorth.height ||
+                    bY + bird.height >= pipe[i].y + constant) ||
+                bY + bird.height >= cvs.height - fg.height) {
+                location.reload(); // reload the page
+            }
+
+            if (pipe[i].x == 5) {
+                score++;
+                scor.play();
+            }
+        }
+
+        ctx.drawImage(fg, 0, cvs.height - fg.height);
+        ctx.drawImage(bird, bX, bY);
+        bY += gravity;
+        ctx.fillStyle = "#000";
+        ctx.font = "20px Verdana";
+        ctx.fillText("Score : " + score, 10, cvs.height - 20);
+        requestAnimationFrame(draw);
+    }
+
+    // Renders intro message
+    function introMessage() {
+        alert("Want to play a game?")
+    }
+
+    introMessage();
+    draw();
+
+</script>
 </body>
 </html>
