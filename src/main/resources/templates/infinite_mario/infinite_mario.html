@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/partials :: head"><title>Movie Database</title></head>
+<body>
+<div th:replace="partials/partials :: top_banner"></div>
+<div th:replace="partials/partials :: standard_nav"></div>
+<div class="container">
+    <div class="row" style="width: 100%;">
+        <p class="mx-auto mt-4 mb-4"><em><strong>Overview:</strong> This open source code, by the author's admission, is a clone of the original Java version of Infinite Mario ported by non other than Markus Persson (aka "Notch" of Minecraft fame). This version runs on JavaScript for web browsers and uses HTML5. Credit to: <a
+                    href="https://github.com/robertkleffner/mariohtml5">https://github.com/robertkleffner/mariohtml5</a> for the open source code.</em></p>
+    </div>
+</div>
+<div class="row justify-content-center mb-4">
+    <div class="card border-white" style="width: 45%">
+        <img class="card-img-top" src="/img/infinite_mario_1.png" alt="...">
+        <div class="card-body">
+            <p class="card-text text-center">This clone of a port still astoundingly captures the look, feel, and sound of a genuine Super Mario game.</p>
+        </div>
+    </div>
+    <div class="card ml-4 border-white" style="width: 45%">
+        <img class="card-img-top" src="/img/infinite_mario_2.png" alt="...">
+        <div class="card-body">
+            <p class="card-text text-center">Levels are dynamically generated, along with enemy placement, coins, breakable bricks, and obstacles.</p>
+        </div>
+    </div>
+</div>
+<div th:replace="partials/partials :: footer_nav"></div>
+<div th:replace="partials/partials :: footer"></div>
+</body>
+</html>
