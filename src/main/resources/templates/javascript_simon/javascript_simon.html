@@ -236,6 +236,37 @@
 <div th:replace="partials/partials :: footer"></div>
 <script>
 
+    // Arrays to keep track of the original sequence of tile clicks and a second array for the human sequence
+    let sequence = [];
+    let humanSequence = [];
+
+    // Will keep track of the number of rounds played thus far
+    let level = 0;
+
+    // The start button and startGame() function that will be executed when this button is clicked.
+    const startButton = document.querySelector('.js-start');
+    const info = document.querySelector('.js-info');
+
+    function nextRound() {
+        level = level + 1;
+
+        // Copy all the elements in the `sequence` array (above) to the `nextSequence` array (below)
+        const nextSequence = [...sequence];
+    }
+
+    function startGame() {
+        // Once clicked, the start button will be 'hidden'...
+        startButton.classList.add('hidden');
+        // and the <span> with a class of 'info' will be shown (e.g. remove 'hidden')
+        info.classList.remove('hidden');
+        // and the following text will be displayed in the 'info' <span>, signalling player to wait after button click
+        info.textContent = 'Wait for the computer';
+    }
+
+    // On start button click, 'startGame' function will run (as outlined above)
+    startButton.addEventListener('click', startGame);
+
+
 </script>
 </body>
 </html>
