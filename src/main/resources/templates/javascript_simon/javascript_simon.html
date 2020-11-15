@@ -247,6 +247,17 @@
     const startButton = document.querySelector('.js-start');
     const info = document.querySelector('.js-info');
 
+    const heading = document.querySelector('.js-heading');
+    const tileContainer = document.querySelector('.js-container');
+
+    // Indicates that the computer is finished with the round, and that it’s time for the player to repeat the sequence
+    function humanTurn(level) {
+        // Removes the unclickable class from the tile container. This class prevents the buttons from being pressed when the game has not started and when the ai is not finished with the sequence of presses.
+        tileContainer.classList.remove('unclickable');
+        // The contents of the info element is changed to indicate that the player can begin to repeat the sequence. It also shows how many taps needs to be entered.
+        info.textContent = `Your turn: ${level} Tap${level > 1 ? 's' : ''}`;
+    }
+
     // The value of color is used to select the appropriate tile and audio elements.
     // In the html file, the data-sound attribute on the audio elements correspond to the button colours.
     function activateTile(color) {
@@ -290,16 +301,70 @@
     // Each time nextRound() invoked, the level variable is incremented by 1 and the next sequence is prepared.
     function nextRound() {
         level = level + 1;
+
+        // The unclickable class is added to the tile container when the round starts...
+        tileContainer.classList.add('unclickable');
+        // and the contents of the info and heading elements are updated.
+        info.textContent = 'Wait for the computer';
+        heading.textContent = `Level ${level} of 20`;
+
         // Copy all the elements in the `sequence` array (above) to the `nextSequence` array (below)
         const nextSequence = [...sequence];
         // When nextStep() is executed, it returns a random value from the tiles array (“red”, “blue”, “green”, or “yellow”), and that value is added to the end of the nextSequence() array alongside any values from the previous round.
         nextSequence.push(nextStep());
         playRound(nextSequence);
+
+        // The humanTurn() function needs to be executed after the computer’s sequence is over so we cannot call it immediately.
+        sequence = [...nextSequence];
+        // We need to add an artificial delay and calculate when the computer will be done with the sequence of button taps.
+        // The setTimeout() function executes humanTurn() one second after the the last button in the sequence is activated.
+        // The total duration of the sequence corresponds to the current level multiplied by 600ms which is the duration for each tile in the sequence.
+        // The sequence variable is also assigned to the updated sequence.
+            setTimeout(() => {
+            humanTurn(level);
+        }, level * 600 + 1000);
+    }
+
+    // This function pushes the tile value...
+    function handleClick(tile) {
+        // to the humanSequence array and stores its index in the index variable.
+        const index = humanSequence.push(tile) - 1;
+        // The corresponding sound for the button is played and the remaining steps in the sequence is calculated and updated on the screen.
+        const sound = document.querySelector(`[data-sound='${tile}']`);
+        sound.play();
+
+        const remainingTaps = sequence.length - humanSequence.length;
+
+        // Compares the length of the humanSequence array to the computer's sequence array.
+        // If they’re equal (the player correctly presses the tiles in the correct order), it means that the round is over and the next round can begin.
+        if (humanSequence.length === sequence.length) {
+            // If player is successful, the humanSequence array is reset...
+            humanSequence = [];
+            info.textContent = 'Success! Keep going!';
+            // and the nextRound() function is called after one second.
+            // NOTE: The delay is to allow the user to see the success message (above), otherwise, it will not appear at all because it will get overwritten immediately.
+            setTimeout(() => {
+                nextRound();
+            }, 1000);
+            return;
+        }
+
+        info.textContent = `Your turn: ${remainingTaps} Tap${
+            remainingTaps > 1 ? 's' : ''
+        }`;
     }
 
     function startGame() {
         // Once clicked, the start button will be 'hidden'...
         startButton.classList.add('hidden');
+
+        // Detects the player’s button taps and decide whether to move to the next round or end the game.
+        tileContainer.addEventListener('click', event => {
+            const { tile } = event.target.dataset;
+
+            if (tile) handleClick(tile);
+        });
+
         // and the <span> with a class of 'info' will be shown (e.g. remove 'hidden')
         info.classList.remove('hidden');
         // and the following text will be displayed in the 'info' <span>, signalling player to wait after button click
