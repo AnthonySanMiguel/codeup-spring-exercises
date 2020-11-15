@@ -247,6 +247,36 @@
     const startButton = document.querySelector('.js-start');
     const info = document.querySelector('.js-info');
 
+    // The value of color is used to select the appropriate tile and audio elements.
+    // In the html file, the data-sound attribute on the audio elements correspond to the button colours.
+    function activateTile(color) {
+        const tile = document.querySelector(`[data-tile='${color}']`);
+        const sound = document.querySelector(`[data-sound='${color}']`);
+
+        // The activated class is added to the selected tile...
+        tile.classList.add('activated');
+        // and the play() method is triggered on the selected audio element causing the linked mp3 file in the src attribute to be played.
+        sound.play();
+
+        // After 300 milliseconds, the activated class is removed again. The effect is that each tile is activated for 300ms, and there are 300ms between tile activations in the sequence
+        setTimeout(() => {
+            tile.classList.remove('activated');
+        }, 300);
+    }
+
+    // The playRound() function takes a sequence array and iterates over it.
+    function playRound(nextSequence) {
+        nextSequence.forEach((color, index) => {
+            // It then uses the setTimeout() function to call the activateTile() at 600 millisecond intervals for each value in the sequence.
+            // The reason setTimeout() is used here is to add an artificial delay between each button press. Without it, the tiles in the sequence will be activated all at once.
+            setTimeout(() => {
+                activateTile(color);
+                // The specified number of milliseconds changes on each iteration.
+                // The first button in the sequence is activated after 600ms, the next one after 1200ms (600ms after the first), the third one after 1800ms, and so on.
+            }, (index + 1) * 600);
+        });
+    }
+
     function nextStep() {
         // The tile values correspond with the values of the data-tile property in the html.
         const tiles = ['red', 'green', 'blue', 'yellow'];
@@ -264,6 +294,7 @@
         const nextSequence = [...sequence];
         // When nextStep() is executed, it returns a random value from the tiles array (“red”, “blue”, “green”, or “yellow”), and that value is added to the end of the nextSequence() array alongside any values from the previous round.
         nextSequence.push(nextStep());
+        playRound(nextSequence);
     }
 
     function startGame() {
@@ -273,6 +304,7 @@
         info.classList.remove('hidden');
         // and the following text will be displayed in the 'info' <span>, signalling player to wait after button click
         info.textContent = 'Wait for the computer';
+        nextRound();
     }
 
     // On start button click, 'startGame' function will run (as outlined above)
