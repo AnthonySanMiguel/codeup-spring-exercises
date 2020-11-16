@@ -250,6 +250,18 @@
     const heading = document.querySelector('.js-heading');
     const tileContainer = document.querySelector('.js-container');
 
+    // Displays an alert and restores the game to its original state.
+    function resetGame(text) {
+        alert(text);
+        sequence = [];
+        humanSequence = [];
+        level = 0;
+        startButton.classList.remove('hidden');
+        heading.textContent = 'Simon Game';
+        info.classList.add('hidden');
+        tileContainer.classList.add('unclickable');
+    }
+
     // Indicates that the computer is finished with the round, and that it’s time for the player to repeat the sequence
     function humanTurn(level) {
         // Removes the unclickable class from the tile container. This class prevents the buttons from being pressed when the game has not started and when the ai is not finished with the sequence of presses.
@@ -334,6 +346,20 @@
         sound.play();
 
         const remainingTaps = sequence.length - humanSequence.length;
+
+        // If player tile clicks do not match computer's sequence
+        if (humanSequence[index] !== sequence[index]) {
+            resetGame('Oops! Game over, you pressed the wrong tile');
+            return;
+        }
+
+        // If player tile clicks match computer's sequence...
+        if (humanSequence.length === sequence.length) {
+        } //...and they make it through all 20 levels
+            if (humanSequence.length === 20) {
+                resetGame('Congrats! You completed all the levels');
+                return
+            }
 
         // Compares the length of the humanSequence array to the computer's sequence array.
         // If they’re equal (the player correctly presses the tiles in the correct order), it means that the round is over and the next round can begin.
