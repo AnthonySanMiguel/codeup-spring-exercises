@@ -1,202 +1,22 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="partials/partials :: head"><title>Pong in JavaScript</title>
-    <style>
-        html {
-            box-sizing: border-box;
-        }
-
-        *,
-        *::after,
-        *::before {
-            margin: 0;
-            padding: 0;
-            box-sizing: inherit;
-        }
-
-        body {
-            display: flex;
-            justify-content: center;
-            font-family: 'Rubik', sans-serif;
-        }
-
-        .game {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        .hidden {
-            display: none !important;
-        }
-
-        .invisble {
-            visibility: hidden;
-        }
-
-        header {
-            text-align: center;
-            font-size: 18px;
-        }
-
-        .heading {
-            font-size: 3em;
-        }
-
-        .tile-container {
-            display: grid;
-            grid-template-rows: 180px 180px;
-            grid-template-columns: 180px 180px;
-            grid-gap: 25px;
-            position: relative;
-            margin-top: 30px;
-            margin-bottom: 40px;
-        }
-
-        .unclickable {
-            pointer-events: none;
-        }
-
-        .tile-red {
-            background-color: #f25022;
-            box-shadow: 0 0 0 1px #f25022 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 #c93a12, 0 8px 0 1px rgba(0, 0, 0, 0.4), 0 8px 8px 1px rgba(0, 0, 0, 0.5);
-            transition: 0.15s;
-        }
-
-        .tile-red:hover,
-        .tile-red:focus {
-            background-color: #ff451a;
-            box-shadow: 0 0 0 1px #FF3000 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 10px 0 0 #e62b00, 0 10px 0 1px rgba(0, 0, 0, 0.4), 0 10px 8px 1px rgba(0, 0, 0, 0.6);
-        }
-
-        .tile-red:active,
-        .tile-red.activated {
-            box-shadow: 0 0 0 1px #ff5c36 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 0 0 1px rgba(0, 0, 0, 0.4);
-            background-color: #ff5c36;
-            transform: translateY(10px);
-        }
-
-        .tile-green {
-            background-color: #7fba00;
-            box-shadow: 0 0 0 1px #7fba00 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 #638f05, 0 8px 0 1px rgba(0, 0, 0, 0.4), 0 8px 8px 1px rgba(0, 0, 0, 0.5);
-            transition: 0.15s;
-        }
-
-        .tile-green:hover,
-        .tile-green:focus {
-            background-color: #8cc218;
-            box-shadow: 0 0 0 1px #8cc218 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 10px 0 0 #74a802, 0 10px 0 1px rgba(0, 0, 0, 0.4), 0 10px 8px 1px rgba(0, 0, 0, 0.6)
-        }
-
-        .tile-green:active,
-        .tile-green.activated {
-            box-shadow: 0 0 0 1px #a0ea00 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 0 0 1px rgba(0, 0, 0, 0.4);
-            background-color: #a0ea00;
-            transform: translateY(10px);
-        }
-
-        .tile-yellow {
-            background-color: #ffb900;
-            box-shadow: 0 0 0 1px #ffb900 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 #c28e07, 0 8px 0 1px rgba(0, 0, 0, 0.4), 0 8px 8px 1px rgba(0, 0, 0, 0.5);
-            transition: 0.15s;
-        }
-
-        .tile-yellow:hover,
-        .tile-yellow:focus {
-            background-color: #ffb900;
-            box-shadow: 0 0 0 1px #ffb900 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 #c28e07, 0 8px 0 1px rgba(0, 0, 0, 0.4), 0 8px 8px 1px rgba(0, 0, 0, 0.5);
-        }
-
-        .tile-yellow:active,
-        .tile-yellow.activated {
-            box-shadow: 0 0 0 1px #ffca3d inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 0 0 1px rgba(0, 0, 0, 0.4);
-            background-color: #ffca3d;
-            transform: translateY(10px);
-        }
-
-        .tile-blue {
-            background-color: #00a4ef;
-            box-shadow: 0 0 0 1px #00a4ef inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 #0883bc, 0 8px 0 1px rgba(0, 0, 0, 0.4), 0 8px 8px 1px rgba(0, 0, 0, 0.5);
-            transition: 0.15s;
-        }
-
-        .tile-blue:hover,
-        .tile-blue:focus {
-            background-color: #139ddd;
-            box-shadow: 0 0 0 1px #139ddd inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 10px 0 0 #0c7cb0, 0 10px 0 1px rgba(0, 0, 0, 0.4), 0 10px 8px 1px rgba(0, 0, 0, 0.6);
-        }
-
-        .tile-blue:active,
-        .tile-blue.activated {
-            box-shadow: 0 0 0 1px #2bbcff inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 0 0 1px rgba(0, 0, 0, 0.4);
-            background-color: #2bbcff;
-            transform: translateY(10px);
-        }
-
-        .info-section {
-            text-align: center;
-        }
-
-        .start-button {
-            display: inline-block;
-            height: 38px;
-            padding: 0 30px;
-            color: #555;
-            text-align: center;
-            font-size: 14px;
-            font-weight: 600;
-            line-height: 38px;
-            letter-spacing: 0.1rem;
-            text-transform: uppercase;
-            text-decoration: none;
-            white-space: nowrap;
-            background-color: transparent;
-            border-radius: 4px;
-            border: 1px solid #bbb;
-            cursor: pointer;
-        }
-
-        .start-button:hover {
-            color: #333;
-            border-color: #888;
-            outline: 0;
-        }
-
-        .info {
-            font-size: 22px;
-        }
-
-        @media screen and (max-width: 550px) {
-            .game {
-                width: 100%;
-                padding-left: 20px;
-                padding-right: 20px;
-            }
-
-            .heading {
-                font-size: 2em;
-            }
-
-            .tile-container {
-                width: 100%;
-                height: 100%;
-                grid-template-rows: 150px 150px;
-                grid-template-columns: 150px 150px;
-            }
-        }
-    </style>
+<head th:replace="partials/partials :: head"><title>Simon in JavaScript</title>
     <meta charset="utf-8"/>
 </head>
+<link th:href="@{/css/simon_style.css}" rel="stylesheet">
 <body>
 <div th:replace="partials/partials :: top_banner"></div>
 <div th:replace="partials/partials :: standard_nav"></div>
+
 <div class="container">
     <div class="row">
-        <p class="mx-auto mt-4 mb-4"><em><strong>Overview:</strong> This purely JavaScript version of Pong comes full featured with mouse control, AI opponent, and a score tracker! Credit to: <a href="https://www.ansoriweb.com/2020/03/javascript-game.html">https://www.ansoriweb.com/2020/03/javascript-game.html</a> for the tutorial.</em></p>
+        <p class="mx-auto mt-4 mb-4"><em><strong>Overview:</strong> This purely JavaScript version of Pong comes full featured with mouse control, AI opponent, and a score tracker! Credit to: <a
+                    href="https://freshman.tech/simon-game/">https://freshman.tech/simon-game/</a> for the tutorial.</em></p>
     </div>
 </div>
+
 <main class="game">
+
     <header>
         <h1 class="heading js-heading">Simon Game</h1>
     </header>
@@ -212,6 +32,7 @@
         <button class="start-button js-start">Start</button>
         <span class="info js-info hidden"></span>
     </footer>
+
 </main>
 
 <div class="hidden">
@@ -232,24 +53,22 @@
             data-sound="yellow"
     ></audio>
 </div>
+
 <div th:replace="partials/partials :: footer_nav"></div>
 <div th:replace="partials/partials :: footer"></div>
+
 <script>
 
     // Arrays to keep track of the original sequence of tile clicks and a second array for the human sequence
     let sequence = [];
     let humanSequence = [];
-
     // Will keep track of the number of rounds played thus far
     let level = 0;
-
     // The start button and startGame() function that will be executed when this button is clicked.
     const startButton = document.querySelector('.js-start');
     const info = document.querySelector('.js-info');
-
     const heading = document.querySelector('.js-heading');
     const tileContainer = document.querySelector('.js-container');
-
     // Displays an alert and restores the game to its original state.
     function resetGame(text) {
         alert(text);
@@ -261,7 +80,6 @@
         info.classList.add('hidden');
         tileContainer.classList.add('unclickable');
     }
-
     // Indicates that the computer is finished with the round, and that it’s time for the player to repeat the sequence
     function humanTurn(level) {
         // Removes the unclickable class from the tile container. This class prevents the buttons from being pressed when the game has not started and when the ai is not finished with the sequence of presses.
@@ -269,24 +87,20 @@
         // The contents of the info element is changed to indicate that the player can begin to repeat the sequence. It also shows how many taps needs to be entered.
         info.textContent = `Your turn: ${level} Tap${level > 1 ? 's' : ''}`;
     }
-
     // The value of color is used to select the appropriate tile and audio elements.
     // In the html file, the data-sound attribute on the audio elements correspond to the button colours.
     function activateTile(color) {
         const tile = document.querySelector(`[data-tile='${color}']`);
         const sound = document.querySelector(`[data-sound='${color}']`);
-
         // The activated class is added to the selected tile...
         tile.classList.add('activated');
         // and the play() method is triggered on the selected audio element causing the linked mp3 file in the src attribute to be played.
         sound.play();
-
         // After 300 milliseconds, the activated class is removed again. The effect is that each tile is activated for 300ms, and there are 300ms between tile activations in the sequence
         setTimeout(() => {
             tile.classList.remove('activated');
         }, 300);
     }
-
     // The playRound() function takes a sequence array and iterates over it.
     function playRound(nextSequence) {
         nextSequence.forEach((color, index) => {
@@ -299,7 +113,6 @@
             }, (index + 1) * 600);
         });
     }
-
     function nextStep() {
         // The tile values correspond with the values of the data-tile property in the html.
         const tiles = ['red', 'green', 'blue', 'yellow'];
@@ -309,34 +122,29 @@
         const random = tiles[Math.floor(Math.random() * tiles.length)];
         return random;
     }
-
     // Each time nextRound() invoked, the level variable is incremented by 1 and the next sequence is prepared.
     function nextRound() {
         level = level + 1;
-
         // The unclickable class is added to the tile container when the round starts...
         tileContainer.classList.add('unclickable');
         // and the contents of the info and heading elements are updated.
         info.textContent = 'Wait for the computer';
         heading.textContent = `Level ${level} of 20`;
-
         // Copy all the elements in the `sequence` array (above) to the `nextSequence` array (below)
         const nextSequence = [...sequence];
         // When nextStep() is executed, it returns a random value from the tiles array (“red”, “blue”, “green”, or “yellow”), and that value is added to the end of the nextSequence() array alongside any values from the previous round.
         nextSequence.push(nextStep());
         playRound(nextSequence);
-
         // The humanTurn() function needs to be executed after the computer’s sequence is over so we cannot call it immediately.
         sequence = [...nextSequence];
         // We need to add an artificial delay and calculate when the computer will be done with the sequence of button taps.
         // The setTimeout() function executes humanTurn() one second after the the last button in the sequence is activated.
         // The total duration of the sequence corresponds to the current level multiplied by 600ms which is the duration for each tile in the sequence.
         // The sequence variable is also assigned to the updated sequence.
-            setTimeout(() => {
+        setTimeout(() => {
             humanTurn(level);
         }, level * 600 + 1000);
     }
-
     // This function pushes the tile value...
     function handleClick(tile) {
         // to the humanSequence array and stores its index in the index variable.
@@ -344,23 +152,19 @@
         // The corresponding sound for the button is played and the remaining steps in the sequence is calculated and updated on the screen.
         const sound = document.querySelector(`[data-sound='${tile}']`);
         sound.play();
-
         const remainingTaps = sequence.length - humanSequence.length;
-
         // If player tile clicks do not match computer's sequence
         if (humanSequence[index] !== sequence[index]) {
             resetGame('Oops! Game over, you pressed the wrong tile');
             return;
         }
-
         // If player tile clicks match computer's sequence...
         if (humanSequence.length === sequence.length) {
         } //...and they make it through all 20 levels
-            if (humanSequence.length === 20) {
-                resetGame('Congrats! You completed all the levels');
-                return
-            }
-
+        if (humanSequence.length === 20) {
+            resetGame('Congrats! You completed all the levels');
+            return
+        }
         // Compares the length of the humanSequence array to the computer's sequence array.
         // If they’re equal (the player correctly presses the tiles in the correct order), it means that the round is over and the next round can begin.
         if (humanSequence.length === sequence.length) {
@@ -374,33 +178,26 @@
             }, 1000);
             return;
         }
-
         info.textContent = `Your turn: ${remainingTaps} Tap${
             remainingTaps > 1 ? 's' : ''
         }`;
     }
-
     function startGame() {
         // Once clicked, the start button will be 'hidden'...
         startButton.classList.add('hidden');
-
         // Detects the player’s button taps and decide whether to move to the next round or end the game.
         tileContainer.addEventListener('click', event => {
-            const { tile } = event.target.dataset;
-
+            const {tile} = event.target.dataset;
             if (tile) handleClick(tile);
         });
-
         // and the <span> with a class of 'info' will be shown (e.g. remove 'hidden')
         info.classList.remove('hidden');
         // and the following text will be displayed in the 'info' <span>, signalling player to wait after button click
         info.textContent = 'Wait for the computer';
         nextRound();
     }
-
     // On start button click, 'startGame' function will run (as outlined above)
     startButton.addEventListener('click', startGame);
-
 
 </script>
 </body>
